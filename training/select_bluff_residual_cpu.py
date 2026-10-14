@@ -72,7 +72,8 @@ def main():
                              regime_scores={label:[summarize(row) for row in rows] for label,rows in regime_results.items()},
                              regime_paired_gains={label:[paired_interval(row,rows[0]) for row in rows[1:]] for label,rows in regime_results.items()},
                              feasible_candidates=feasible,mean_gain_utilities=utilities)
-        (args.output/'selection.json').write_text(json.dumps(selection,indent=2)+'\n');print(json.dumps({'actual_game_selection':selection}),flush=True)
+        (args.output/'selection.json').write_text(json.dumps(selection,indent=2)+'\n')
+        print(json.dumps({'actual_game_selection':{key:value for key,value in selection.items() if key!='opponent_pool'}}),flush=True)
         selected_document=documents[chosen-1] if chosen else incumbent_document
         (args.output/'bluff-policy-mlp.json').write_text(json.dumps(selected_document,indent=2)+'\n')
         selected=specs[chosen];final_seeds=list(range(args.test_seed_start,args.test_seed_start+args.test_blocks));report={}

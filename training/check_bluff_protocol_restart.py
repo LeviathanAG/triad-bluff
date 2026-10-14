@@ -1,6 +1,6 @@
 """Exact persistent-versus-restarted SDK transport check for staged runtime."""
 from pathlib import Path
-import sys,json,time
+import sys,json,time,argparse,hashlib
 ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT/'bluffSDK/local_evaluator/src'));sys.path.insert(0,str(ROOT/'training'))
 from triad_bluff import engine,protocol
@@ -9,10 +9,16 @@ from train_bluff_league import make_policy
 
 
 def main():
-    repo=ROOT/'bluffSDK';command=[str(repo/'.venv/bin/python'),str(repo/'src/agent.py')]
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--repo',type=Path,default=ROOT/'bluffSDK')
+    parser.add_argument('--python',type=Path,default=ROOT/'bluffSDK/.venv/bin/python')
+    parser.add_argument('--output',type=Path,default=ROOT/'training/bluff-tonight-protocol-restart.json')
+    parser.add_argument('--seed-start',type=int,default=79_000_000)
+    args=parser.parse_args()
+    repo=args.repo.resolve();command=[str(args.python.resolve()),str(repo/'src/agent.py')]
     total=0;phases=set();max_init=max_act=0.
     for sample in range(4):
-        seat=sample;seed=79_000_000+sample;game=f'restart-{seed}'
+        seat=sample;seed=args.seed_start+sample;game=f'restart-{seed}'
         state=engine.new_game(engine.GameConfig(),seed)
         rivals=[make_policy({'kind':'bluffer','bluff_rate':.65,'call_rate':.35},seed*10+s) for s in range(4)]
         persistent=AgentProcess(command,cwd=str(repo))
@@ -35,6 +41,6 @@ def main():
                 else:action=rivals[decision.seat].act(observation)
                 assert engine.step(state,decision,engine.decode_action(state,decision,action)).ok
         finally:persistent.close()
-    report={'games':4,'four_seats_rotated':True,'decisions_compared':total,'phases':sorted(phases),'persistent_vs_fresh_process_actions_exact_equal':True,'checkpoint':None,'all_actions_legal':True,'max_initialize_seconds':max_init,'max_persistent_action_seconds':max_act,'model_sha256':'ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08'}
-    (ROOT/'training/bluff-tonight-protocol-restart.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
+    report={'games':4,'seed_start':args.seed_start,'four_seats_rotated':True,'decisions_compared':total,'phases':sorted(phases),'persistent_vs_fresh_process_actions_exact_equal':True,'checkpoint':None,'all_actions_legal':True,'max_initialize_seconds':max_init,'max_persistent_action_seconds':max_act,'model_sha256':hashlib.sha256((repo/'models/policy.json').read_bytes()).hexdigest()}
+    args.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
 if __name__=='__main__':main()

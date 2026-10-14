@@ -1,0 +1,56 @@
+{
+  "repo": "/home/satwik/triad/training/bluff-conservative-package",
+  "revision": "8fcbb78735c345d4665b88e8f23505bb9095b46c",
+  "total_bytes": 2019927,
+  "limit_bytes": 1610612736,
+  "ok": true,
+  "file_count": 269,
+  "lfs_pointers": [],
+  "largest_files": [
+    {
+      "path": "models/policy.json",
+      "bytes": 469810
+    },
+    {
+      "path": "training/kaggle-bluff-neural-data/bluff-neural-data.ipynb",
+      "bytes": 176758
+    },
+    {
+      "path": "training/bluff-v3-threeway-independent.json",
+      "bytes": 140576
+    },
+    {
+      "path": "training/bluff-residual-result/bluff-policy-mlp.json",
+      "bytes": 105605
+    },
+    {
+      "path": "training/kaggle-bluff-neural-select/bluff-neural-select.ipynb",
+      "bytes": 75657
+    },
+    {
+      "path": "training/kaggle-bluff-neural-fit/bluff-neural-fit.ipynb",
+      "bytes": 71687
+    },
+    {
+      "path": "training/kaggle-bluff-residual/bluff-residual.ipynb",
+      "bytes": 66305
+    },
+    {
+      "path": "agents/bluff-ml-agent/uv.lock",
+      "bytes": 59876
+    },
+    {
+      "path": "training/kaggle-bluff-counterfactual/bluff-counterfactual.ipynb",
+      "bytes": 59030
+    },
+    {
+      "path": "training/kaggle-bluff-fast-adaptation/bluff-fast-adaptation.ipynb",
+      "bytes": 44350
+    }
+  ],
+  "image": {
+    "reference": "triad-bluff:conservative-private",
+    "bytes": 130289664,
+    "ok": true
+  }
+}

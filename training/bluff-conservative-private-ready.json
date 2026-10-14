@@ -1,0 +1,105 @@
+{
+  "status": "private unpromoted candidate;95M independent comparison pending",
+  "baseline_main": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
+  "sandbox_snapshot_commit": "8fcbb78735c345d4665b88e8f23505bb9095b46c",
+  "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+  "hidden_units": 128,
+  "image_tag": "triad-bluff:conservative-private",
+  "local_oci_index_digest": "sha256:b6750ac1936d0c761e692860553187b3eb5c9e8a67ea7baca5576b2448c99a6a",
+  "official_image_size_bytes": 130289664,
+  "sandbox_source_size_bytes": 2019927,
+  "size_checks_ok": true,
+  "architecture": "amd64",
+  "user": "10000:10000",
+  "entrypoint": [
+    "python",
+    "src/agent.py"
+  ],
+  "labels": {
+    "org.triad-bluff.cpu": "1",
+    "org.triad-bluff.gpu": "false",
+    "org.triad-bluff.gpu-bytes": "0",
+    "org.triad-bluff.protocol": "1.0",
+    "org.triad-bluff.ram-bytes": "1073741824",
+    "org.triad-bluff.runtime": "2",
+    "org.triad-bluff.scratch-bytes": "1073741824"
+  },
+  "unit_checks": "33 passed;1optional skip",
+  "numpy_stdlib_replay": {
+    "games": 12,
+    "decisions": 1481,
+    "configurations": [
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        2
+      ]
+    ],
+    "seed_family": 96000000,
+    "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+    "checks": "training NumPy actions match fresh stdlib full-history replay; sound own/public bounds; all decisions legal",
+    "max_full_replay_seconds": 0.018643939001776744,
+    "mean_full_replay_seconds": 0.0028270550810813385,
+    "own_hand_size_histogram": {
+      "1": 147,
+      "2": 92,
+      "3": 103,
+      "4": 149,
+      "5": 187,
+      "6": 123,
+      "7": 132,
+      "8": 68,
+      "9": 110,
+      "10": 40,
+      "11": 96,
+      "12": 19,
+      "13": 77,
+      "14": 4,
+      "15": 23,
+      "16": 4,
+      "17": 4,
+      "18": 16,
+      "20": 16,
+      "21": 4,
+      "22": 12,
+      "24": 28,
+      "26": 21,
+      "28": 5,
+      "30": 1
+    }
+  },
+  "restart_transport": {
+    "games": 4,
+    "seed_start": 97000000,
+    "four_seats_rotated": true,
+    "decisions_compared": 167,
+    "phases": [
+      "CHALLENGE",
+      "PLACE"
+    ],
+    "persistent_vs_fresh_process_actions_exact_equal": true,
+    "checkpoint": null,
+    "all_actions_legal": true,
+    "max_initialize_seconds": 0.03797273200325435,
+    "max_persistent_action_seconds": 0.015107922998140566,
+    "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7"
+  },
+  "restricted_docker_games": 3,
+  "restricted_docker_faults": 0,
+  "restricted_docker_fallbacks": 0,
+  "max_restricted_action_seconds": 0.30116599099710584,
+  "published_registry_reference": null,
+  "independent_job": "xdantalianx/triad-bluff-conservative-ranking-verify version1 CPU",
+  "balanced_collection_job": "xdantalianx/triad-bluff-balanced-incumbent-data version1 CPU"
+}
