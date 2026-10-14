@@ -18,6 +18,9 @@ from triad_bluff.baselines import HeuristicAgent, RandomAgent, TruthfulAgent, Ag
 from bluff_policy import Policy as V1, INITIAL_WEIGHTS as V1_INITIAL, RANKS
 from bluff_policy_v2 import Policy as V2, INITIAL_WEIGHTS, FEATURE_NAMES
 from bluff_policy_v3 import Policy as V3
+from bluff_policy_v4 import Policy as V4, INITIAL_WEIGHTS as V4_INITIAL
+from bluff_policy_v5 import Policy as V5, INITIAL_WEIGHTS as V5_INITIAL
+from bluff_training_observation import observe_read_only
 
 
 class Starter(TruthfulAgent):
@@ -81,6 +84,10 @@ def make_policy(spec, seed):
         return V2(spec['weights'])
     if kind == 'v3':
         return V3(spec['weights'])
+    if kind == 'v4':
+        return V4(spec['weights'])
+    if kind == 'v5':
+        return V5(spec['weights'])
     if kind == 'bluffer':
         return StochasticBluffer(seed, spec['bluff_rate'], spec['call_rate'])
     if kind == 'starter':
@@ -104,7 +111,7 @@ def score_game(seed, seat, candidate, rivals, horizon=1000):
     state = engine.new_game(engine.GameConfig(max_turns=horizon), seed)
     while state.outcome is None and seat not in state.finished_set:
         decision = engine.next_decision(state)
-        observation = engine.observe(state, decision.seat)
+        observation = observe_read_only(state, decision.seat) if os.environ.get('BLUFF_FAST_OBSERVATIONS') == '1' else engine.observe(state, decision.seat)
         payload = actors[decision.seat].act(observation)
         action = engine.decode_action(state, decision, payload)
         if not engine.step(state, decision, action).ok:
@@ -138,6 +145,16 @@ def summarize(result):
     return {k: v for k, v in result.items() if not k.startswith('block_')}
 
 
+def parallel_evaluate(pool, candidate, seeds, reference, mode):
+    """Distribute validation seed blocks instead of leaving other workers idle."""
+    chunks = [seeds[i:i + 16] for i in range(0, len(seeds), 16)]
+    parts = list(pool.map(evaluate_job, [(candidate, chunk, reference, mode) for chunk in chunks]))
+    points = [point for part in parts for point in part['block_points']]
+    wins = [win for part in parts for win in part['block_wins']]
+    return {'points': float(np.mean(points)), 'win_rate': float(np.mean(wins)),
+            'games': 4 * len(points), 'block_points': points, 'block_wins': wins}
+
+
 def paired_interval(candidate, reference, seed=20261014):
     differences = np.asarray(candidate['block_points']) - np.asarray(reference['block_points'])
     rng = np.random.default_rng(seed)
@@ -150,7 +167,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--incumbent', type=Path)
     parser.add_argument('--reference-policy', type=Path)
-    parser.add_argument('--policy-kind', choices=('v2', 'v3'), default='v2')
+    parser.add_argument('--policy-kind', choices=('v2', 'v3', 'v4', 'v5'), default='v2')
+    parser.add_argument('--fast-observations', action='store_true')
+    parser.add_argument('--stress-opponents', action='store_true')
     parser.add_argument('--selection-seed-start', type=int, default=8_000_000)
     parser.add_argument('--test-seed-start', type=int, default=9_000_000)
     parser.add_argument('--train-seed-start', type=int, default=50_000)
@@ -167,9 +186,14 @@ def main():
     if min(args.iterations, args.population, args.train_blocks, args.validation_blocks, args.test_blocks, args.workers, args.train_horizon) < 1 or args.train_horizon > 1000:
         parser.error('counts must be positive')
     args.output.mkdir(parents=True, exist_ok=True)
-    weights = json.loads(args.incumbent.read_text())['weights'] if args.incumbent else V1_INITIAL
-    incumbent = {'kind': args.policy_kind if len(weights) == len(FEATURE_NAMES) else 'v1', 'weights': weights}
-    mean = np.asarray(weights + INITIAL_WEIGHTS[len(weights):], dtype=float)
+    if args.fast_observations:
+        os.environ['BLUFF_FAST_OBSERVATIONS'] = '1'
+    incumbent_document = json.loads(args.incumbent.read_text()) if args.incumbent else {'weights': V1_INITIAL}
+    weights = incumbent_document['weights']
+    incumbent_kind = incumbent_document.get('training', {}).get('policy_kind', 'v2' if len(weights) == len(FEATURE_NAMES) else 'v4' if len(weights) == len(V4_INITIAL) else 'v5' if len(weights) == len(V5_INITIAL) else 'v1')
+    incumbent = {'kind': incumbent_kind, 'weights': weights}
+    initial_weights = V5_INITIAL if args.policy_kind == 'v5' else V4_INITIAL if args.policy_kind == 'v4' else INITIAL_WEIGHTS
+    mean = np.asarray(weights + initial_weights[len(weights):], dtype=float)
     best, sigma = mean.copy(), np.full(len(mean), 1.5)
     rng = np.random.default_rng(args.seed)
     cautious = list(INITIAL_WEIGHTS); cautious[2] -= 8.; cautious[4] -= 8.
@@ -180,14 +204,17 @@ def main():
         {'kind': 'bluffer', 'bluff_rate': b, 'call_rate': c} for b,c in ((.15,.03),(.35,.1),(.5,.35))]
     if args.reference_policy:
         reference_document = json.loads(args.reference_policy.read_text())
-        reference.append({'kind': 'v1' if len(reference_document['weights']) == len(V1_INITIAL) else 'v2',
+        reference.append({'kind': reference_document.get('training', {}).get('policy_kind', 'v1' if len(reference_document['weights']) == len(V1_INITIAL) else 'v2'),
                           'weights': reference_document['weights']})
+    if args.stress_opponents:
+        reference.extend({'kind': 'bluffer', 'bluff_rate': b, 'call_rate': c}
+                         for b, c in ((.1, .35), (.65, .35), (.95, .0), (.95, .35)))
     archive = list(reference)
     selection_seeds = list(range(args.selection_seed_start, args.selection_seed_start + args.validation_blocks))
     history, started = [], time.time()
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers, mp_context=multiprocessing.get_context('spawn')) as pool:
-        baseline = list(pool.map(evaluate_job, [(incumbent, selection_seeds, reference, 'league')]))[0]
-        initial = list(pool.map(evaluate_job, [({'kind': args.policy_kind, 'weights': best.tolist()}, selection_seeds, reference, 'league')]))[0]
+        baseline = parallel_evaluate(pool, incumbent, selection_seeds, reference, 'league')
+        initial = parallel_evaluate(pool, {'kind': args.policy_kind, 'weights': best.tolist()}, selection_seeds, reference, 'league')
         selected_score = initial['points']
         for generation in range(args.iterations):
             if generation and generation % 10 == 0:
@@ -210,7 +237,7 @@ def main():
             sigma = np.maximum(.3, .35 * sigma + .65 * elite.std(axis=0))
             candidate = population[ranked[0]]
             spec = {'kind':args.policy_kind,'weights':candidate.tolist()}
-            validation = list(pool.map(evaluate_job, [(spec,selection_seeds,reference,'league')]))[0]
+            validation = parallel_evaluate(pool, spec, selection_seeds, reference, 'league')
             if validation['points'] > selected_score:
                 best, selected_score = candidate.copy(), validation['points']
             if generation % 4 == 3:
@@ -220,7 +247,9 @@ def main():
                       'paired_validation_gain':paired_interval(validation,baseline),'selected_points':selected_score,
                       'archive_size':len(archive),'elapsed_seconds':round(time.time()-started,1)}
             history.append(record); print(json.dumps(record),flush=True)
-            V2(best).save(args.output/'bluff-policy-v2.json',{'method':'archive-league cross-entropy policy optimization',
+            policy_class = V5 if args.policy_kind == 'v5' else V4 if args.policy_kind == 'v4' else V2
+            policy_class(best).save(args.output/'bluff-policy-v2.json',{'method':'archive-league cross-entropy policy optimization',
+                'fast_observations': args.fast_observations, 'stress_opponents': args.stress_opponents,
                 'policy_kind': args.policy_kind, 'selection_seed_start': args.selection_seed_start,
                 'test_seed_start': args.test_seed_start, 'train_seed_start': args.train_seed_start,
                 'seed':args.seed,'generations':generation+1,'population':args.population,

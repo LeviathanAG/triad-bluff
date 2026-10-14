@@ -1,0 +1,14 @@
+{
+  "id": "xdantalianx/triad-bluff-counterfactual-value-data",
+  "title": "Triad Bluff Counterfactual Value Data",
+  "code_file": "bluff-counterfactual.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

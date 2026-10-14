@@ -21,7 +21,7 @@ def main():
     candidate_doc = json.loads(args.candidate.read_text())
     incumbent_doc = json.loads(args.incumbent.read_text())
     def spec(document):
-        return {'kind': document.get('training', {}).get('policy_kind', 'v2') if len(document['weights']) == len(INITIAL_WEIGHTS) else 'v1',
+        return {'kind': document.get('training', {}).get('policy_kind', 'v4' if len(document['weights']) > len(INITIAL_WEIGHTS) else 'v2') if len(document['weights']) >= len(INITIAL_WEIGHTS) else 'v1',
                 'weights': document['weights']}
     candidate, incumbent = spec(candidate_doc), spec(incumbent_doc)
     # Fixed pool is identical for both own-policy comparisons. It includes the

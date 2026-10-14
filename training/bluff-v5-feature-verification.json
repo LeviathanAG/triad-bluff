@@ -1,0 +1,6 @@
+{
+  "games": 12,
+  "zero_extra_weight_actions_equal_v4": true,
+  "finite_feature_schema": 50,
+  "decisions": 835
+}

@@ -1,0 +1,7 @@
+{
+  "games": 32,
+  "exact_rewards_equal": true,
+  "standard_whole_game_seconds": 1.5452200580039062,
+  "fast_whole_game_seconds": 0.32311429999390384,
+  "whole_game_speedup": 4.782270725972387
+}

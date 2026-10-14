@@ -1,0 +1,78 @@
+{
+  "seed_start": 38000000,
+  "note": "Training-only diagnostics; model inputs remain own/public only.",
+  "results": [
+    {
+      "kind": "v2",
+      "bluff_rate": 0.1,
+      "call_rate": 0.35,
+      "telemetry": {
+        "own_truthful_placements": 4278,
+        "own_truthful_cards": 7082,
+        "own_truthful_challenged": 3187,
+        "own_bluff_caught_turn_sum": 2123,
+        "points": 2513.0,
+        "games": 512,
+        "own_bluff_placements": 662,
+        "own_bluff_cards": 2253,
+        "own_bluff_turn_sum": 2854,
+        "own_bluff_predicted_any_call_sum": 364.3746528023312,
+        "own_bluff_caught": 485,
+        "own_challenge_votes": 93,
+        "own_selected_call_success": 42,
+        "own_selected_call_failure": 2
+      }
+    },
+    {
+      "kind": "v1",
+      "bluff_rate": 0.1,
+      "call_rate": 0.35,
+      "telemetry": {
+        "own_truthful_placements": 4609,
+        "own_truthful_cards": 6656,
+        "own_truthful_challenged": 3414,
+        "own_bluff_caught_turn_sum": 0,
+        "points": 2552.0,
+        "games": 512,
+        "own_challenge_votes": 62,
+        "own_selected_call_success": 33
+      }
+    },
+    {
+      "kind": "v2",
+      "bluff_rate": 0.65,
+      "call_rate": 0.35,
+      "telemetry": {
+        "own_truthful_placements": 4341,
+        "own_truthful_cards": 6744,
+        "own_truthful_challenged": 3273,
+        "own_bluff_caught_turn_sum": 960,
+        "points": 2460.0,
+        "games": 512,
+        "own_bluff_placements": 468,
+        "own_bluff_cards": 1519,
+        "own_bluff_turn_sum": 1323,
+        "own_bluff_predicted_any_call_sum": 246.5954622788051,
+        "own_bluff_caught": 342,
+        "own_challenge_votes": 1062,
+        "own_selected_call_success": 566,
+        "own_selected_call_failure": 1
+      }
+    },
+    {
+      "kind": "v1",
+      "bluff_rate": 0.65,
+      "call_rate": 0.35,
+      "telemetry": {
+        "own_truthful_placements": 4609,
+        "own_truthful_cards": 6656,
+        "own_truthful_challenged": 3466,
+        "own_bluff_caught_turn_sum": 0,
+        "points": 2479.0,
+        "games": 512,
+        "own_challenge_votes": 495,
+        "own_selected_call_success": 301
+      }
+    }
+  ]
+}

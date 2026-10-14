@@ -1,0 +1,18 @@
+{
+  "games": 18,
+  "decisions": 10344,
+  "observation_seconds_standard": 32.42380704409152,
+  "observation_seconds_shortcut": 0.21186523125652457,
+  "observation_speedup": 153.03977368911964,
+  "verified_actor_kinds": [
+    "v1",
+    "v2",
+    "v3",
+    "competitive",
+    "bluffer",
+    "random",
+    "truthful",
+    "aggressive"
+  ],
+  "checks": "filtered fields equal, actor decisions equal, histories unmodified, actions legal"
+}
