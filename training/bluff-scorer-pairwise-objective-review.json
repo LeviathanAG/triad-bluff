@@ -1,0 +1,27 @@
+{
+  "independent_readonly_review": true,
+  "blocking_derivative_or_information_use_issue": false,
+  "source_sha256": {
+    "bluff_tree_choice_loss.py": "91195c472631da889ac04c6c14fa6fe6ed370ef98c5f9224b117dbd97b93cf5d",
+    "train_bluff_tree_pairwise.py": "02b77d9fce53b741df766db6d01609a53ca87273c9f9f72070744a1437e8010a"
+  },
+  "declared_pairwise_equivalence_cases": 54,
+  "max_explicit_allpairs_loss_error": 7.105427357601002e-15,
+  "max_state_gradient_sum": 2.9976021664879227e-15,
+  "max_common_shift_loss_error": 8.881784197001252e-15,
+  "whole_source_game_state_counts": 4,
+  "whole_game_validation_regime_counts": {
+    "0": 100,
+    "1": 100,
+    "2": 100,
+    "3": 100,
+    "4": 100,
+    "5": 100,
+    "6": 100
+  },
+  "state_weights": "positive precision normalized within each complete state; total per-state weight1",
+  "centering": "Unweighted target/prior offsets vanish under weighted error centering; choice differences preserved",
+  "curvature_caveat": "Exact diagonal is used; cross-action Hessian terms omitted by independent-row tree interface, accurately documented",
+  "input_information": "Unchanged50 own/public features; source regime/state/game IDs used only for labels/group bookkeeping/split",
+  "scope": "Objective/source/split audit only, no upgrade established or promoted"
+}

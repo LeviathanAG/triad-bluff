@@ -1,0 +1,69 @@
+{
+  "source_game_regimes_equal": true,
+  "regime_rows": {
+    "0": {
+      "states": 2000,
+      "pairs": 39972,
+      "ranking_weight_sum": 3159.38901141756,
+      "value_weight_sum": 36782.005795506215,
+      "informative_ranking_pairs": 16529,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    },
+    "1": {
+      "states": 2000,
+      "pairs": 41163,
+      "ranking_weight_sum": 9562.333333333223,
+      "value_weight_sum": 41163.0,
+      "informative_ranking_pairs": 16728,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    },
+    "2": {
+      "states": 2000,
+      "pairs": 39539,
+      "ranking_weight_sum": 10656.666666666239,
+      "value_weight_sum": 39539.0,
+      "informative_ranking_pairs": 16611,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    },
+    "3": {
+      "states": 2000,
+      "pairs": 40286,
+      "ranking_weight_sum": 10654.666666666666,
+      "value_weight_sum": 40286.0,
+      "informative_ranking_pairs": 11387,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    },
+    "4": {
+      "states": 2000,
+      "pairs": 40040,
+      "ranking_weight_sum": 9941.999999999889,
+      "value_weight_sum": 40040.0,
+      "informative_ranking_pairs": 10633,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    },
+    "5": {
+      "states": 2000,
+      "pairs": 41692,
+      "ranking_weight_sum": 1969.6636750602286,
+      "value_weight_sum": 36171.032389680426,
+      "informative_ranking_pairs": 21521,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    },
+    "6": {
+      "states": 2000,
+      "pairs": 39068,
+      "ranking_weight_sum": 347.3740959058576,
+      "value_weight_sum": 37045.00026953511,
+      "informative_ranking_pairs": 12126,
+      "min_state_pairs": 1,
+      "max_state_pairs": 45
+    }
+  },
+  "scope": "Descriptive training-weight audit only; does not change completed fit or live fixed selection."
+}

@@ -1,0 +1,30 @@
+{
+  "independent_audit": true,
+  "scorer_source_sha256": "3fd77942df3b216a51872de41a678750776a56cd4c588bca21b35157748815cb",
+  "method": "each probe satisfies all ancestor constraints and demonstrably visits the intended numeric split; below/exact/above threshold",
+  "families": [
+    {
+      "checkpoint_file_sha256": "abee2386a9883f1cef082ba92d25e0bdb7da49f2ee06cfea82ae441c6329ec52",
+      "native_model_file_sha256": "578543e5bd3db2d0b45a8eee25583bd066055343d1f8808992df579ddbef37e6",
+      "original_generic_scorer_max_error": 0.022223760654498603,
+      "original_generic_mismatch_probes": 2,
+      "family_min_data_in_leaf": 80,
+      "splits": 3311,
+      "ancestor_path_confirmed_threshold_probes": 9933,
+      "infeasible_boundary_probes": 0,
+      "native_stdlib_max_error": 0.0
+    },
+    {
+      "checkpoint_file_sha256": "dcf791349a983bc284ba7f63263411f704a6229a82295bfc614ec43fcd1f426b",
+      "native_model_file_sha256": "834752e503bbfa7645fa34ed42e4e3acdaafe94c48940eb1f18c3e589a06b147",
+      "original_generic_scorer_max_error": 0.0063694631219115005,
+      "original_generic_mismatch_probes": 1,
+      "family_min_data_in_leaf": 200,
+      "splits": 3237,
+      "ancestor_path_confirmed_threshold_probes": 9711,
+      "infeasible_boundary_probes": 0,
+      "native_stdlib_max_error": 0.0
+    }
+  ],
+  "scope": "numeric scorer parity only, synthetic vectors are not gameplay observations and do not select a policy"
+}
