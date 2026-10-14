@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "selection_seeds": 91000000,
+  "final_seeds": 92000000,
+  "blocks": 8,
+  "candidate_count": 2,
+  "selected": 0,
+  "selection_rule": "equal mean gain across five predeclared regimes, subject to per-regime mean regression guard; baseline wins ties",
+  "regimes": [
+    "league",
+    "neural_selfplay",
+    "competitive",
+    "truthful",
+    "bluffer"
+  ],
+  "max_selection_regression": 0.025,
+  "purpose": "pipeline logic smoke only, no model quality evidence"
+}

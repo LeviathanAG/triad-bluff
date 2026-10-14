@@ -1,0 +1,128 @@
+{
+  "league": {
+    "candidate": {
+      "points": 4.0791015625,
+      "win_rate": 0.59912109375,
+      "games": 2048
+    },
+    "incumbent": {
+      "points": 4.05419921875,
+      "win_rate": 0.5927734375,
+      "games": 2048
+    },
+    "paired_gain": {
+      "mean_gain": 0.02490234375,
+      "ci95": [
+        -0.01171875,
+        0.06201171875
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  },
+  "starter": {
+    "candidate": {
+      "points": 4.9052734375,
+      "win_rate": 0.95361328125,
+      "games": 2048
+    },
+    "incumbent": {
+      "points": 4.90478515625,
+      "win_rate": 0.95361328125,
+      "games": 2048
+    },
+    "paired_gain": {
+      "mean_gain": 0.00048828125,
+      "ci95": [
+        -0.0029296875,
+        0.00439453125
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  },
+  "truthful": {
+    "candidate": {
+      "points": 4.9052734375,
+      "win_rate": 0.95361328125,
+      "games": 2048
+    },
+    "incumbent": {
+      "points": 4.90478515625,
+      "win_rate": 0.95361328125,
+      "games": 2048
+    },
+    "paired_gain": {
+      "mean_gain": 0.00048828125,
+      "ci95": [
+        -0.0029296875,
+        0.00439453125
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  },
+  "bluffer": {
+    "candidate": {
+      "points": 4.52734375,
+      "win_rate": 0.77880859375,
+      "games": 2048
+    },
+    "incumbent": {
+      "points": 4.4111328125,
+      "win_rate": 0.73779296875,
+      "games": 2048
+    },
+    "paired_gain": {
+      "mean_gain": 0.1162109375,
+      "ci95": [
+        0.08104248046875001,
+        0.15185546875
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  },
+  "aggressive": {
+    "candidate": {
+      "points": 5.0,
+      "win_rate": 1.0,
+      "games": 2048
+    },
+    "incumbent": {
+      "points": 5.0,
+      "win_rate": 1.0,
+      "games": 2048
+    },
+    "paired_gain": {
+      "mean_gain": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  },
+  "competitive": {
+    "candidate": {
+      "points": 4.9052734375,
+      "win_rate": 0.95361328125,
+      "games": 2048
+    },
+    "incumbent": {
+      "points": 4.90478515625,
+      "win_rate": 0.95361328125,
+      "games": 2048
+    },
+    "paired_gain": {
+      "mean_gain": 0.00048828125,
+      "ci95": [
+        -0.0029296875,
+        0.00439453125
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  }
+}

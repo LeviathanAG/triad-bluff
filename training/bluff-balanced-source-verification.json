@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "games": 28,
+  "states": 112,
+  "actions": 627,
+  "features": 50,
+  "exact_array_equivalence": [
+    "features",
+    "targets",
+    "trial_targets",
+    "offsets",
+    "game_ids",
+    "source_regimes"
+  ],
+  "source_games_per_composition": 4,
+  "states_per_composition": 16,
+  "fast_seconds": 6.9,
+  "standard_seconds": 7.6,
+  "hidden_simulator_state": "labels only; own/public input features",
+  "seeds": "86M smoke;87M training;88M selection;89M final;90M independent"
+}

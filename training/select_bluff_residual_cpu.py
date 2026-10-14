@@ -29,6 +29,8 @@ def main():
     parser.add_argument('--validation-seed-start',type=int,default=65_000_000)
     parser.add_argument('--test-seed-start',type=int,default=66_000_000)
     parser.add_argument('--workers',type=int,default=4)
+    parser.add_argument('--robust-selection',action='store_true',help='select using five fixed rival compositions with a per-regime loss guard')
+    parser.add_argument('--max-selection-regression',type=float,default=.025)
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
     if min(args.validation_blocks,args.test_blocks,args.workers)<1:parser.error('positive counts required')
@@ -49,6 +51,27 @@ def main():
         results=evaluate(pool,specs,seeds,reference,'league')
         chosen=max(range(len(results)),key=lambda index:results[index]['points'])
         selection={'selected':chosen,'seed_start':args.validation_seed_start,'scores':[summarize(row) for row in results],'paired_gains':[paired_interval(row,results[0]) for row in results[1:]],'opponent_pool':reference}
+        if args.robust_selection:
+            # These seeds select a fixed checkpoint only. Fresh final seeds are
+            # never consulted during candidate or objective selection.
+            regime_results={'league':results}
+            for label,opponents,mode in [('neural_selfplay',[incumbent],'league'),
+                                         ('competitive',reference,'competitive'),
+                                         ('truthful',reference,'truthful'),
+                                         ('bluffer',reference,'bluffer')]:
+                regime_results[label]=evaluate(pool,specs,seeds,opponents,mode)
+                print(json.dumps({'selection_regime':label,'scores':[summarize(row) for row in regime_results[label]]}),flush=True)
+            gains={label:[summarize(row)['points']-summarize(rows[0])['points'] for row in rows]
+                   for label,rows in regime_results.items()}
+            utilities=[sum(values[index] for values in gains.values())/len(gains) for index in range(len(specs))]
+            feasible=[index for index in range(len(specs))
+                      if min(values[index] for values in gains.values())>=-args.max_selection_regression]
+            chosen=max(feasible,key=lambda index:utilities[index])
+            selection.update(selected=chosen,selection_rule='equal mean gain across five predeclared regimes, subject to per-regime mean regression guard; baseline wins ties',
+                             max_selection_regression=args.max_selection_regression,
+                             regime_scores={label:[summarize(row) for row in rows] for label,rows in regime_results.items()},
+                             regime_paired_gains={label:[paired_interval(row,rows[0]) for row in rows[1:]] for label,rows in regime_results.items()},
+                             feasible_candidates=feasible,mean_gain_utilities=utilities)
         (args.output/'selection.json').write_text(json.dumps(selection,indent=2)+'\n');print(json.dumps({'actual_game_selection':selection}),flush=True)
         selected_document=documents[chosen-1] if chosen else incumbent_document
         (args.output/'bluff-policy-mlp.json').write_text(json.dumps(selected_document,indent=2)+'\n')

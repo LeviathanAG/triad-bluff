@@ -75,11 +75,33 @@ def pool_specs(incumbent, previous):
               for bluff, call in ((.1, .0), (.1, .35), (.35, .1), (.65, .35), (.95, .0), (.95, .35)))]
 
 
+SOURCE_REGIMES = ('league', 'neural_selfplay', 'v2_selfplay', 'competitive',
+                  'truthful', 'bluffer', 'frequent_call')
+
+
+def source_specs(regime, rng, incumbent, previous):
+    if regime == 'league':
+        return [rng.choice(pool_specs(incumbent, previous)) for _ in range(4)]
+    if regime == 'neural_selfplay':
+        rival = checkpoint_spec(incumbent)
+    elif regime == 'v2_selfplay':
+        rival = checkpoint_spec(previous)
+    elif regime in ('competitive', 'truthful'):
+        rival = {'kind': regime}
+    elif regime == 'bluffer':
+        rival = {'kind': 'bluffer', 'bluff_rate': .35, 'call_rate': .1}
+    elif regime == 'frequent_call':
+        rival = {'kind': 'bluffer', 'bluff_rate': .65, 'call_rate': .35}
+    else:
+        raise ValueError('unknown source composition')
+    return [rival] * 4
+
+
 def collect_job(job):
-    seed, incumbent, previous, samples_per_phase, trials, max_actions = job
+    seed, incumbent, previous, samples_per_phase, trials, max_actions, regime = job
     rng = random.Random(seed ^ 0x424C554646)
     own = seed % 4
-    specs = [rng.choice(pool_specs(incumbent, previous)) for _ in range(4)]
+    specs = source_specs(regime, rng, incumbent, previous)
     specs[own] = checkpoint_spec(incumbent)
     actors = [make_policy(spec, seed * 10 + player) for player, spec in enumerate(specs)]
     state = engine.new_game(engine.GameConfig(max_turns=1000), seed)
@@ -124,7 +146,7 @@ def collect_job(job):
                              for trial in range(trials)] for action, _ in selected]
             features = [vector for _, vector in selected]
             targets = [sum(values) / trials for values in trial_values]
-            rows.append((features, targets, trial_values, seed, phase, len(observation['hand'])))
+            rows.append((features, targets, trial_values, seed, phase, len(observation['hand']), regime))
     return rows
 
 
@@ -138,6 +160,7 @@ def main():
     parser.add_argument('--max-actions', type=int, default=10)
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--seed-start', type=int, default=50_000_000)
+    parser.add_argument('--source-compositions', choices=('league', 'balanced'), default='league')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     if min(args.games, args.samples_per_phase, args.trials, args.workers) < 1 or args.max_actions < 2:
@@ -145,20 +168,23 @@ def main():
     args.output.mkdir(parents=True, exist_ok=True)
     incumbent = json.loads(args.incumbent.read_text()); previous = json.loads(args.previous.read_text())
     features, targets, trial_targets, offsets, game_ids = [], [], [], [0], []
-    phases = Counter(); hands = Counter(); started = time.time()
-    jobs = [(seed, incumbent, previous, args.samples_per_phase, args.trials, args.max_actions)
+    phases = Counter(); hands = Counter(); compositions = Counter(); source_regimes = []; started = time.time()
+    jobs = [(seed, incumbent, previous, args.samples_per_phase, args.trials, args.max_actions,
+             SOURCE_REGIMES[(seed - args.seed_start) % len(SOURCE_REGIMES)] if args.source_compositions == 'balanced' else 'league')
             for seed in range(args.seed_start, args.seed_start + args.games)]
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers, mp_context=multiprocessing.get_context('spawn')) as pool:
         for index, rows in enumerate(pool.map(collect_job, jobs)):
-            for vectors, values, trials, seed, phase, hand in rows:
+            for vectors, values, trials, seed, phase, hand, regime in rows:
                 features.extend(vectors); targets.extend(values); trial_targets.extend(trials)
                 offsets.append(len(features)); game_ids.append(seed); phases[phase] += 1; hands[hand] += 1
+                source_regimes.append(SOURCE_REGIMES.index(regime)); compositions[regime] += 1
             if (index + 1) % 100 == 0:
                 print(json.dumps({'games': index + 1, 'states': len(game_ids), 'actions': len(features),
                                   'seconds': round(time.time() - started, 1)}), flush=True)
     np.savez_compressed(args.output / 'counterfactual.npz', features=np.asarray(features, dtype=np.float32),
                         targets=np.asarray(targets, dtype=np.float32), trial_targets=np.asarray(trial_targets, dtype=np.float32),
-                        offsets=np.asarray(offsets, dtype=np.int64), game_ids=np.asarray(game_ids, dtype=np.int64))
+                        offsets=np.asarray(offsets, dtype=np.int64), game_ids=np.asarray(game_ids, dtype=np.int64),
+                        source_regimes=np.asarray(source_regimes, dtype=np.int8))
     metadata = {'method': 'paired one-step policy improvement, phase-stratified whole-game reservoirs',
                 'input_features': FEATURE_NAMES, 'feature_policy': 'v5', 'games': args.games,
                 'states': len(game_ids), 'actions': len(features), 'trials': args.trials,
@@ -166,6 +192,9 @@ def main():
                 'seed_start': args.seed_start, 'incumbent': incumbent, 'opponent_pool': pool_specs(incumbent, previous),
                 'sdk_game_commit': '96da8042c285af4e4f43655f2ad99592bd49b8e6',
                 'incumbent_policy_kind': checkpoint_spec(incumbent)['kind'],
+                'source_compositions': args.source_compositions, 'source_regime_names': SOURCE_REGIMES,
+                'source_game_composition_histogram': dict(Counter(job[-1] for job in jobs)),
+                'sampled_state_composition_histogram': dict(compositions),
                 'fast_snapshots': os.environ.get('BLUFF_FAST_SNAPSHOTS') == '1',
                 'hidden_state_use': 'training returns only; dealt hands fixed within state, common future actor seeds across actions',
                 'future_draw_pile_shuffle': False, 'own_hand_size_histogram': dict(sorted(hands.items())),
