@@ -1,0 +1,21 @@
+{
+  "source": "organizer-provided public Bluff practice round2 standings",
+  "display_team": "LeviathanAG",
+  "participants": 6,
+  "games": 640,
+  "points": 2638,
+  "points_per_game": 4.121875,
+  "wins": 414,
+  "win_rate": 0.646875,
+  "rank": 1,
+  "runner_up": {
+    "display_team": "ShivaTeja05",
+    "points": 2170,
+    "points_per_game": 3.390625,
+    "wins": 347
+  },
+  "point_margin": 468,
+  "point_margin_per_game": 0.73125,
+  "main": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
+  "comparability": "Round1 had5participants and a different scheduled lineup; aggregate changes do not identify a causal regression. No private rival behavior or policy is inferred. No public traces are available."
+}

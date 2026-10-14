@@ -2,6 +2,7 @@
 import argparse
 import concurrent.futures
 import json
+import hashlib
 import multiprocessing
 import os
 from pathlib import Path
@@ -38,13 +39,22 @@ def main():
         unknown=set(args.regime)-{row[0] for row in regimes}
         if unknown:parser.error('unknown regimes: '+','.join(sorted(unknown)))
         regimes=[row for row in regimes if row[0] in args.regime]
-    seeds=list(range(args.seed_start,args.seed_start+args.blocks));report={}
+    seeds=list(range(args.seed_start,args.seed_start+args.blocks));report={};block_rows={}
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers,mp_context=multiprocessing.get_context('spawn')) as pool:
         for label,opponents,mode in regimes:
             rows=evaluate(pool,specs,seeds,opponents,mode)
+            block_rows[label]={'candidate':rows[0],'incumbent_neural':rows[1],'retained_v2':rows[2]}
             report[label]={'candidate':summarize(rows[0]),'incumbent_neural':summarize(rows[1]),'retained_v2':summarize(rows[2]),'paired_gain_vs_neural':paired_interval(rows[0],rows[1]),'paired_gain_vs_v2':paired_interval(rows[0],rows[2])}
             print(json.dumps({'mode':label,**report[label]}),flush=True)
     args.output.write_text(json.dumps({'seed_start':args.seed_start,'opponent_pool':reference,'candidate_training':docs[0]['training'],'evaluation':report},indent=2)+'\n')
+    sidecar={'sdk_game_commit':'96da8042c285af4e4f43655f2ad99592bd49b8e6',
+             'game_config':{'players':4,'decks':1,'max_turns':1000,'position_points':[5,3,2,1]},
+             'seed_ids':seeds,'sampling_unit':'one seed, all four seats averaged; ordered seed_ids match each block array',
+             'checkpoint_order':['candidate','incumbent_neural','retained_v2'],
+             'checkpoint_canonical_sha256':[hashlib.sha256(json.dumps(document,sort_keys=True,separators=(',',':')).encode()).hexdigest() for document in docs],
+             'opponent_pool_canonical_sha256':hashlib.sha256(json.dumps(reference,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
+             'rows':block_rows}
+    args.output.with_name(args.output.stem+'-blocks.json').write_text(json.dumps(sidecar,indent=2)+'\n')
 
 
 if __name__=='__main__':main()

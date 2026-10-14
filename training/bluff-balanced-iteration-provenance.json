@@ -12,7 +12,15 @@
   "incumbent_model_sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
   "source_notebook_sha256": "213985ffb75af7a5d079def0ae81995dbbcffe8aff5b156a3ee199d3d37bf13a",
   "future_fit_and_select": "prepared, not launched",
-  "selection_rule": "equal mean gain across seven predeclared regimes including two frequent-call styles; each per-regime mean regression no worse than -.025; baseline wins ties",
+  "selection_rule": "nine fixed regimes:five original,two frequent-call,learned-only mixture,strong conservative selfplay; equal mean paired gain, per-regime mean guard-.025;baseline wins ties",
   "hidden_state_use": "rollout labels only; exported features own/public",
-  "selection_recipe_revision": "calling-style selection guards added before balanced fit launch or observing any fit outputs"
+  "selection_recipe_revision": "calling-style selection guards added before balanced fit launch or observing any fit outputs",
+  "data_status": "COMPLETE validated",
+  "fit_status": "COMPLETE18validatedexports",
+  "fit_job": "xdantalianx/triad-bluff-balanced-incumbent-fit version1",
+  "data_npz_sha256": "b952b79928c065ec07a3eb2537a501b2c0d042c42262dbe188fbb56c025879cd",
+  "strong_rival_model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+  "selection_raw_arrays": "selection-blocks.json and evaluation-blocks.json, ordered seeds/config/checkpoint canonical hashes",
+  "fit_notebook_sha256": "a99c03281df633c0b02ab574e915b25844d08c56fc7fb5393ba1f2f5f9b24b77",
+  "selector_notebook_sha256": "8b141540dbf0129508f804b6ec2e10a1fb07ccb3f42ecb147c521f4be37b7a4f"
 }
