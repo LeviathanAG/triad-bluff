@@ -1,0 +1,85 @@
+{
+  "sdk_game_commit": "96da8042c285af4e4f43655f2ad99592bd49b8e6",
+  "game_config": {
+    "players": 4,
+    "decks": 1,
+    "max_turns": 1000,
+    "position_points": [
+      5,
+      3,
+      2,
+      1
+    ]
+  },
+  "seed_ids": [
+    89999999
+  ],
+  "sampling_unit": "one seed, all four seats averaged; ordered seed_ids match each block array",
+  "checkpoint_order": [
+    "candidate",
+    "incumbent_neural",
+    "retained_v2",
+    "conservative_candidate"
+  ],
+  "checkpoint_file_sha256": [
+    "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+    "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
+    "606284b35375d3e305adb8cd37ef2e479881e3fc85f838dbe10d79d5171df3a5",
+    "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7"
+  ],
+  "checkpoint_canonical_sha256": [
+    "89acd0360461351fe738d4327497fa107fd6484ee20d1a636f94207b739a873e",
+    "4eff0b3501546a57161b922fed069040bced2d13076f9e20c5149c27cdcf58cf",
+    "1b7c2df644cda49f45ba0ee82d21a3b5a8d8da5ab1c9285cb6e155476e98fc0c",
+    "89acd0360461351fe738d4327497fa107fd6484ee20d1a636f94207b739a873e"
+  ],
+  "opponent_pool_canonical_sha256": "39343c9aadade6e45a81d21c251221877489a8a859dffbed6a4038ea660fa1a6",
+  "rows": {
+    "strong_rival_selfplay": {
+      "candidate": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 4,
+        "block_points": [
+          2.75
+        ],
+        "block_wins": [
+          0.25
+        ]
+      },
+      "incumbent_neural": {
+        "points": 2.5,
+        "win_rate": 0.25,
+        "games": 4,
+        "block_points": [
+          2.5
+        ],
+        "block_wins": [
+          0.25
+        ]
+      },
+      "retained_v2": {
+        "points": 2.5,
+        "win_rate": 0.25,
+        "games": 4,
+        "block_points": [
+          2.5
+        ],
+        "block_wins": [
+          0.25
+        ]
+      },
+      "conservative_candidate": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 4,
+        "block_points": [
+          2.75
+        ],
+        "block_wins": [
+          0.25
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "independent_source_review": true,
+  "blocking_scorer_or_information_use_issue": false,
+  "dataset_only50_own_public_features": true,
+  "stratified_whole_game_validation_counts": [
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100
+  ],
+  "candidate_structure_and_copy_checks": [
+    {
+      "path": "policy-leaf80-strength0.10.json",
+      "sha256": "92603f0017e3d381b0154b05c7836e509bddbab1a80c9c0b517fe44ae37e0016",
+      "tree_count": 160,
+      "complete_reachable_tree_structure": true,
+      "mutable_claim_stats_known_isolation": true,
+      "immutable_matrix_shared_readonly": true
+    },
+    {
+      "path": "policy-leaf80-strength0.25.json",
+      "sha256": "c3226a3a8de3de1f98f8335e00ddf1d681a45f9d2e00ca943ed88f65cb9bcde6",
+      "tree_count": 160,
+      "complete_reachable_tree_structure": true,
+      "mutable_claim_stats_known_isolation": true,
+      "immutable_matrix_shared_readonly": true
+    },
+    {
+      "path": "policy-leaf80-strength0.50.json",
+      "sha256": "d93296de9ccc0ac2f54d55e329bf74fe6248a02911c43e85a1e4a3829c477a61",
+      "tree_count": 160,
+      "complete_reachable_tree_structure": true,
+      "mutable_claim_stats_known_isolation": true,
+      "immutable_matrix_shared_readonly": true
+    },
+    {
+      "path": "policy-leaf200-strength0.10.json",
+      "sha256": "4c43bcfb8a2b81cebfacbc37cf5a37c9b2cc8f48cbedefa115334ab5bedbcc3a",
+      "tree_count": 160,
+      "complete_reachable_tree_structure": true,
+      "mutable_claim_stats_known_isolation": true,
+      "immutable_matrix_shared_readonly": true
+    },
+    {
+      "path": "policy-leaf200-strength0.25.json",
+      "sha256": "92b93489120ddc314bf4395c7f9c05445adf5ae35fe43af758fa7092b7a7fa4c",
+      "tree_count": 160,
+      "complete_reachable_tree_structure": true,
+      "mutable_claim_stats_known_isolation": true,
+      "immutable_matrix_shared_readonly": true
+    },
+    {
+      "path": "policy-leaf200-strength0.50.json",
+      "sha256": "3e2518c4aeab9d8f361218d52f840744d419f3c14682551ef12391c2b42a1a71",
+      "tree_count": 160,
+      "complete_reachable_tree_structure": true,
+      "mutable_claim_stats_known_isolation": true,
+      "immutable_matrix_shared_readonly": true
+    }
+  ],
+  "score_semantics": "prior/4 plus strength times learned centered-return residual; centering adds action-independent offsets",
+  "evidence_caveats": [
+    "Original prototype copy test checked equal actions, not memory mutation isolation; this audit additionally checks mutation isolation.",
+    "One-coordinate zero-vector threshold probes do not guarantee reaching each intended split; complete actual-row native parity remains strong evidence."
+  ],
+  "scope": "Read-only model/source audit and explicit clone-state isolation, not a new game-performance or admission result.",
+  "boundary_audit_followup": {
+    "report": "training/bluff-scorer-path-audit.json",
+    "method": "13,269 ancestor-reachable probes across both families; each reaches the intended split",
+    "original_issue": "Generic exported numeric scorer omitted dense LightGBM tiny-input normalization. Original mismatches are preserved in the path audit.",
+    "root_fix": "Zero finite values with abs<=float32(1e-35), matching native preprocessing.",
+    "fixed_native_stdlib_max_error": 0.0,
+    "no_root_source_edits_by_reviewer": true
+  }
+}

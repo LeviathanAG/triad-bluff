@@ -1,0 +1,55 @@
+{
+  "seed_start": 89999999,
+  "evaluation": {
+    "strong_rival_selfplay": {
+      "candidate": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 4
+      },
+      "incumbent_neural": {
+        "points": 2.5,
+        "win_rate": 0.25,
+        "games": 4
+      },
+      "retained_v2": {
+        "points": 2.5,
+        "win_rate": 0.25,
+        "games": 4
+      },
+      "conservative_candidate": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 4
+      },
+      "paired_gain_vs_neural": {
+        "mean_gain": 0.25,
+        "ci95": [
+          0.25,
+          0.25
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      },
+      "paired_gain_vs_v2": {
+        "mean_gain": 0.25,
+        "ci95": [
+          0.25,
+          0.25
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      },
+      "paired_gain_vs_conservative": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    }
+  },
+  "scope": "One-block CLI/repeated-checkpoint exactness smoke only; source pool preserved locally in the full original report."
+}

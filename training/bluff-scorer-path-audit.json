@@ -1,0 +1,25 @@
+{
+  "independent_audit": true,
+  "method": "each probe satisfies all ancestor constraints and demonstrably visits the intended numeric split; below/exact/above threshold",
+  "families": [
+    {
+      "original_generic_scorer_max_error": 0.044818870886459417,
+      "original_generic_mismatch_probes": 6,
+      "family_min_data_in_leaf": 80,
+      "splits": 2238,
+      "ancestor_path_confirmed_threshold_probes": 6714,
+      "infeasible_boundary_probes": 0,
+      "native_stdlib_max_error": 0.0
+    },
+    {
+      "original_generic_scorer_max_error": 0.0048291737275763524,
+      "original_generic_mismatch_probes": 1,
+      "family_min_data_in_leaf": 200,
+      "splits": 2185,
+      "ancestor_path_confirmed_threshold_probes": 6555,
+      "infeasible_boundary_probes": 0,
+      "native_stdlib_max_error": 0.0
+    }
+  ],
+  "scope": "numeric scorer parity only, synthetic vectors are not gameplay observations and do not select a policy"
+}
