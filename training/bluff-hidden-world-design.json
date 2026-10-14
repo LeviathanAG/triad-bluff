@@ -1,0 +1,37 @@
+{
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED_OR_LAUNCHED",
+  "current_collection_limitation": "Paired trials condition on the same hidden simulator state and vary future actor RNG; zero stderr is conditional, not hidden-hand certainty.",
+  "primary_references": [
+    {
+      "title": "Information Set Monte Carlo Tree Search",
+      "authors": "Cowling, Powley, Whitehouse (2012)",
+      "url": "https://eprints.whiterose.ac.uk/id/eprint/75048/1/CowlingPowleyWhitehouse2012.pdf",
+      "relevant_evidence": "Information-set search shares statistics across hidden states. Determinization can allow incompatible decisions across indistinguishable states and sample histories made unlikely by opponent actions."
+    },
+    {
+      "title": "Monte-Carlo Planning in Large POMDPs",
+      "authors": "Silver, Veness (2010)",
+      "url": "https://papers.nips.cc/paper_files/paper/2010/file/edfbe1afcf9246bb0d40eb4d8027d90f-Paper.pdf",
+      "relevant_evidence": "History-based rollout/search combined with sampled hidden states and simulator particle updates; convergence discussion assumes the appropriate belief distribution."
+    }
+  ],
+  "own_inference_for_bluff": {
+    "training_only_candidate_method": "Global permutation of never-seen one-deck physical card identities, applied coherently to current hands/pile/pending and opponent private card histories; fix every card in own current hand, complete own private history, and public revealed batches. Reconstruct actor memories from transformed filtered histories.",
+    "pairing": "Reuse the same sampled hidden world and future RNG streams across all candidate actions within one trial. Keep fixed own/public feature vectors.",
+    "needed_checks": [
+      "Exact own complete observation and feature/candidate equality",
+      "Deck UID/card conservation and pending batch inclusion",
+      "No mutations of original state or shared immutable histories",
+      "All public reveals, own private card histories and deductions remain unchanged",
+      "Replay/reconstruction of actors and future legal actions; historical trace references require explicit treatment",
+      "Count augmentable unseen cards/states per phase and style",
+      "Compare baseline and exact selected checkpoint on fresh real games"
+    ],
+    "posterior_limitation": "Uniform public-consistent augmentation is not an exact opponent-policy-conditioned posterior. Historical action likelihoods and earlier sealed challenge votes constrain hidden worlds; label augmentation must retain this caveat and pass real-game gates.",
+    "strategy_fusion_control": "Future actors must receive only their own/public observations. No future action optimizer may inspect all hidden hands. Averaging hidden-state rewards is allowed only as training labels.",
+    "new_runtime_change": false,
+    "new_job_launch": false
+  },
+  "existing_statebalanced_neural_followup": "Prepared separately; launch contingent on fixed88/89M result, then112/113/114M declared gates.",
+  "scope": "Research/design inference from primary papers and original SDK source; no claim of improved strength or equilibrium."
+}
