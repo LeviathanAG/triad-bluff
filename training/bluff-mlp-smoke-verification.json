@@ -1,0 +1,7 @@
+{
+  "games": 12,
+  "decisions": 810,
+  "zero_residual_preserves_v5_actions": true,
+  "numpy_equals_standard_library_actions": true,
+  "max_persistent_standard_inference_seconds": 0.0077293590002227575
+}

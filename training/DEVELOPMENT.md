@@ -44,3 +44,31 @@ The measured regressions in `bluff-regression-diagnostics.json` motivate these
 experiments: roughly 73% of v2's bluffs were caught against the two frequent-call
 stress regimes, while its average predicted any-call risk was 53–55%. Dataset
 and model-selection opponents are development proxies, not competition entrants.
+
+V5 completed an independent test on fresh seeds 44M (2,048 games per regime).
+The original fixed league showed -0.00098 points, 95% paired interval
+[-0.02979, 0.02686]. Both frequent-call stress weaknesses also lacked a supported
+improvement. V5 is retained here as an unsuccessful experiment, not deployed.
+
+The counterfactual dataset completed with 12,000 states, 67,757 actions and four
+paired trials per action from 3,000 source games. Both phases have 6,000 states;
+own-hand coverage is 2–46 cards. Integrity, source-game splits, finite features,
+return bounds and paired-trial means were validated. The dataset itself is held
+privately in Kaggle and local training outputs; only its verification is committed.
+
+`kaggle-bluff-residual/` is the exact version-1 source of private T4 job
+`xdantalianx/triad-bluff-residual`. A 64-unit residual MLP compares two training
+objectives: gap-weighted sigmoid ranking and raw paired-point-difference MSE.
+MSE retains zero-gap pairs; paired-return standard errors control its weights.
+Each loss tests three regularizers and three residual strengths, yielding 18
+neural candidates. Training uses whole-source-game 80/20 splits and train-only
+normalization. Actual-game selection seeds are 51M, final seeds 52M, while the
+initial three-epoch pipeline smoke uses 61M/62M. Retained v2 is included in
+selection and wins ties. Any selected model still needs a separate fresh paired
+comparison and complete runtime checks before parent review and promotion.
+
+`bluff_mlp_policy.py` exports finite standard-library inference weights; PyTorch
+is used only for training. Its training-only NumPy scorer recomputes close score
+ties with the exact scalar implementation. An 810-decision, 12-game zero-residual
+check preserved the previous feature policy's actions and matched both scorers.
+No neural model is currently deployed.

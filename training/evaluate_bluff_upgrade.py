@@ -3,6 +3,7 @@ import argparse
 import concurrent.futures
 import json
 import multiprocessing
+import os
 from pathlib import Path
 from train_bluff_league import evaluate_job, paired_interval, summarize
 from evaluate_bluff_checkpoint import combine
@@ -17,10 +18,16 @@ def main():
     parser.add_argument('--seed-start', type=int, default=20_000_000)
     parser.add_argument('--workers', type=int, default=3)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--fast-observations', action='store_true')
+    parser.add_argument('--stress-regimes', action='store_true')
     args = parser.parse_args()
+    if args.fast_observations:
+        os.environ['BLUFF_FAST_OBSERVATIONS'] = '1'
     candidate_doc = json.loads(args.candidate.read_text())
     incumbent_doc = json.loads(args.incumbent.read_text())
     def spec(document):
+        if document.get('format') == 'triad-bluff-residual-mlp-v1':
+            return {'kind': 'mlp', 'model': document}
         return {'kind': document.get('training', {}).get('policy_kind', 'v4' if len(document['weights']) > len(INITIAL_WEIGHTS) else 'v2') if len(document['weights']) >= len(INITIAL_WEIGHTS) else 'v1',
                 'weights': document['weights']}
     candidate, incumbent = spec(candidate_doc), spec(incumbent_doc)
@@ -30,11 +37,14 @@ def main():
     reference += [incumbent, {'kind': 'v2', 'weights': INITIAL_WEIGHTS}]
     reference += [{'kind': 'bluffer', 'bluff_rate': b, 'call_rate': c}
                   for b, c in ((.15, .03), (.35, .1), (.5, .35))]
-    modes = ('league', 'competitive', 'starter', 'truthful', 'bluffer', 'aggressive', 'v1')
+    modes = ['league', 'competitive', 'starter', 'truthful', 'bluffer', 'aggressive', 'incumbent_selfplay']
+    special = {'incumbent_selfplay': [incumbent]}
+    if args.stress_regimes:
+        for label, bluff, call in (('weakspot_bluff01_call035', .1, .35), ('weakspot_bluff065_call035', .65, .35)):
+            modes.append(label); special[label] = [{'kind': 'bluffer', 'bluff_rate': bluff, 'call_rate': call}]
     seeds = list(range(args.seed_start, args.seed_start + args.blocks))
     chunks = [seeds[i:i + 32] for i in range(0, len(seeds), 32)]
-    jobs = [(policy, chunk, reference, mode if mode != 'v1' else 'league')
-            if mode != 'v1' else (policy, chunk, [incumbent], 'league')
+    jobs = [(policy, chunk, special.get(mode, reference), 'league' if mode in special else mode)
             for mode in modes for policy in (candidate, incumbent) for chunk in chunks]
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers,
             mp_context=multiprocessing.get_context('spawn')) as pool:

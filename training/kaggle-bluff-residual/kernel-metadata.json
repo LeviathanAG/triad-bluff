@@ -1,0 +1,16 @@
+{
+  "id": "xdantalianx/triad-bluff-residual",
+  "title": "Triad Bluff Residual",
+  "code_file": "bluff-residual.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "xdantalianx/triad-bluff-counterfactual-value-data"
+  ]
+}

@@ -78,6 +78,9 @@ class StochasticBluffer(TruthfulAgent):
 
 def make_policy(spec, seed):
     kind = spec['kind']
+    if kind == 'mlp':
+        from bluff_mlp_policy import FastPolicy
+        return FastPolicy(spec['model'])
     if kind == 'v1':
         return V1(spec['weights'])
     if kind == 'v2':

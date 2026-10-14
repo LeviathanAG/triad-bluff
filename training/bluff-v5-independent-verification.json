@@ -1,0 +1,331 @@
+{
+  "seed_start": 44000000,
+  "opponent_pool": [
+    {
+      "kind": "starter"
+    },
+    {
+      "kind": "heuristic"
+    },
+    {
+      "kind": "truthful"
+    },
+    {
+      "kind": "aggressive"
+    },
+    {
+      "kind": "random"
+    },
+    {
+      "kind": "competitive"
+    },
+    {
+      "kind": "v2",
+      "weights": [
+        0.4755931924211193,
+        5.820676470779726,
+        -3.445920468550993,
+        0.5025301512894197,
+        -10.204982725387449,
+        -10.63672367105182,
+        1.9122839363624424,
+        6.692718730179745,
+        3.3398384247884447,
+        -3.967913294968817,
+        7.18093879068249,
+        -8.248647532051631,
+        -4.252488827029067,
+        -5.717390427387336,
+        -10.297751467694116,
+        -4.172529040138095,
+        3.643993344291045,
+        4.785033532440487,
+        -8.90940656773177,
+        -9.18268199666696,
+        3.5590525036076692,
+        -1.533025684746697,
+        5.957038223067108,
+        9.714173152584005,
+        3.5582377937169647,
+        -0.47803421898358756,
+        -1.2639464162072949,
+        0.6168380283723138,
+        2.861924827690982,
+        -7.115720155350792
+      ]
+    },
+    {
+      "kind": "v2",
+      "weights": [
+        0.5,
+        1.0,
+        -0.5,
+        -2.0,
+        -8.0,
+        -3.0,
+        -1.0,
+        0.2,
+        0.5,
+        -3.5,
+        7.0,
+        0.7,
+        -0.3,
+        -0.5,
+        1.0,
+        -1.0,
+        0.5,
+        0.0,
+        -6.0,
+        -12.0,
+        3.0,
+        -1.0,
+        4.0,
+        3.0,
+        1.0,
+        1.0,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5
+      ]
+    },
+    {
+      "kind": "bluffer",
+      "bluff_rate": 0.15,
+      "call_rate": 0.03
+    },
+    {
+      "kind": "bluffer",
+      "bluff_rate": 0.35,
+      "call_rate": 0.1
+    },
+    {
+      "kind": "bluffer",
+      "bluff_rate": 0.5,
+      "call_rate": 0.35
+    }
+  ],
+  "candidate_training": {
+    "method": "archive-league cross-entropy policy optimization",
+    "fast_observations": true,
+    "stress_opponents": true,
+    "policy_kind": "v5",
+    "selection_seed_start": 42000000,
+    "test_seed_start": 43000000,
+    "train_seed_start": 41000000,
+    "seed": 20261016,
+    "generations": 40,
+    "population": 32,
+    "train_blocks": 16,
+    "train_horizon": 300,
+    "evaluation_horizon": 1000,
+    "validation_blocks": 128,
+    "selected_validation_points": 4.0859375,
+    "incumbent_validation_points": 4.01953125,
+    "sdk_commit": "96da8042c285af4e4f43655f2ad99592bd49b8e6"
+  },
+  "incumbent_training": {
+    "method": "archive-league cross-entropy policy optimization",
+    "seed": 20261016,
+    "generations": 30,
+    "population": 32,
+    "train_blocks": 8,
+    "train_horizon": 200,
+    "evaluation_horizon": 1000,
+    "validation_blocks": 64,
+    "selected_validation_points": 4.0859375,
+    "incumbent_validation_points": 3.62109375,
+    "sdk_commit": "96da8042c285af4e4f43655f2ad99592bd49b8e6"
+  },
+  "evaluation": {
+    "league": {
+      "candidate": {
+        "points": 3.916015625,
+        "win_rate": 0.54150390625,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 3.9169921875,
+        "win_rate": 0.537109375,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": -0.0009765625,
+        "ci95": [
+          -0.02978515625,
+          0.02685546875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "competitive": {
+      "candidate": {
+        "points": 4.94189453125,
+        "win_rate": 0.9716796875,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 4.94091796875,
+        "win_rate": 0.97119140625,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": 0.0009765625,
+        "ci95": [
+          0.0,
+          0.0029296875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "starter": {
+      "candidate": {
+        "points": 4.94189453125,
+        "win_rate": 0.9716796875,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 4.94091796875,
+        "win_rate": 0.97119140625,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": 0.0009765625,
+        "ci95": [
+          0.0,
+          0.0029296875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "truthful": {
+      "candidate": {
+        "points": 4.94189453125,
+        "win_rate": 0.9716796875,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 4.94091796875,
+        "win_rate": 0.97119140625,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": 0.0009765625,
+        "ci95": [
+          0.0,
+          0.0029296875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "bluffer": {
+      "candidate": {
+        "points": 4.390625,
+        "win_rate": 0.73876953125,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 4.41943359375,
+        "win_rate": 0.74267578125,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": -0.02880859375,
+        "ci95": [
+          -0.06689453125,
+          0.0087890625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "aggressive": {
+      "candidate": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "incumbent_selfplay": {
+      "candidate": {
+        "points": 2.75390625,
+        "win_rate": 0.25,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": 0.00390625,
+        "ci95": [
+          -0.001953125,
+          0.009765625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "weakspot_bluff01_call035": {
+      "candidate": {
+        "points": 4.93310546875,
+        "win_rate": 0.966796875,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 4.93017578125,
+        "win_rate": 0.9658203125,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": 0.0029296875,
+        "ci95": [
+          -0.00732421875,
+          0.01318359375
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "weakspot_bluff065_call035": {
+      "candidate": {
+        "points": 4.81298828125,
+        "win_rate": 0.90966796875,
+        "games": 2048
+      },
+      "incumbent": {
+        "points": 4.8203125,
+        "win_rate": 0.91357421875,
+        "games": 2048
+      },
+      "paired_gain": {
+        "mean_gain": -0.00732421875,
+        "ci95": [
+          -0.02294921875,
+          0.00732421875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    }
+  }
+}
