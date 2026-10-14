@@ -36,8 +36,15 @@ def advance(state, actors):
         raise RuntimeError('rollout actor produced an illegal action')
 
 
+def copy_snapshot(snapshot):
+    if os.environ.get('BLUFF_FAST_SNAPSHOTS') == '1':
+        from bluff_training_snapshot import clone_snapshot
+        return clone_snapshot(snapshot)
+    return copy.deepcopy(snapshot)
+
+
 def rollout(snapshot, seat, selected, trial_seed):
-    state, actors = copy.deepcopy(snapshot)
+    state, actors = copy_snapshot(snapshot)
     # Preserve each actor's public/private memory at the sampled decision while
     # integrating future stochastic choices. Each action gets the same streams.
     for player, actor in enumerate(actors):
@@ -90,7 +97,7 @@ def collect_job(job):
                 eligible[phase] += 1
                 index = rng.randrange(eligible[phase])
                 if index < samples_per_phase:
-                    snapshot = copy.deepcopy((state, actors))
+                    snapshot = copy_snapshot((state, actors))
                     if len(reservoirs[phase]) < samples_per_phase:
                         reservoirs[phase].append(snapshot)
                     else:
@@ -159,6 +166,7 @@ def main():
                 'seed_start': args.seed_start, 'incumbent': incumbent, 'opponent_pool': pool_specs(incumbent, previous),
                 'sdk_game_commit': '96da8042c285af4e4f43655f2ad99592bd49b8e6',
                 'incumbent_policy_kind': checkpoint_spec(incumbent)['kind'],
+                'fast_snapshots': os.environ.get('BLUFF_FAST_SNAPSHOTS') == '1',
                 'hidden_state_use': 'training returns only; dealt hands fixed within state, common future actor seeds across actions',
                 'future_draw_pile_shuffle': False, 'own_hand_size_histogram': dict(sorted(hands.items())),
                 'phase_histogram': dict(phases), 'seconds': round(time.time() - started, 1)}

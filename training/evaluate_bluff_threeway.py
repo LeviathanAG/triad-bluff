@@ -19,11 +19,17 @@ def main():
     parser.add_argument('--seed-start',type=int,required=True)
     parser.add_argument('--workers',type=int,default=3)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--opponent-pool',type=Path,help='reuse a frozen selection pool JSON')
     args=parser.parse_args();os.environ['BLUFF_FAST_OBSERVATIONS']='1';os.environ['OPENBLAS_NUM_THREADS']='1'
     docs=[json.loads(path.read_text()) for path in (args.candidate,args.incumbent,args.v2)];specs=[checkpoint_spec(doc) for doc in docs]
     reference=[{'kind':kind} for kind in ('starter','competitive','heuristic','random','truthful','aggressive')]+specs[1:]
     reference += [checkpoint_spec(json.loads(Path('bluffSDK/models/policy-v1.json').read_text()))]
     reference += [{'kind':'bluffer','bluff_rate':bluff,'call_rate':call} for bluff,call in ((.15,.03),(.35,.1),(.5,.35))]
+    if args.opponent_pool:
+        frozen=json.loads(args.opponent_pool.read_text())
+        reference=frozen['opponent_pool'] if isinstance(frozen,dict) else frozen
+        if not isinstance(reference,list) or not reference:
+            raise ValueError('frozen opponent pool must be a nonempty list')
     regimes=[(mode,reference,mode) for mode in ('league','competitive','starter','truthful','bluffer','aggressive')]
     regimes += [('neural_selfplay',[specs[1]],'league'),('v2_selfplay',[specs[2]],'league')]
     regimes += [(label,[{'kind':'bluffer','bluff_rate':bluff,'call_rate':.35}],'league') for label,bluff in (('weakspot_bluff01_call035',.1),('weakspot_bluff065_call035',.65))]

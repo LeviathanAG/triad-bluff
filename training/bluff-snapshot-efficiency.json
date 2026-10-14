@@ -1,0 +1,11 @@
+{
+  "source_games": 32,
+  "states": 128,
+  "actions": 720,
+  "paired_trials_per_action": 2,
+  "all_exported_arrays_exact_equal": true,
+  "standard_seconds": 7.4,
+  "fast_seconds": 6.5,
+  "whole_collection_speedup": 1.1384615384615384,
+  "note": "Same source seeds, source actors, actions, simulator and trial RNG streams; only snapshot copying changes. Training-only; live source unchanged."
+}

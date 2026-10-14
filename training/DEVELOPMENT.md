@@ -109,3 +109,28 @@ pool gate (2,048 games per regime) gained +0.03564 points over v2, interval
 [-0.16699, -0.08446]. It is retained as an archived rival, not the runtime. The
 unpushed future CPU selector includes this fixed archived v3 alongside v1/v2
 and the neural incumbent. All candidate comparisons share that same rival pool.
+
+The frozen 64-unit nightly snapshot was pushed to main by the coordinator at
+approximately 20:55 IST after the earlier turn was interrupted. Further work
+remains private; no experimental checkpoint replaces that snapshot.
+
+The new 64M neural-incumbent dataset completed: 3,000 games, 12,000 states,
+66,269 actions and four paired trials; both phases have 6,000 states and own
+hand sizes span 1–45. The fit-only T4 stage exported 18 finite 128-unit
+candidates (64 frozen plus 64 new). CPU selection on 65M chose value loss,
+regularizer .01 and strength .5. Fresh 66M and independent 67M tests showed a
+league gain but serious competitive/truthful/neural-selfplay regressions. The
+67M league gain was +.06494 [.02393,.10693]; neural selfplay lost -.20215
+[-.25635,-.14795]. It is archived, not deployed.
+
+The ranking-loss .01/.25 runner-up was only .00195 points below the selected
+model on 65M. Its separate fixed-checkpoint 85M comparison is pending; it uses
+the same frozen pool and 2,048 games per regime. No further GPU refit is used
+to test this already exported alternative.
+
+Optional future training snapshots share only frozen Card/GameConfig values
+and append-only prior records from the pinned SDK; mutable containers, current
+claims, RNGs and actor evidence still copy. A same-seed 32-game comparison
+produced exactly identical features/returns/trial arrays and improved collection
+7.4s to 6.5s (1.14x). This helper is absent from runtime and did not restart the
+already running dataset job.
