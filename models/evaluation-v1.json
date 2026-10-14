@@ -1,0 +1,120 @@
+{
+  "model_training": {
+    "method": "cross-entropy policy optimization",
+    "seed": 20261014,
+    "generations": 25,
+    "population": 32,
+    "games_per_candidate": 64,
+    "validation": 3.86328125,
+    "sdk_commit": "96da8042c285af4e4f43655f2ad99592bd49b8e6"
+  },
+  "seed_start": 13000000,
+  "sampling_unit": "four-seat seed block",
+  "evaluation": {
+    "league": {
+      "trained": {
+        "points": 3.6318359375,
+        "win_rate": 0.431640625,
+        "games": 1024
+      },
+      "sdk_starter": {
+        "points": 3.443359375,
+        "win_rate": 0.3798828125,
+        "games": 1024
+      },
+      "paired_gain": {
+        "mean_gain": 0.1884765625,
+        "ci95": [
+          0.1240234375,
+          0.2607421875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "starter": {
+      "trained": {
+        "points": 4.6328125,
+        "win_rate": 0.8642578125,
+        "games": 1024
+      },
+      "sdk_starter": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 1024
+      },
+      "paired_gain": {
+        "mean_gain": 1.8828125,
+        "ci95": [
+          1.8036865234375,
+          1.9560546875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "truthful": {
+      "trained": {
+        "points": 4.7783203125,
+        "win_rate": 0.8955078125,
+        "games": 1024
+      },
+      "sdk_starter": {
+        "points": 2.75,
+        "win_rate": 0.25,
+        "games": 1024
+      },
+      "paired_gain": {
+        "mean_gain": 2.0283203125,
+        "ci95": [
+          1.9736328125,
+          2.08203125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "bluffer": {
+      "trained": {
+        "points": 4.30078125,
+        "win_rate": 0.6806640625,
+        "games": 1024
+      },
+      "sdk_starter": {
+        "points": 4.3369140625,
+        "win_rate": 0.689453125,
+        "games": 1024
+      },
+      "paired_gain": {
+        "mean_gain": -0.0361328125,
+        "ci95": [
+          -0.08203125,
+          0.01171875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    "aggressive": {
+      "trained": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 1024
+      },
+      "sdk_starter": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 1024
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    }
+  }
+}

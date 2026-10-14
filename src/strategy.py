@@ -5,13 +5,13 @@ import math
 from pathlib import Path
 
 from bluff_agent.strategy import accept, challenge, place
-from learned_policy import CHALLENGE_FEATURES, PLACE_FEATURES, Policy
+from learned_policy import FEATURE_NAMES, Policy
 
 _MODEL = json.loads((Path(__file__).resolve().parent.parent / "models" / "policy.json").read_text())
-if _MODEL.get("format") != "triad-bluff-linear-v1" or _MODEL.get("features") != PLACE_FEATURES + CHALLENGE_FEATURES:
+if _MODEL.get("format") != "triad-bluff-linear-v2" or _MODEL.get("features") != FEATURE_NAMES:
     raise ValueError("Incompatible Bluff policy checkpoint")
 _WEIGHTS = _MODEL["weights"]
-if len(_WEIGHTS) != len(PLACE_FEATURES) + len(CHALLENGE_FEATURES) or not all(math.isfinite(float(w)) for w in _WEIGHTS):
+if len(_WEIGHTS) != len(FEATURE_NAMES) or not all(math.isfinite(float(w)) for w in _WEIGHTS):
     raise ValueError("Invalid Bluff policy parameters")
 
 

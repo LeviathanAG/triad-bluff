@@ -4,37 +4,47 @@ Team: TungMasterSoloClear (TECHTEAM11600).
 
 The protocol adapter, schemas, Docker template, and development evaluator originate
 from Sir-Nike/bluffSDK commit 96da8042c285af4e4f43655f2ad99592bd49b8e6. Existing vendor
-attribution is retained. The authoritative game evaluator is a training and testing
-dependency; the runtime contains no evaluator or hidden-hand access.
+attribution is retained. The authoritative evaluator is used for training and
+ testing; inference contains no evaluator or opponent private-hand access.
 
-The action scorer in `src/learned_policy.py` and its cross-entropy optimization
-procedure were developed for this entry. `models/policy.json` contains 18 learned
-floating-point weights. It is a non-language linear model, with no pretrained
-external model, LLM, or inference service. Its features use the current player's
-cards and filtered public claim/challenge history. Unchallenged claims are never
-counted as proven truthful observations.
+The entry's non-language linear scorer has 30 learned floating-point weights in
+`models/policy.json`. `src/learned_policy.py` extends the original 18-feature scorer
+in `src/learned_policy_v1.py`. Its features use the player's own cards, own private
+placements, public claims, publicly revealed challenged batches, public hand sizes,
+and observed challenge decisions. Unchallenged claims are never treated as verified
+truth. Rank counts inferred from revealed pickups are conservative lower bounds:
+every unknown placement decrements every rank bound. Later sealed challenge votes
+are never inferred from a selected earlier challenger.
 
-Training ran in the private Kaggle notebook xdantalianx/triad-bluff-training,
-version 1: seed 20261014, 25 generations, population 32, 64 games per candidate,
-and independent opponent mixtures. Base SDK scoring and the 1,000-turn cap were
-used. Rollouts stop after our confirmed finish because its placement cannot
-change. Training uses the simulator only outside the runtime.
+Training ran in private Kaggle notebook `xdantalianx/triad-bluff-league`, version 1,
+on CPU: seed 20261016, 30 generations, population 32, eight four-seat blocks per
+candidate, 64 held-out validation blocks. A 200-turn training cap saved compute;
+selection and final evaluation used the real 1,000-turn cap. The opponent league
+included SDK baselines, manual policies, stochastic bluffers, and archived policies.
+`training/train_bluff_league_original.py` records the exact trainer embedded in
+that notebook. The current `training/train_bluff_league.py` adds the supplied
+adaptive rival and configurable disjoint seed ranges for further experiments.
+Those later trainer changes did not produce the currently retained checkpoint.
 
-`models/evaluation.json` records a separate 13,000,000-seed test range with all
-four seats rotated, 1,024 games per opponent regime, and paired bootstrap intervals
-over seed blocks. Against the tested diverse league, mean gain over the original
-SDK starter was 0.1885 points/game (95% interval 0.1240–0.2607). This measures those
-local opponents, not official entrants. The stochastic-bluffer regime showed a
-small uncertain regression; no universal winning claim is made.
+`models/evaluation.json` records independent tests starting at seed 20,000,000:
+1,024 games per regime with all four seats rotated. Both policies faced the same
+fixed opponent pool, which included the previous learned checkpoint and the SDK's
+supplied adaptive strategy. The new model scored 4.0020 versus 3.7314 points/game
+for the previous learned model in the diverse league. Paired gain was 0.2705
+(95% bootstrap interval 0.1797–0.3652, resampling four-seat seed blocks). Gains were
+positive against the tested adaptive, truthful, starter and stochastic-bluffer
+regimes, tied at five points against the aggressive caller, and positive against
+three copies of the previous learned model. These results measure local opponents,
+not unknown competition entrants. The previous checkpoint and its reports are
+retained as `models/policy-v1.json`, `models/evaluation-v1.json`, and
+`models/competitive-evaluation-v1.json`.
 
-Runtime reconstruction from complete history ensures identical decisions after
-restart. No seeds, opponent private cards, training libraries, account credentials,
-or remote downloads are used during inference.
-
-An additional fresh test against the SDK's supplied adaptive competitive strategy
-used 1,024 seat-rotated games. The trained policy scored 4.6016 versus 2.75
-for the SDK starter; paired gain interval [1.7705078125, 1.9287353515624996].
-Runtime and container checks: 32 Python tests passed, one optional organizer test
-skipped, smoke/contract checks passed, three local and three restricted Docker
-games completed without faults or fallbacks. Stateless reconstruction matched
-the training policy across 1,832 decisions in 16 multi-seat/deck games.
+Inference reconstructs the complete filtered history each decision, giving the
+same decisions in persistent and restarted processes. No seeds, hidden hands,
+training libraries, account credentials, or remote downloads enter inference.
+The optional training-only v3 pile deduction module is not deployed in this
+checkpoint. Runtime replay matched the training policy across 1,726 decisions
+in 16 games with four/eight players and one/two decks; all actions were legal.
+The SDK suite passed 32 tests with one optional organizer integration skipped;
+smoke and protocol contract checks passed. Three local and three restricted
+Docker games completed without faults or fallbacks.
