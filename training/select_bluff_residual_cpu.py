@@ -23,6 +23,7 @@ def main():
     parser.add_argument('--candidates',type=Path,required=True)
     parser.add_argument('--linear-backup',type=Path,required=True)
     parser.add_argument('--previous-v1',type=Path)
+    parser.add_argument('--archive',type=Path,action='append',default=[],help='additional fixed learned rivals')
     parser.add_argument('--validation-blocks',type=int,default=128)
     parser.add_argument('--test-blocks',type=int,default=256)
     parser.add_argument('--validation-seed-start',type=int,default=65_000_000)
@@ -40,6 +41,7 @@ def main():
     for document in documents:Policy(document)
     reference=[{'kind':kind} for kind in ('starter','competitive','heuristic','random','truthful','aggressive')]+[incumbent,linear]
     if args.previous_v1:reference.append(checkpoint_spec(json.loads(args.previous_v1.read_text())))
+    reference += [checkpoint_spec(json.loads(path.read_text())) for path in args.archive]
     reference += [{'kind':'bluffer','bluff_rate':bluff,'call_rate':call} for bluff,call in ((.1,.0),(.1,.35),(.35,.1),(.65,.35),(.95,.0),(.95,.35))]
     specs=[incumbent]+[checkpoint_spec(document) for document in documents]
     seeds=list(range(args.validation_seed_start,args.validation_seed_start+args.validation_blocks))

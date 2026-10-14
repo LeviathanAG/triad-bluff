@@ -102,3 +102,10 @@ is not a whole-job claim. Full action equivalence again passed 1,463 decisions
 in 12 games. The already live neural-incumbent data notebook remains its exact
 original version, whose snapshot code copies the arrays. Only unpushed later
 fit/selection stages were refreshed with the optimized scorer.
+
+The v3 CPU league refinement completed. Its separate fresh-37M, three-way fixed
+pool gate (2,048 games per regime) gained +0.03564 points over v2, interval
+[0.00977, 0.06201], but lost -0.12549 versus the neural incumbent, interval
+[-0.16699, -0.08446]. It is retained as an archived rival, not the runtime. The
+unpushed future CPU selector includes this fixed archived v3 alongside v1/v2
+and the neural incumbent. All candidate comparisons share that same rival pool.
