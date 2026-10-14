@@ -1,0 +1,16 @@
+{
+  "id": "xdantalianx/triad-bluff-statebalanced-value-select",
+  "title": "Triad Bluff Statebalanced Value Select",
+  "code_file": "bluff-statebalanced-select.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "xdantalianx/triad-bluff-statebalanced-value-fit"
+  ]
+}

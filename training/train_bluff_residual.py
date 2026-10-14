@@ -51,13 +51,14 @@ class Residual(nn.Module):
         return baseline + residual, residual
 
 
-def pairs(data, seed):
+def pairs(data, seed, state_balanced_value=False):
     ids = np.unique(data['game_ids']); rng = np.random.default_rng(seed); rng.shuffle(ids)
     validation_ids = set(ids[:max(1, len(ids) // 5)].tolist())
     train, validation, training_rows = [], [], []
     for state, (start, stop) in enumerate(zip(data['offsets'][:-1], data['offsets'][1:])):
         is_validation = int(data['game_ids'][state]) in validation_ids
         destination = validation if is_validation else train
+        state_pair_start = len(destination)
         if not is_validation:
             training_rows.extend(range(start, stop))
         for first in range(start, stop):
@@ -72,12 +73,17 @@ def pairs(data, seed):
                 # them would condition each pair on a different nonzero event.
                 value_weight = 1. / (1. + stderr ** 2)
                 destination.append((first, second, 1. / (1. + np.exp(-gap / .75)), ranking_weight, gap, value_weight))
+        if state_balanced_value and len(destination)>state_pair_start:
+            total=sum(row[5] for row in destination[state_pair_start:])
+            for index in range(state_pair_start,len(destination)):
+                row=destination[index]
+                destination[index]=row[:5]+(row[5]/total,)
     if not train or not validation or not any(row[3] > 0. for row in train) or not any(row[3] > 0. for row in validation):
         raise ValueError('not enough informative whole-game-held-out pairs')
     return np.asarray(train), np.asarray(validation), np.asarray(training_rows), len(ids) - len(validation_ids), len(validation_ids)
 
 
-def loss(model, features, comparisons, penalty, kind):
+def loss(model, features, comparisons, penalty, kind, weighted_penalty=False):
     a = comparisons[:, 0].long(); b = comparisons[:, 1].long()
     score_a, residual_a = model(features[a]); score_b, residual_b = model(features[b])
     if kind == 'ranking':
@@ -87,7 +93,11 @@ def loss(model, features, comparisons, penalty, kind):
         point = (score_a - score_b - comparisons[:, 4]).square()
         weight = comparisons[:, 5]
     preference = (point * weight).sum() / weight.sum().clamp_min(1e-8)
-    return preference + penalty * (residual_a.square().mean() + residual_b.square().mean()) / 2., preference
+    if weighted_penalty:
+        regularizer=((residual_a.square()+residual_b.square())*weight).sum()/weight.sum().clamp_min(1e-8)/2.
+    else:
+        regularizer=(residual_a.square().mean()+residual_b.square().mean())/2.
+    return preference + penalty * regularizer, preference
 
 
 def export(model, metadata):
@@ -117,10 +127,13 @@ def main():
     parser.add_argument('--loss-types', default='ranking,value')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--skip-game-evaluation', action='store_true', help='export supervised candidates; perform actual-game gates on a separate CPU job')
+    parser.add_argument('--state-balanced-value',action='store_true',help='normalize value-pair uncertainty and regularization weights per complete source state; retain zero-gap pairs')
     args = parser.parse_args()
     loss_types = args.loss_types.split(',')
     if not loss_types or len(set(loss_types)) != len(loss_types) or any(kind not in ('ranking', 'value') for kind in loss_types):
         parser.error('loss types must be distinct ranking/value choices')
+    if args.state_balanced_value and loss_types!=['value']:
+        parser.error('state-balanced-value requires --loss-types value')
     if min(args.width, args.epochs, args.batch, args.workers, args.validation_blocks, args.test_blocks) < 1 or args.width > 128:
         parser.error('positive counts and width<=128 required')
     if args.device == 'cuda' and not torch.cuda.is_available():
@@ -136,7 +149,7 @@ def main():
         data = {name: archive[name] for name in archive.files}
     if data['features'].shape[1] != len(FEATURE_NAMES) or not np.isfinite(data['features']).all():
         raise ValueError('invalid training matrix')
-    training, validation, training_rows, training_games, validation_games = pairs(data, args.seed)
+    training, validation, training_rows, training_games, validation_games = pairs(data, args.seed,args.state_balanced_value)
     mean = data['features'][training_rows].mean(axis=0)
     scale = np.maximum(.1, data['features'][training_rows].std(axis=0))
     # Positive quarter scaling preserves linear move ranking while giving the
@@ -159,17 +172,17 @@ def main():
         model = Residual(base, mean, scale, args.width, frozen=frozen).to(args.device)
         optimizer = torch.optim.AdamW(model.parameters(), lr=.003, weight_decay=.0001)
         with torch.no_grad():
-            _, initial_loss = loss(model, features, validation, penalty, loss_type)
+            _, initial_loss = loss(model, features, validation, penalty, loss_type,args.state_balanced_value)
         best_loss, best_epoch, best = float(initial_loss), 0, copy.deepcopy(model.state_dict())
         for epoch in range(args.epochs):
             order = torch.randperm(len(training), device=args.device)
             for start in range(0, len(order), args.batch):
                 batch = training[order[start:start + args.batch]]
-                objective, _ = loss(model, features, batch, penalty, loss_type)
+                objective, _ = loss(model, features, batch, penalty, loss_type,args.state_balanced_value)
                 optimizer.zero_grad(set_to_none=True); objective.backward()
                 nn.utils.clip_grad_norm_(model.parameters(), 5.); optimizer.step()
             with torch.no_grad():
-                _, current = loss(model, features, validation, penalty, loss_type)
+                _, current = loss(model, features, validation, penalty, loss_type,args.state_balanced_value)
             if float(current) < best_loss:
                 best_loss, best_epoch, best = float(current), epoch + 1, copy.deepcopy(model.state_dict())
             if (epoch + 1) % 10 == 0:
@@ -181,6 +194,8 @@ def main():
             'seed': args.seed + index, 'loss_type': loss_type, 'regularization': penalty, 'best_epoch': best_epoch,
             'validation_preference_loss': best_loss, 'baseline_preference_loss': float(initial_loss),
             'training_games': training_games, 'validation_games': validation_games, 'source_dataset': metadata,
+            'pair_weighting':'equal total uncertainty weight per complete state' if args.state_balanced_value else 'all feature-distinct pairs',
+            'regularization_weighting':'same state-balanced precision weights' if args.state_balanced_value else 'unweighted pair mean',
             'base_score_factor': .25, 'frozen_hidden_units': len(model.fixed_bias), 'baseline_policy_kind': 'mlp' if frozen else 'linear', 'hidden_state_use': 'training labels only; policy input is own/public features'})
         check = data['features'][:min(200, len(features))]
         with torch.no_grad():

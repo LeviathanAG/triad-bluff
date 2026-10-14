@@ -1,0 +1,29 @@
+{
+  "prepared_only_not_launched": true,
+  "whole_game_train_validation_counts": [
+    2800,
+    700
+  ],
+  "pair_indices_targets_ranking_weights_unchanged": true,
+  "zero_gap_value_pairs_retained": true,
+  "objective": "Per-state normalized uncertainty weights, including residual regularization; new value-only optional flag, existing default unchanged.",
+  "splits": [
+    {
+      "split": "train",
+      "pairs": 225373,
+      "complete_states": 11200,
+      "zero_gap_pairs_preserved": 135495,
+      "per_state_weight_min": 0.9999999999999989,
+      "per_state_weight_max": 1.000000000000001
+    },
+    {
+      "split": "validation",
+      "pairs": 56387,
+      "complete_states": 2800,
+      "zero_gap_pairs_preserved": 33930,
+      "per_state_weight_min": 0.9999999999999991,
+      "per_state_weight_max": 1.0000000000000009
+    }
+  ],
+  "scope": "Training-weight integrity on actual frozen dataset, not game-strength evidence."
+}
