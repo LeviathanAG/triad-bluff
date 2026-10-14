@@ -1,0 +1,24 @@
+{
+  "opponent": "SDK agents/bluff-agent adaptive strategy",
+  "source_commit": "96da8042c285af4e4f43655f2ad99592bd49b8e6",
+  "trained": {
+    "points": 4.6015625,
+    "win_rate": 0.8505859375,
+    "games": 1024
+  },
+  "sdk_starter": {
+    "points": 2.75,
+    "win_rate": 0.25,
+    "games": 1024
+  },
+  "paired_gain": {
+    "mean_gain": 1.8515625,
+    "ci95": [
+      1.7705078125,
+      1.9287353515624996
+    ],
+    "unit": "points per game",
+    "sampling_unit": "four-seat seed block"
+  },
+  "seed_start": 15000000
+}
