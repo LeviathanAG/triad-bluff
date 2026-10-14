@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--workers',type=int,default=3)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--opponent-pool',type=Path,help='reuse a frozen selection pool JSON')
+    parser.add_argument('--regime',action='append',default=[],help='run only named predefined regimes; repeat to select more than one')
     args=parser.parse_args();os.environ['BLUFF_FAST_OBSERVATIONS']='1';os.environ['OPENBLAS_NUM_THREADS']='1'
     docs=[json.loads(path.read_text()) for path in (args.candidate,args.incumbent,args.v2)];specs=[checkpoint_spec(doc) for doc in docs]
     reference=[{'kind':kind} for kind in ('starter','competitive','heuristic','random','truthful','aggressive')]+specs[1:]
@@ -33,6 +34,10 @@ def main():
     regimes=[(mode,reference,mode) for mode in ('league','competitive','starter','truthful','bluffer','aggressive')]
     regimes += [('neural_selfplay',[specs[1]],'league'),('v2_selfplay',[specs[2]],'league')]
     regimes += [(label,[{'kind':'bluffer','bluff_rate':bluff,'call_rate':.35}],'league') for label,bluff in (('weakspot_bluff01_call035',.1),('weakspot_bluff065_call035',.65))]
+    if args.regime:
+        unknown=set(args.regime)-{row[0] for row in regimes}
+        if unknown:parser.error('unknown regimes: '+','.join(sorted(unknown)))
+        regimes=[row for row in regimes if row[0] in args.regime]
     seeds=list(range(args.seed_start,args.seed_start+args.blocks));report={}
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers,mp_context=multiprocessing.get_context('spawn')) as pool:
         for label,opponents,mode in regimes:

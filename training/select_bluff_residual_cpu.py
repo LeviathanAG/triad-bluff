@@ -30,6 +30,7 @@ def main():
     parser.add_argument('--test-seed-start',type=int,default=66_000_000)
     parser.add_argument('--workers',type=int,default=4)
     parser.add_argument('--robust-selection',action='store_true',help='select using five fixed rival compositions with a per-regime loss guard')
+    parser.add_argument('--robust-calling-styles',action='store_true',help='also guard both fixed frequent-calling bluff styles during robust selection')
     parser.add_argument('--max-selection-regression',type=float,default=.025)
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
@@ -61,13 +62,18 @@ def main():
                                          ('bluffer',reference,'bluffer')]:
                 regime_results[label]=evaluate(pool,specs,seeds,opponents,mode)
                 print(json.dumps({'selection_regime':label,'scores':[summarize(row) for row in regime_results[label]]}),flush=True)
+            if args.robust_calling_styles:
+                for label,bluff in [('weakspot_bluff01_call035',.1),('weakspot_bluff065_call035',.65)]:
+                    regime_results[label]=evaluate(pool,specs,seeds,[{'kind':'bluffer','bluff_rate':bluff,'call_rate':.35}],'league')
+                    print(json.dumps({'selection_regime':label,'scores':[summarize(row) for row in regime_results[label]]}),flush=True)
             gains={label:[summarize(row)['points']-summarize(rows[0])['points'] for row in rows]
                    for label,rows in regime_results.items()}
             utilities=[sum(values[index] for values in gains.values())/len(gains) for index in range(len(specs))]
             feasible=[index for index in range(len(specs))
                       if min(values[index] for values in gains.values())>=-args.max_selection_regression]
             chosen=max(feasible,key=lambda index:utilities[index])
-            selection.update(selected=chosen,selection_rule='equal mean gain across five predeclared regimes, subject to per-regime mean regression guard; baseline wins ties',
+            selection.update(selected=chosen,selection_rule='equal mean gain across predeclared regimes, subject to per-regime mean regression guard; baseline wins ties',
+                             selection_regimes=list(regime_results),
                              max_selection_regression=args.max_selection_regression,
                              regime_scores={label:[summarize(row) for row in rows] for label,rows in regime_results.items()},
                              regime_paired_gains={label:[paired_interval(row,rows[0]) for row in rows[1:]] for label,rows in regime_results.items()},

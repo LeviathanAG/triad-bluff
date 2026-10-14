@@ -1,5 +1,5 @@
 {
-  "status": "private unpromoted candidate;95M independent comparison pending",
+  "status": "private unpromoted candidate:95M broad verification complete;99M weak-style replication complete;root review pending",
   "baseline_main": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
   "sandbox_snapshot_commit": "8fcbb78735c345d4665b88e8f23505bb9095b46c",
   "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
@@ -101,5 +101,71 @@
   "max_restricted_action_seconds": 0.30116599099710584,
   "published_registry_reference": null,
   "independent_job": "xdantalianx/triad-bluff-conservative-ranking-verify version1 CPU",
-  "balanced_collection_job": "xdantalianx/triad-bluff-balanced-incumbent-data version1 CPU"
+  "balanced_collection_job": "xdantalianx/triad-bluff-balanced-incumbent-data version1 CPU",
+  "independent95": {
+    "league_gain": 0.15380859375,
+    "league_ci95": [
+      0.11083984375,
+      0.197265625
+    ],
+    "neural_selfplay_gain": 0.1650390625,
+    "neural_selfplay_ci95": [
+      0.12548828125,
+      0.20362548828125
+    ],
+    "v2_selfplay_gain": 0.2001953125,
+    "v2_selfplay_ci95": [
+      0.16697998046875,
+      0.2333984375
+    ],
+    "marginal_weak_call_style_gain": -0.01611328125,
+    "marginal_weak_call_style_ci95": [
+      -0.03173828125,
+      -0.00048828125
+    ]
+  },
+  "weak_call_replication99": {
+    "candidate": {
+      "points": 4.93701171875,
+      "win_rate": 0.9693603515625,
+      "games": 8192
+    },
+    "incumbent_neural": {
+      "points": 4.93701171875,
+      "win_rate": 0.9691162109375,
+      "games": 8192
+    },
+    "retained_v2": {
+      "points": 4.9306640625,
+      "win_rate": 0.966064453125,
+      "games": 8192
+    },
+    "paired_gain_vs_neural": {
+      "mean_gain": 0.0,
+      "ci95": [
+        -0.0074462890625,
+        0.007568359375
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    },
+    "paired_gain_vs_v2": {
+      "mean_gain": 0.00634765625,
+      "ci95": [
+        -0.001953125,
+        0.0146484375
+      ],
+      "unit": "points per game",
+      "sampling_unit": "four-seat seed block"
+    }
+  },
+  "official_test_incumbent": {
+    "games": 800,
+    "points": 3572,
+    "average_points": 4.465,
+    "wins": 671,
+    "win_rate": 0.83875,
+    "rank": 1,
+    "participants": 5
+  }
 }
