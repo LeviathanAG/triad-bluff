@@ -1,5 +1,5 @@
 {
-  "status": "DESIGN_ONLY_NOT_IMPLEMENTED_OR_LAUNCHED",
+  "status": "TRAINING_ONLY_PROTOTYPE_VERIFIED_NO_DATASET_COLLECTION_OR_DEPLOYMENT",
   "current_collection_limitation": "Paired trials condition on the same hidden simulator state and vary future actor RNG; zero stderr is conditional, not hidden-hand certainty.",
   "primary_references": [
     {
@@ -19,10 +19,6 @@
     "training_only_candidate_method": "Global permutation of never-seen one-deck physical card identities, applied coherently to current hands/pile/pending and opponent private card histories; fix every card in own current hand, complete own private history, and public revealed batches. Reconstruct actor memories from transformed filtered histories.",
     "pairing": "Reuse the same sampled hidden world and future RNG streams across all candidate actions within one trial. Keep fixed own/public feature vectors.",
     "needed_checks": [
-      "Exact own complete observation and feature/candidate equality",
-      "Deck UID/card conservation and pending batch inclusion",
-      "No mutations of original state or shared immutable histories",
-      "All public reveals, own private card histories and deductions remain unchanged",
       "Replay/reconstruction of actors and future legal actions; historical trace references require explicit treatment",
       "Count augmentable unseen cards/states per phase and style",
       "Compare baseline and exact selected checkpoint on fresh real games"
@@ -33,5 +29,17 @@
     "new_job_launch": false
   },
   "existing_statebalanced_neural_followup": "Prepared separately; launch contingent on fixed88/89M result, then112/113/114M declared gates.",
-  "scope": "Research/design inference from primary papers and original SDK source; no claim of improved strength or equilibrium."
+  "scope": "Research/design inference from primary papers and original SDK source; no claim of improved strength or equilibrium.",
+  "prototype_report": "training/bluff-hidden-world-prototype.json",
+  "prototype": "training/bluff_hidden_world_snapshot.py",
+  "prototype_passed": {
+    "source_games": 7,
+    "sampled_states": 42,
+    "changed_worlds": 168,
+    "identical_own_features": 4080,
+    "legal_future_decisions": 6400,
+    "original_snapshots_unchanged": true,
+    "actor_known_bounds_sound": true,
+    "historical_trace_diagnostic_treatment": "Old hN refs cleared; no false replay claim."
+  }
 }

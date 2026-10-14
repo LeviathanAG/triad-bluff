@@ -1,0 +1,1531 @@
+{
+  "training_only_prototype": true,
+  "whole_own_observation_features_and_neural_actions_exact": true,
+  "original_snapshots_unchanged": true,
+  "all_rebuilt_actor_known_rank_bounds_and_pile_cards_sound": true,
+  "deck_pending_and_future_action_invariants_verified": true,
+  "counts": {
+    "future_legal_decisions": 6400,
+    "worlds": 168,
+    "feature_vectors": 4080,
+    "changed_worlds": 168,
+    "states": 42
+  },
+  "rows": [
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 35,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 34,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 33,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 35,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 30,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 30,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 32,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "PLACE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 30,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 23,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 23,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 29,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 31,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 31,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 32,
+      "changed_identity_positions": 30,
+      "fixed_own_public_identities": 20,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 34,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 34,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 35,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "source_seed": 115000000,
+      "unknown_physical_cards": 35,
+      "changed_identity_positions": 34,
+      "fixed_own_public_identities": 17,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 12,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 12,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 12,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 12,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 12,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000001,
+      "unknown_physical_cards": 13,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 39,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 35,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 35,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "source_seed": 115000002,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "PLACE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "source_seed": 115000003,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 34,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "PLACE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 34,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 36,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 38,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "source_seed": 115000004,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 11,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 17,
+      "changed_identity_positions": 16,
+      "fixed_own_public_identities": 35,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 17,
+      "changed_identity_positions": 17,
+      "fixed_own_public_identities": 35,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 17,
+      "changed_identity_positions": 16,
+      "fixed_own_public_identities": 35,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 17,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 35,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 11,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 24,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 25,
+      "changed_identity_positions": 23,
+      "fixed_own_public_identities": 27,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 12,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 13,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 11,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "source_seed": 115000005,
+      "unknown_physical_cards": 14,
+      "changed_identity_positions": 14,
+      "fixed_own_public_identities": 38,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 37,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 39,
+      "changed_identity_positions": 39,
+      "fixed_own_public_identities": 13,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 31,
+      "changed_identity_positions": 28,
+      "fixed_own_public_identities": 21,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 31,
+      "changed_identity_positions": 30,
+      "fixed_own_public_identities": 21,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 31,
+      "changed_identity_positions": 29,
+      "fixed_own_public_identities": 21,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 31,
+      "changed_identity_positions": 31,
+      "fixed_own_public_identities": 21,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 26,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 19,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 18,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 18,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 19,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 25,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 26,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 26,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 26,
+      "changed_identity_positions": 26,
+      "fixed_own_public_identities": 26,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 19,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 18,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 18,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    },
+    {
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "source_seed": 115000006,
+      "unknown_physical_cards": 19,
+      "changed_identity_positions": 16,
+      "fixed_own_public_identities": 33,
+      "historical_policy_likelihood_weighted": false
+    }
+  ],
+  "historical_policy_likelihood_weighted": false,
+  "source_sha256": "9bdf1f6faa99a2262e09df58df56b5ac7175470f9d34163d1cb7c2bb7e9c1d44",
+  "scope": "One-deck augmentation correctness/feasibility only; not a calibrated posterior, dataset, game-strength or admission result."
+}
