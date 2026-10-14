@@ -26,5 +26,6 @@
       "native_stdlib_max_error": 0.0
     }
   ],
-  "scope": "numeric scorer parity only, synthetic vectors are not gameplay observations and do not select a policy"
+  "scope": "numeric scorer parity only, synthetic vectors are not gameplay observations and do not select a policy",
+  "ancestor_reachability_verified_after_native_input_normalization": true
 }

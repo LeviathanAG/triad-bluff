@@ -3,7 +3,7 @@ import argparse,hashlib,json,math,sys
 from pathlib import Path
 import lightgbm as lgb
 import numpy as np
-from bluff_tree_policy import tree_score
+from bluff_tree_policy import tree_score,tree_inputs
 ROOT=Path(__file__).resolve().parent
 
 def reachable_path(tree,row):
@@ -53,6 +53,7 @@ for family in (80,200):
                 for column,(lo,hi) in bounds.items():row[column]=choose(lo,hi)
                 row[feature]=target
                 assert index in reachable_path(tree,row)
+                assert index in reachable_path(tree,tree_inputs(row))
                 probes.append(row)
             lo,hi=bounds.get(feature,(None,None))
             left_bounds=dict(bounds);left_bounds[feature]=(lo,min(hi,threshold) if hi is not None else threshold)
@@ -64,5 +65,5 @@ for family in (80,200):
     legacy=np.asarray([original_naive_score(document['trees'],row) for row in probes])
     legacy_error=float(np.max(np.abs(values-legacy)));legacy_mismatches=int(np.count_nonzero(np.abs(values-legacy)>1e-12))
     reports.append({'checkpoint_file_sha256':hashlib.sha256((args.directory/f'policy-leaf{family}-strength0.25.json').read_bytes()).hexdigest(),'native_model_file_sha256':hashlib.sha256((args.directory/f'lightgbm-leaf{family}.txt').read_bytes()).hexdigest(),'original_generic_scorer_max_error':legacy_error,'original_generic_mismatch_probes':legacy_mismatches,'family_min_data_in_leaf':family,'splits':split_count,'ancestor_path_confirmed_threshold_probes':len(probes),'infeasible_boundary_probes':skipped,'native_stdlib_max_error':error})
-report={'independent_audit':True,'scorer_source_sha256':hashlib.sha256((ROOT/'bluff_tree_policy.py').read_bytes()).hexdigest(),'method':'each probe satisfies all ancestor constraints and demonstrably visits the intended numeric split; below/exact/above threshold','families':reports,'scope':'numeric scorer parity only, synthetic vectors are not gameplay observations and do not select a policy'}
+report={'independent_audit':True,'scorer_source_sha256':hashlib.sha256((ROOT/'bluff_tree_policy.py').read_bytes()).hexdigest(),'ancestor_reachability_verified_after_native_input_normalization':True,'method':'each probe satisfies all ancestor constraints and demonstrably visits the intended numeric split; below/exact/above threshold','families':reports,'scope':'numeric scorer parity only, synthetic vectors are not gameplay observations and do not select a policy'}
 args.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
