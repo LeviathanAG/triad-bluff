@@ -1,0 +1,31 @@
+{
+  "development_only": true,
+  "published_runtime_unchanged": true,
+  "decision_local_cache_only": true,
+  "source_seeds_118M_correctness_only": true,
+  "families": [
+    {
+      "model": "neural64",
+      "games": 6,
+      "decisions": 987,
+      "all_actions_exact": true,
+      "old_exact_score_calls": 1200,
+      "new_exact_score_calls": 987,
+      "old_act_seconds": 0.3262128220667364,
+      "new_act_seconds": 0.29057552671292797,
+      "observed_full_act_speedup": 1.1226438294957168
+    },
+    {
+      "model": "conservative128",
+      "games": 6,
+      "decisions": 1263,
+      "all_actions_exact": true,
+      "old_exact_score_calls": 1546,
+      "new_exact_score_calls": 1263,
+      "old_act_seconds": 0.6871958281553816,
+      "new_act_seconds": 0.5998227290110663,
+      "observed_full_act_speedup": 1.145664868832777
+    }
+  ],
+  "scope": "Exact whole-game training actor parity and local timing; timing is workload-specific, not a claimed cloud job speedup."
+}

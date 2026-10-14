@@ -1,0 +1,13 @@
+{
+  "phase_detection": "Feature0 batch_size is positive for PLACE and zero for CHALLENGE; all CHALLENGE states have exactly2feature-distinct actions.",
+  "place_states": 7000,
+  "challenge_states": 7000,
+  "place_raw_pairs": 274760,
+  "challenge_raw_pairs": 7000,
+  "old_raw_pair_phase_ratio": 39.25142857142857,
+  "state_balanced_total_precision_weight_per_phase": {
+    "PLACE": 7000,
+    "CHALLENGE": 7000
+  },
+  "scope": "Sampling-weight audit only; no current fit or live source changed."
+}

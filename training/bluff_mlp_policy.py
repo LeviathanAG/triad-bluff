@@ -80,5 +80,14 @@ class FastPolicy(Policy):
         largest = float(scores.max())
         band = 1e-8 * max(1., abs(largest))
         finalists = [index for index, value in enumerate(scores) if value >= largest - band]
-        chosen = max(finalists, key=lambda index: self.score_features(candidates[index][1]))
+        # Feature aliases have exactly the same stdlib score. Memoize within
+        # this decision only; max still retains the first action on exact ties.
+        exact_scores = {}
+        def exact_score(index):
+            vector = candidates[index][1]
+            identity = tuple(vector)
+            if identity not in exact_scores:
+                exact_scores[identity] = self.score_features(vector)
+            return exact_scores[identity]
+        chosen = max(finalists, key=exact_score)
         return candidates[chosen][0]
