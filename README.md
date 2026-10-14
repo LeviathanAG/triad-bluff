@@ -1,5 +1,11 @@
 # bluffSDK
 
+Team: **TungMasterSoloClear** — **TECHTEAM11600**.
+
+The current participant runtime is the independently tested 64-unit neural
+Bluff scorer in `models/policy.json`, with standard-library CPU inference.
+See `provenance.md` for training, validation and resource evidence.
+
 The SDK is a standalone Python starter for Triad Bluff. Participants edit
 `src/strategy.py`; the process lifecycle and structured wire protocol are already
 implemented. It imports no organizer code and has no runtime dependency beyond

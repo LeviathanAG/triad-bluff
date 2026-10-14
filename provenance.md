@@ -2,8 +2,9 @@
 
 Team: TungMasterSoloClear (TECHTEAM11600).
 
-This development branch contains a tested neural candidate awaiting parent
-confidence review. The default main branch remains the retained linear v2.
+This snapshot contains the independently verified 64-unit neural candidate for
+the October 14, 21:00 IST test round. Future policy-improvement experiments are
+preserved separately; this runtime has no training-library dependency.
 
 The protocol adapter, schemas, Docker template and evaluator originate from
 Sir-Nike/bluffSDK commit 96da8042c285af4e4f43655f2ad99592bd49b8e6. Attribution
@@ -83,3 +84,14 @@ supported regression was observed versus v2. The largest gain was +0.51367
 [0.41992, 0.61133] at bluff 0.95/call 0; the sole negative mean was -0.00391
 [-0.08984, 0.08203]. This grid was not used to select the checkpoint; its complete
 report is `training/bluff-residual-adversarial-grid.json`.
+
+Nightly staging rechecked the exact 64-unit runtime and documentary manifest.
+The SDK suite again passed 33 tests with one optional skip; smoke and contract
+checks passed. A four-seat transport restart check compared 135 PLACE/CHALLENGE
+requests between persistent and freshly initialized processes, with identical
+legal actions and null checkpoints. Maximum initialization was 21.16ms and
+persistent action 8.92ms. Three fresh restricted Docker games had no faults or
+fallbacks and maximum observed decision latency 308.39ms. Linux/amd64, UID
+10000:10000, exec ENTRYPOINT and all seven resource labels were inspected.
+The registry destination is pending separately; this source manifest deliberately
+does not invent a published image reference.
