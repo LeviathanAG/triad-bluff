@@ -94,3 +94,11 @@ The frozen neural baseline is exactly converted to the new normalizer, then a
 new 64-unit residual yields a 128-unit stdlib scorer. Eight-game collection and
 CPU-selection smokes passed; maximum exact baseline conversion error was
 3.33e-16. No new trained checkpoint exists yet.
+
+Future training FastPolicy snapshots now share immutable parameter tuples and
+read-only NumPy matrices, while copying all mutable own/public actor evidence.
+An actor-only 1,000-snapshot benchmark improved 43.1x (1.010s to 0.0234s); this
+is not a whole-job claim. Full action equivalence again passed 1,463 decisions
+in 12 games. The already live neural-incumbent data notebook remains its exact
+original version, whose snapshot code copies the arrays. Only unpushed later
+fit/selection stages were refreshed with the optimized scorer.

@@ -1,0 +1,53 @@
+{
+  "games": 12,
+  "decisions": 1463,
+  "configurations": [
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      8,
+      1
+    ],
+    [
+      8,
+      2
+    ]
+  ],
+  "seed_family": 55000000,
+  "checks": "training NumPy actions match fresh stdlib full-history replay; sound own/public bounds; all decisions legal",
+  "max_full_replay_seconds": 0.024196020000090357,
+  "mean_full_replay_seconds": 0.002667767756764337,
+  "own_hand_size_histogram": {
+    "1": 76,
+    "2": 134,
+    "3": 179,
+    "4": 186,
+    "5": 179,
+    "6": 108,
+    "7": 116,
+    "8": 59,
+    "9": 76,
+    "10": 44,
+    "11": 79,
+    "12": 4,
+    "13": 82,
+    "14": 26,
+    "15": 16,
+    "16": 8,
+    "17": 8,
+    "18": 8,
+    "19": 12,
+    "20": 4,
+    "21": 4,
+    "22": 20,
+    "23": 4,
+    "25": 8,
+    "26": 23
+  }
+}

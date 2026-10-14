@@ -1,0 +1,9 @@
+{
+  "actor_snapshots": 1000,
+  "seconds": {
+    "frozen_current_cloud_source": 1.0097140350044356,
+    "shared_static_configuration": 0.023422673999448307
+  },
+  "actor_snapshot_speedup": 43.10840150139212,
+  "note": "Actor-only microbenchmark, not whole collection speed. Existing live CPU source remains unchanged."
+}

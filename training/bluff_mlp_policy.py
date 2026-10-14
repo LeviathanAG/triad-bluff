@@ -47,15 +47,28 @@ class FastPolicy(Policy):
         self.base_array = np.asarray(self.weights, dtype=np.float64)
         self.mean_array = np.asarray(self.means, dtype=np.float64)
         self.scale_array = np.asarray(self.scales, dtype=np.float64)
+        # These exported parameters are immutable configuration, never actor
+        # memory. Freezing them allows exact snapshot sharing during rollouts.
+        self.weights = tuple(self.weights)
+        self.hidden = tuple(tuple(row) for row in self.hidden)
+        self.bias = tuple(self.bias); self.output = tuple(self.output)
+        self.means = tuple(self.means); self.scales = tuple(self.scales)
+        for matrix in (self.matrix, self.hidden_bias, self.output_array,
+                       self.base_array, self.mean_array, self.scale_array):
+            matrix.flags.writeable = False
+
 
     def __deepcopy__(self, memo):
-        # Counterfactual snapshots copy actor memory, while the NumPy module is
-        # immutable shared implementation state rather than game information.
+        # Copy public/private actor memory, and share only frozen configuration.
+        # This avoids repeatedly copying thousands of constant network weights.
         import copy
         clone = type(self).__new__(type(self))
         memo[id(self)] = clone
+        configuration = {'np', 'weights', 'hidden', 'bias', 'output', 'output_bias',
+                         'means', 'scales', 'matrix', 'hidden_bias', 'output_array',
+                         'base_array', 'mean_array', 'scale_array'}
         for name, value in self.__dict__.items():
-            setattr(clone, name, value if name == 'np' else copy.deepcopy(value, memo))
+            setattr(clone, name, value if name in configuration else copy.deepcopy(value, memo))
         return clone
 
     def act(self, observation):
