@@ -1,0 +1,14 @@
+{
+  "normal_child_success": true,
+  "entire_spawned_group_stopped": true,
+  "group_members_after_timeout": {
+    "leader": "gone",
+    "descendant": "gone"
+  },
+  "timeout_elapsed_seconds": 0.4016977540013613,
+  "expired_cutoff_blocks_start": true,
+  "job_stop_utc": "2026-10-15T06:00:00+00:00",
+  "official_freeze_utc": "2026-10-15T07:30:00+00:00",
+  "prep_margin_minutes": 90,
+  "scope": "Owned local process-group deadline smoke; no existing job stopped."
+}
