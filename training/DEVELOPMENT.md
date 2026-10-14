@@ -72,3 +72,13 @@ is used only for training. Its training-only NumPy scorer recomputes close score
 ties with the exact scalar implementation. An 810-decision, 12-game zero-residual
 check preserved the previous feature policy's actions and matched both scorers.
 No neural model is currently deployed.
+
+The residual GPU job completed. Its selection chose ranking loss, regularizer
+0.01 and residual strength 0.5; point-difference regression did not win the
+actual-game selection. Fresh Kaggle final seeds 52M gave +0.09473 league points
+with a paired 95% interval [0.04004, 0.14941], 1,024 games. An additional fixed
+independent comparison on seeds 53M is pending. The selected neural checkpoint
+is backed up under `bluff-residual-result/` as experimental training material.
+A 1,463-decision/12-game replay check matched fresh stdlib scoring to training
+NumPy scoring across 4/8 players and 1/2 decks; maximum replay was 15.81ms.
+Main and the packaged runtime remain the retained v2 model.

@@ -1,0 +1,56 @@
+{
+  "repo": "/home/satwik/triad/bluffSDK",
+  "revision": null,
+  "total_bytes": 1097545,
+  "limit_bytes": 1610612736,
+  "ok": true,
+  "file_count": 245,
+  "lfs_pointers": [],
+  "largest_files": [
+    {
+      "path": "models/policy.json",
+      "bytes": 105605
+    },
+    {
+      "path": "training/bluff-residual-result/bluff-policy-mlp.json",
+      "bytes": 105605
+    },
+    {
+      "path": "training/kaggle-bluff-residual/bluff-residual.ipynb",
+      "bytes": 66305
+    },
+    {
+      "path": "agents/bluff-ml-agent/uv.lock",
+      "bytes": 59876
+    },
+    {
+      "path": "training/kaggle-bluff-counterfactual/bluff-counterfactual.ipynb",
+      "bytes": 59030
+    },
+    {
+      "path": "training/kaggle-bluff-fast-adaptation/bluff-fast-adaptation.ipynb",
+      "bytes": 44350
+    },
+    {
+      "path": "training/kaggle-bluff-refinement/bluff-refinement.ipynb",
+      "bytes": 37213
+    },
+    {
+      "path": "local_evaluator/src/triad_bluff/engine.py",
+      "bytes": 21890
+    },
+    {
+      "path": "agents/bluff-ml-agent/cu128/uv.lock",
+      "bytes": 21260
+    },
+    {
+      "path": "training/bluff-v5-local/training-progress.json",
+      "bytes": 21109
+    }
+  ],
+  "image": {
+    "reference": "triad-bluff:residual-candidate",
+    "bytes": 129925120,
+    "ok": true
+  }
+}

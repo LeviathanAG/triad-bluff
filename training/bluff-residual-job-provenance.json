@@ -1,0 +1,18 @@
+{
+  "job": "xdantalianx/triad-bluff-residual",
+  "version": 1,
+  "private": true,
+  "requested_accelerator": "NvidiaTeslaT4",
+  "source_sha256": "3bcde7c89ba5b93e5cb58af65eb6dfae33948844f302efa888bfdf6ab85a32c2",
+  "development_commit": "ed1d4f7",
+  "retained_main": "8b35e1a2a1d7a140932c17d883065ce82b0c79b9",
+  "source_dataset": "xdantalianx/triad-bluff-counterfactual-value-data",
+  "selection_seed_start": 51000000,
+  "final_seed_start": 52000000,
+  "pipeline_smoke_seed_starts": [
+    61000000,
+    62000000
+  ],
+  "future_independent_seed_start": 53000000,
+  "experimental_only": true
+}

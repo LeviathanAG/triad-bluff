@@ -1,0 +1,12 @@
+{
+  "states": 12000,
+  "state_mean_return_spread": 0.8132708333333334,
+  "states_zero_spread_fraction": 0.4613333333333333,
+  "states_spread_at_least_point_fraction": 0.3724166666666667,
+  "distinct_action_pairs": 247405,
+  "zero_gap_pair_fraction": 0.5896525939249408,
+  "pair_abs_gap_mean": 0.4410925405711283,
+  "pair_standard_error_mean": 0.2057611532781415,
+  "pairs_abs_gap_greater_standard_error_fraction": 0.22668094824275986,
+  "note": "Four paired trials; these are training-label diagnostics, not held-out policy performance."
+}

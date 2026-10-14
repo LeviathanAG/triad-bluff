@@ -1,0 +1,144 @@
+{
+  "canonical_job": "xdantalianx/triad-bluff-residual",
+  "version": 1,
+  "status": "COMPLETE",
+  "files": [
+    {
+      "path": "training/kaggle-bluff-residual-output/output/bluff-policy-mlp.json",
+      "sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
+      "bytes": 105605,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-0.json",
+      "sha256": "7290006dc2a635f4c10852a411fb11624e8e2ac538f6e00b0e7e2ec955949d76",
+      "bytes": 105625,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-1.json",
+      "sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
+      "bytes": 105605,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-10.json",
+      "sha256": "e905303ce0111a1ea6ceaa80b2c2889d6ff09455ac7e1d4a5b4420b79afee80d",
+      "bytes": 105944,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-11.json",
+      "sha256": "d7a5b50e56f328c2a2449822992d5d6d0007d05cb4b55fd07d6ba5713b7154f9",
+      "bytes": 105928,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-12.json",
+      "sha256": "2de1565541bc635dfaa79baaf5f9d04d91fa82dc9c23f696e2f754b23027fe7e",
+      "bytes": 105983,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-13.json",
+      "sha256": "880eb1356bf0c110bed7174b4faa5669075d1db24b736125f40515e49b0e325e",
+      "bytes": 105961,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-14.json",
+      "sha256": "fd052a8a95446628115528739e399bd928543a2c8b8eba850d5df2a824626f0d",
+      "bytes": 105953,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-15.json",
+      "sha256": "3e9b08e28518e3bcf5aeb028062afaa445a9ca4c703915d040153a078c27cf75",
+      "bytes": 106094,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-16.json",
+      "sha256": "6b75d0a455c0a4d36cae12ab1a5b3ece3299811f2d7780b3776cf85b5b404875",
+      "bytes": 106076,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-17.json",
+      "sha256": "7b79416cf8d9af0199e6b63bf800cfdf40eb88e01e72915b17ecfcfe19dc5c94",
+      "bytes": 106055,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-2.json",
+      "sha256": "f2c732f1fdfc6256436543564be65be40641be88b185abfab39626f73a0415de",
+      "bytes": 105591,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-3.json",
+      "sha256": "f978f33721f870b26838f4906efff75e27d8d1dca8766ed36bda46b7dd1ba687",
+      "bytes": 105639,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-4.json",
+      "sha256": "653ccdfcbe5ea89f0eed65e7e421f19f0ef5f034804c93b60f5fa3ed178e9261",
+      "bytes": 105620,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-5.json",
+      "sha256": "33b4be5c77ace11122a38bb2fefeca2a96d8901e3a6e64156e1f87c91a51f53d",
+      "bytes": 105600,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-6.json",
+      "sha256": "0f5d294ae2362440002f4ad5766f5e54883321dead8b583895b24e63599f3cdc",
+      "bytes": 105772,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-7.json",
+      "sha256": "26e12950bdeeb3c64524f90b23ee49bdba9b86e5ac308f25bbd89cd2b8f65c52",
+      "bytes": 105754,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-8.json",
+      "sha256": "d558bca9625ebbf95b4977b7f638ccbbdd636ba51df9afc3e164afa13f0f34b6",
+      "bytes": 105732,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/candidate-9.json",
+      "sha256": "356daf5a14e7d52fcced9b7ec35bde41267285d22e21fcd443f8576c8b0ae6da",
+      "bytes": 105967,
+      "format": "triad-bluff-residual-mlp-v1"
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/evaluation.json",
+      "sha256": "8c585e12e644c8442b73c0e823baa828c2ce8b58512a9f631a942c6a682a483f",
+      "bytes": 2871,
+      "format": null
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/selection.json",
+      "sha256": "b8989bd39443b02102040c504e693fcc012f0821d499804eac5f005c464d6d8e",
+      "bytes": 5236,
+      "format": null
+    },
+    {
+      "path": "training/kaggle-bluff-residual-output/output/training-progress.json",
+      "sha256": "8373aa4356e63bfdc5d8ea0a1a27b59e779231b27164a9834b600a842f716a94",
+      "bytes": 14621,
+      "format": "training-progress-list"
+    }
+  ],
+  "model_schema_and_finite_parameters_validated": 19,
+  "main_unchanged": "8b35e1a2a1d7a140932c17d883065ce82b0c79b9",
+  "selected_candidate": 2,
+  "fresh_independent_test_seed_start": 53000000,
+  "fresh_independent_test_status": "RUNNING"
+}

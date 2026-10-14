@@ -2,64 +2,77 @@
 
 Team: TungMasterSoloClear (TECHTEAM11600).
 
-The protocol adapter, schemas, Docker template, and development evaluator originate
-from Sir-Nike/bluffSDK commit 96da8042c285af4e4f43655f2ad99592bd49b8e6. Existing vendor
-attribution is retained. The authoritative evaluator is used for training and
-testing; inference contains no evaluator or opponent private-hand access.
+This development branch contains a tested neural candidate awaiting parent
+confidence review. The default main branch remains the retained linear v2.
 
-The entry's non-language linear scorer has 30 learned floating-point weights in
-`models/policy.json`. `src/learned_policy.py` extends the original 18-feature scorer
-in `src/learned_policy_v1.py`. Its features use the player's own cards, own private
-placements, public claims, publicly revealed challenged batches, public hand sizes,
-and observed challenge decisions. Unchallenged claims are never treated as verified
-truth. Rank counts inferred from revealed pickups are conservative lower bounds:
-every unknown placement decrements every rank bound. Later sealed challenge votes
-are never inferred from a selected earlier challenger.
+The protocol adapter, schemas, Docker template and evaluator originate from
+Sir-Nike/bluffSDK commit 96da8042c285af4e4f43655f2ad99592bd49b8e6. Attribution
+is retained. Organizer dependency-accounting update 2e13997 is merged; it changes
+no game mechanics. The entry uses the CPU template and claims no base exemption.
 
-Training ran in private Kaggle notebook `xdantalianx/triad-bluff-league`, version 1,
-on CPU: seed 20261016, 30 generations, population 32, eight four-seat blocks per
-candidate, 64 held-out validation blocks. A 200-turn training cap saved compute;
-selection and final evaluation used the real 1,000-turn cap. The opponent league
-included SDK baselines, manual policies, stochastic bluffers, and archived policies.
-`training/train_bluff_league_original.py` records the exact trainer embedded in
-that notebook. The current `training/train_bluff_league.py` adds the supplied
-adaptive rival and configurable disjoint seed ranges for further experiments.
-Those later trainer changes did not produce the currently retained checkpoint.
+The scorer is a non-language residual network: 50 inputs, one 64-unit ReLU layer,
+linear baseline plus scalar residual. `models/policy.json` stores finite floating
+weights, train-only normalization and training metadata. Runtime uses Python's
+standard library, with no NumPy/PyTorch, network calls or remote model downloads.
 
-`models/evaluation.json` records independent tests starting at seed 20,000,000:
-1,024 games per regime with all four seats rotated. Both policies faced the same
-fixed opponent pool, which included the previous learned checkpoint and the SDK's
-supplied adaptive strategy. The new model scored 4.0020 versus 3.7314 points/game
-for the previous learned model in the diverse league. Paired gain was 0.2705
-(95% bootstrap interval 0.1797–0.3652, resampling four-seat seed blocks). Gains were
-positive against the tested adaptive, truthful, starter and stochastic-bluffer
-regimes, tied at five points against the aggressive caller, and positive against
-three copies of the previous learned model. These results measure local opponents,
-not unknown competition entrants. The previous checkpoint and its reports are
-retained as `models/policy-v1.json`, `models/evaluation-v1.json`, and
-`models/competitive-evaluation-v1.json`.
+Features derive exclusively from the player's own hand, own private placements
+and public history: claims, revealed challenged batches, hand sizes, observed
+selected/earlier challenge outcomes and conservative rank bounds. Unknown
+placements decrement every relevant rank bound; unchallenged claims are not
+verified truth. Later sealed votes remain unknown. Beta summaries are modeling
+features, not calibrated certainty claims. The additional pile deduction challenges
+only when disjoint known own/public cards leave insufficient rank copies.
 
-Additional post-retention stress testing, `models/stress-evaluation.json`, varied
-bluff and call probabilities across 16 fixed regimes using 512 fresh games each
-(seed 28,000,000). The new model gained substantially when rivals rarely called,
-but regressed slightly in two regimes with call probability 0.35: mean gains
--0.0449 and -0.0664 points/game, with intervals [-0.0762, -0.0156] and
-[-0.1191, -0.0156]. Its absolute scores there were 4.9238 and 4.8105 points/game.
-The stronger diverse-league result supports retaining this checkpoint while
-further experiments address these measured limitations. It is not universally
-superior to the previous model.
+Private CPU job `xdantalianx/triad-bluff-counterfactual-value-data` version 1
+collected 3,000 source games (seed family 50M): 12,000 phase-stratified whole-game
+reservoir states, 67,757 feature-distinct candidate actions, four paired trials
+per action. Own hand sizes span 2–46; both phases have 6,000 states. Rollouts copy
+the simulator and actor memories, retain dealt hands, and share future stochastic
+actor streams across candidate actions. Hidden hands influence training rewards
+only, never policy inputs. Bluff has no future draw deck. Source-game IDs enforce
+supervised splits and do not enter inference features.
 
-Inference reconstructs the complete filtered history each decision, giving the
-same decisions in persistent and restarted processes. No seeds, hidden hands,
-training libraries, account credentials, or remote downloads enter inference.
-The optional training-only v3 pile deduction module is not deployed in this
-checkpoint. Runtime replay matched the training policy across 1,726 decisions
-in 16 games with four/eight players and one/two decks; all actions were legal.
-The SDK suite passed 32 tests with one optional organizer integration skipped;
-smoke and protocol contract checks passed. Three local and three restricted
-Docker games completed without faults or fallbacks.
+Private T4 job `xdantalianx/triad-bluff-residual` version 1 fit 18 candidates using
+2,400 training/600 validation source games. It compared gap-weighted sigmoid
+ranking and paired-point-difference MSE (including zero-gap pairs), three residual
+regularizers and three strengths. Actual games selected ranking loss, regularizer
+0.01, residual strength 0.5 and supervised epoch 97. Normalization uses training
+rows only. The three-epoch pipeline smoke used seeds 61M/62M, actual selection
+used 51M, and the fixed selected candidate's Kaggle final test used 52M. Exact
+notebook sources, provenance and JSON integrity checks are retained in `training/`.
 
-Organizer update 2e13997 was merged for the approved dependency-base accounting
-and optional PyTorch/CUDA template. Game mechanics and this CPU inference policy
-were unaffected. This entry currently uses Dockerfile.cpu and its complete image
-fits the original whole-image limit; it does not claim a dependency exemption.
+The Kaggle final test had 1,024 games per regime: league gain over v2 was +0.09473
+points/game, paired 95% bootstrap interval [0.04004, 0.14941]. The independent
+fixed-candidate comparison in `models/evaluation.json` uses entirely fresh 53M
+seeds, 2,048 games per regime and all four seats. Both policies face identical
+fixed opponents, including retained v2 and the SDK adaptive strategy. Gains were:
+
+- diverse league +0.13477, interval [0.09717, 0.17188];
+- adaptive/starter +0.05273, interval [0.03564, 0.07080];
+- truthful +0.04688, interval [0.02881, 0.06592];
+- stochastic bluffer +0.09521, interval [0.05420, 0.13574];
+- three retained-v2 rivals +0.24072, interval [0.19873, 0.28516];
+- aggressive caller tied at five points.
+
+The two frequent-call stress regimes previously problematic for v2 gave +0.02344
+[0.00879, 0.03809] and +0.01709 [-0.00293, 0.03809]. Intervals resample four-seat
+seed blocks. These are development proxies, not other teams; no competition win
+or universal optimality is claimed. The original v2 and v1 checkpoints and their
+reports remain in `models/` for rollback. Historical v2 provenance is preserved
+in `training/PROVENANCE-V2.md`. V5 linear refinement failed its independent gate
+and was not adopted.
+
+Inference reconstructs complete filtered history on every decision. Across 1,463
+decisions in 12 games with four/eight players and one/two decks, fresh stdlib
+scoring exactly matched persistent training NumPy decisions; all actions were
+legal and inferred own/public bounds sound. Maximum full replay was 15.81ms.
+No seeds, hidden hands or credentials enter inference. The training-only read-only
+observation shortcut and NumPy batching are absent from deployed source.
+
+The SDK suite passed 33 tests with one optional organizer integration skipped;
+smoke and contract checks passed. Three local protocol games and three restricted
+Docker games completed with zero faults/fallbacks. The Docker runs used one CPU,
+1 GiB RAM, no network, a read-only filesystem and USER 10000:10000. Maximum observed
+Docker decision latency was 327.78ms, below the five-second action limit. The
+complete uncompressed image is 129,925,120 bytes, well below 1.5 GiB; source/assets
+are about 1.1 MB. No registry publication or official submission has occurred.
