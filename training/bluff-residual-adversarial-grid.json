@@ -1,0 +1,375 @@
+{
+  "seed_start": 58000000,
+  "sampling_unit": "four-seat seed block",
+  "note": "Fixed development stress opponents; fresh grid not used to select the neural candidate.",
+  "regimes": [
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.0,
+      "neural_candidate": {
+        "points": 4.748046875,
+        "win_rate": 0.880859375,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.55859375,
+        "win_rate": 0.802734375,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.189453125,
+        "ci95": [
+          0.134765625,
+          0.248046875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.1,
+      "neural_candidate": {
+        "points": 4.537109375,
+        "win_rate": 0.810546875,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.541015625,
+        "win_rate": 0.796875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": -0.00390625,
+        "ci95": [
+          -0.08984375,
+          0.08203125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.35,
+      "neural_candidate": {
+        "points": 4.931640625,
+        "win_rate": 0.966796875,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.923828125,
+        "win_rate": 0.962890625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0078125,
+        "ci95": [
+          -0.017578125,
+          0.033203125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.8,
+      "neural_candidate": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.0,
+      "neural_candidate": {
+        "points": 4.443359375,
+        "win_rate": 0.748046875,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.162109375,
+        "win_rate": 0.64453125,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.28125,
+        "ci95": [
+          0.216796875,
+          0.34375
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.1,
+      "neural_candidate": {
+        "points": 4.400390625,
+        "win_rate": 0.755859375,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.3984375,
+        "win_rate": 0.736328125,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.001953125,
+        "ci95": [
+          -0.0859375,
+          0.08984375
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.35,
+      "neural_candidate": {
+        "points": 4.904296875,
+        "win_rate": 0.953125,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.904296875,
+        "win_rate": 0.953125,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          -0.03125,
+          0.033203125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.8,
+      "neural_candidate": {
+        "points": 4.9921875,
+        "win_rate": 0.99609375,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.984375,
+        "win_rate": 0.9921875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0078125,
+        "ci95": [
+          0.0,
+          0.01953125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.0,
+      "neural_candidate": {
+        "points": 4.3671875,
+        "win_rate": 0.720703125,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.072265625,
+        "win_rate": 0.609375,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.294921875,
+        "ci95": [
+          0.21870117187500002,
+          0.3750488281249993
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.1,
+      "neural_candidate": {
+        "points": 4.451171875,
+        "win_rate": 0.76171875,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.294921875,
+        "win_rate": 0.6875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.15625,
+        "ci95": [
+          0.064453125,
+          0.248046875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.35,
+      "neural_candidate": {
+        "points": 4.822265625,
+        "win_rate": 0.912109375,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.8046875,
+        "win_rate": 0.90625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.017578125,
+        "ci95": [
+          -0.033203125,
+          0.0703125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.8,
+      "neural_candidate": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.0,
+      "neural_candidate": {
+        "points": 3.994140625,
+        "win_rate": 0.560546875,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 3.48046875,
+        "win_rate": 0.40625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.513671875,
+        "ci95": [
+          0.419921875,
+          0.611328125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.1,
+      "neural_candidate": {
+        "points": 4.3515625,
+        "win_rate": 0.70703125,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 3.9921875,
+        "win_rate": 0.55859375,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.359375,
+        "ci95": [
+          0.263671875,
+          0.458984375
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.35,
+      "neural_candidate": {
+        "points": 4.88671875,
+        "win_rate": 0.943359375,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.849609375,
+        "win_rate": 0.927734375,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.037109375,
+        "ci95": [
+          -0.015625,
+          0.09765625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.8,
+      "neural_candidate": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "retained_v2": {
+        "points": 4.99609375,
+        "win_rate": 0.998046875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.00390625,
+        "ci95": [
+          0.0,
+          0.01171875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    }
+  ]
+}

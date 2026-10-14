@@ -76,3 +76,10 @@ Docker games completed with zero faults/fallbacks. The Docker runs used one CPU,
 Docker decision latency was 327.78ms, below the five-second action limit. The
 complete uncompressed image is 129,925,120 bytes, well below 1.5 GiB; source/assets
 are about 1.1 MB. No registry publication or official submission has occurred.
+
+A supplemental entirely fresh 58M grid varied bluff probabilities 0.1/0.35/0.65/0.95
+and call probabilities 0/0.1/0.35/0.8, with 512 games per regime. No statistically
+supported regression was observed versus v2. The largest gain was +0.51367
+[0.41992, 0.61133] at bluff 0.95/call 0; the sole negative mean was -0.00391
+[-0.08984, 0.08203]. This grid was not used to select the checkpoint; its complete
+report is `training/bluff-residual-adversarial-grid.json`.
