@@ -5,7 +5,7 @@ Team: TungMasterSoloClear (TECHTEAM11600).
 The protocol adapter, schemas, Docker template, and development evaluator originate
 from Sir-Nike/bluffSDK commit 96da8042c285af4e4f43655f2ad99592bd49b8e6. Existing vendor
 attribution is retained. The authoritative evaluator is used for training and
- testing; inference contains no evaluator or opponent private-hand access.
+testing; inference contains no evaluator or opponent private-hand access.
 
 The entry's non-language linear scorer has 30 learned floating-point weights in
 `models/policy.json`. `src/learned_policy.py` extends the original 18-feature scorer
@@ -39,6 +39,16 @@ not unknown competition entrants. The previous checkpoint and its reports are
 retained as `models/policy-v1.json`, `models/evaluation-v1.json`, and
 `models/competitive-evaluation-v1.json`.
 
+Additional post-retention stress testing, `models/stress-evaluation.json`, varied
+bluff and call probabilities across 16 fixed regimes using 512 fresh games each
+(seed 28,000,000). The new model gained substantially when rivals rarely called,
+but regressed slightly in two regimes with call probability 0.35: mean gains
+-0.0449 and -0.0664 points/game, with intervals [-0.0762, -0.0156] and
+[-0.1191, -0.0156]. Its absolute scores there were 4.9238 and 4.8105 points/game.
+The stronger diverse-league result supports retaining this checkpoint while
+further experiments address these measured limitations. It is not universally
+superior to the previous model.
+
 Inference reconstructs the complete filtered history each decision, giving the
 same decisions in persistent and restarted processes. No seeds, hidden hands,
 training libraries, account credentials, or remote downloads enter inference.
@@ -48,3 +58,8 @@ in 16 games with four/eight players and one/two decks; all actions were legal.
 The SDK suite passed 32 tests with one optional organizer integration skipped;
 smoke and protocol contract checks passed. Three local and three restricted
 Docker games completed without faults or fallbacks.
+
+Organizer update 2e13997 was merged for the approved dependency-base accounting
+and optional PyTorch/CUDA template. Game mechanics and this CPU inference policy
+were unaffected. This entry currently uses Dockerfile.cpu and its complete image
+fits the original whole-image limit; it does not claim a dependency exemption.

@@ -1,0 +1,375 @@
+{
+  "seed_start": 28000000,
+  "sampling_unit": "four-seat seed block",
+  "note": "Fixed development stress opponents; grid was not used to select retained v2.",
+  "regimes": [
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.0,
+      "current_v2": {
+        "points": 4.53125,
+        "win_rate": 0.79296875,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 3.896484375,
+        "win_rate": 0.5390625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.634765625,
+        "ci95": [
+          0.529296875,
+          0.7421875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.1,
+      "current_v2": {
+        "points": 4.560546875,
+        "win_rate": 0.810546875,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.498046875,
+        "win_rate": 0.765625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0625,
+        "ci95": [
+          -0.03125,
+          0.158203125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.35,
+      "current_v2": {
+        "points": 4.923828125,
+        "win_rate": 0.962890625,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.96875,
+        "win_rate": 0.984375,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": -0.044921875,
+        "ci95": [
+          -0.076171875,
+          -0.015625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.1,
+      "call_rate": 0.8,
+      "current_v2": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.0,
+      "current_v2": {
+        "points": 4.1875,
+        "win_rate": 0.65625,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 3.154296875,
+        "win_rate": 0.29296875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 1.033203125,
+        "ci95": [
+          0.921826171875,
+          1.150390625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.1,
+      "current_v2": {
+        "points": 4.40625,
+        "win_rate": 0.7421875,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.232421875,
+        "win_rate": 0.64453125,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.173828125,
+        "ci95": [
+          0.06640625,
+          0.2773925781249993
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.35,
+      "current_v2": {
+        "points": 4.86328125,
+        "win_rate": 0.935546875,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.90234375,
+        "win_rate": 0.951171875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": -0.0390625,
+        "ci95": [
+          -0.08203125,
+          0.00390625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.35,
+      "call_rate": 0.8,
+      "current_v2": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.99609375,
+        "win_rate": 0.998046875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.00390625,
+        "ci95": [
+          0.0,
+          0.01171875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.0,
+      "current_v2": {
+        "points": 4.05859375,
+        "win_rate": 0.615234375,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 2.96484375,
+        "win_rate": 0.23046875,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 1.09375,
+        "ci95": [
+          0.986328125,
+          1.201171875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.1,
+      "current_v2": {
+        "points": 4.310546875,
+        "win_rate": 0.69140625,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.111328125,
+        "win_rate": 0.6015625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.19921875,
+        "ci95": [
+          0.099609375,
+          0.298828125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.35,
+      "current_v2": {
+        "points": 4.810546875,
+        "win_rate": 0.908203125,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.876953125,
+        "win_rate": 0.939453125,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": -0.06640625,
+        "ci95": [
+          -0.119140625,
+          -0.015625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.65,
+      "call_rate": 0.8,
+      "current_v2": {
+        "points": 4.99609375,
+        "win_rate": 0.998046875,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": -0.00390625,
+        "ci95": [
+          -0.01171875,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.0,
+      "current_v2": {
+        "points": 3.62109375,
+        "win_rate": 0.462890625,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 2.58984375,
+        "win_rate": 0.166015625,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 1.03125,
+        "ci95": [
+          0.908154296875,
+          1.154296875
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.1,
+      "current_v2": {
+        "points": 3.94140625,
+        "win_rate": 0.556640625,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 3.8046875,
+        "win_rate": 0.474609375,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.13671875,
+        "ci95": [
+          0.02734375,
+          0.25390625
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.35,
+      "current_v2": {
+        "points": 4.859375,
+        "win_rate": 0.9296875,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 4.87890625,
+        "win_rate": 0.939453125,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": -0.01953125,
+        "ci95": [
+          -0.05859375,
+          0.01953125
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    },
+    {
+      "bluff_rate": 0.95,
+      "call_rate": 0.8,
+      "current_v2": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "previous_v1": {
+        "points": 5.0,
+        "win_rate": 1.0,
+        "games": 512
+      },
+      "paired_gain": {
+        "mean_gain": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "unit": "points per game",
+        "sampling_unit": "four-seat seed block"
+      }
+    }
+  ]
+}
