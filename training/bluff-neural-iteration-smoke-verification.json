@@ -1,0 +1,10 @@
+{
+  "source_smoke_games": 8,
+  "states": 32,
+  "actions": 171,
+  "finite_features_and_trial_means": true,
+  "frozen_neural_normalizer_conversion_max_abs_error": 3.3306690738754696e-16,
+  "combined_hidden_units": 128,
+  "deepcopy_training_numpy_module_shared_memory_arrays_copied": true,
+  "network_training_not_yet_run": true
+}

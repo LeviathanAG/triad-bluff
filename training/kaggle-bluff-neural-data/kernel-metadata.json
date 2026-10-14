@@ -1,0 +1,14 @@
+{
+  "id": "xdantalianx/triad-bluff-neural-incumbent-data",
+  "title": "Triad Bluff Neural Incumbent Data",
+  "code_file": "bluff-neural-data.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

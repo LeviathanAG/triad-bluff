@@ -17,18 +17,38 @@ from train_bluff_league import evaluate_job, paired_interval, summarize
 
 
 class Residual(nn.Module):
-    def __init__(self, base, mean, scale, width):
+    def __init__(self, base, mean, scale, width, frozen=None):
         super().__init__()
         self.register_buffer('base', torch.tensor(base, dtype=torch.float32))
         self.register_buffer('mean', torch.tensor(mean, dtype=torch.float32))
         self.register_buffer('scale', torch.tensor(scale, dtype=torch.float32))
+        fixed_weights, fixed_bias, fixed_output = [], [], []
+        fixed_output_bias = 0.
+        if frozen is not None:
+            old_mean = np.asarray(frozen['feature_mean'])
+            old_scale = np.asarray(frozen['feature_scale'])
+            old_weights = np.asarray(frozen['hidden_weight'])
+            # Exact affine conversion keeps the frozen incumbent's nonlinear
+            # score while expressing both layers in the new training normalizer.
+            fixed_weights = (old_weights * np.asarray(scale)[None, :] / old_scale[None, :]).tolist()
+            fixed_bias = (np.asarray(frozen['hidden_bias']) + old_weights @ ((np.asarray(mean) - old_mean) / old_scale)).tolist()
+            fixed_output = [weight / 4. for weight in frozen['output_weight']]
+            fixed_output_bias = frozen['output_bias'] / 4.
+        self.register_buffer('fixed_hidden', torch.tensor(fixed_weights, dtype=torch.float32).reshape(-1, len(base)))
+        self.register_buffer('fixed_bias', torch.tensor(fixed_bias, dtype=torch.float32))
+        self.register_buffer('fixed_output', torch.tensor(fixed_output, dtype=torch.float32))
+        self.register_buffer('fixed_output_bias', torch.tensor(fixed_output_bias, dtype=torch.float32))
         self.hidden = nn.Linear(len(base), width)
         self.output = nn.Linear(width, 1)
         nn.init.zeros_(self.output.weight); nn.init.zeros_(self.output.bias)
 
     def forward(self, features):
-        residual = self.output(F.relu(self.hidden((features - self.mean) / self.scale))).squeeze(-1)
-        return features @ self.base + residual, residual
+        normalized = (features - self.mean) / self.scale
+        baseline = features @ self.base + self.fixed_output_bias
+        if len(self.fixed_bias):
+            baseline = baseline + F.relu(F.linear(normalized, self.fixed_hidden, self.fixed_bias)) @ self.fixed_output
+        residual = self.output(F.relu(self.hidden(normalized))).squeeze(-1)
+        return baseline + residual, residual
 
 
 def pairs(data, seed):
@@ -74,10 +94,10 @@ def export(model, metadata):
     return {'format': 'triad-bluff-residual-mlp-v1', 'features': FEATURE_NAMES,
             'base_weights': model.base.detach().cpu().tolist(),
             'feature_mean': model.mean.detach().cpu().tolist(), 'feature_scale': model.scale.detach().cpu().tolist(),
-            'hidden_weight': model.hidden.weight.detach().cpu().tolist(),
-            'hidden_bias': model.hidden.bias.detach().cpu().tolist(),
-            'output_weight': model.output.weight.detach().cpu().flatten().tolist(),
-            'output_bias': float(model.output.bias.detach().cpu()[0]), 'training': metadata}
+            'hidden_weight': model.fixed_hidden.detach().cpu().tolist() + model.hidden.weight.detach().cpu().tolist(),
+            'hidden_bias': model.fixed_bias.detach().cpu().tolist() + model.hidden.bias.detach().cpu().tolist(),
+            'output_weight': model.fixed_output.detach().cpu().tolist() + model.output.weight.detach().cpu().flatten().tolist(),
+            'output_bias': float(model.fixed_output_bias.detach().cpu()) + float(model.output.bias.detach().cpu()[0]), 'training': metadata}
 
 
 def main():
@@ -96,6 +116,7 @@ def main():
     parser.add_argument('--device', default='cuda')
     parser.add_argument('--loss-types', default='ranking,value')
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--skip-game-evaluation', action='store_true', help='export supervised candidates; perform actual-game gates on a separate CPU job')
     args = parser.parse_args()
     loss_types = args.loss_types.split(',')
     if not loss_types or len(set(loss_types)) != len(loss_types) or any(kind not in ('ranking', 'value') for kind in loss_types):
@@ -120,7 +141,11 @@ def main():
     scale = np.maximum(.1, data['features'][training_rows].std(axis=0))
     # Positive quarter scaling preserves linear move ranking while giving the
     # residual a manageable score scale; only neural parameters are optimized.
-    base = [weight / 4. for weight in metadata['incumbent']['weights']]
+    frozen = metadata['incumbent'] if metadata['incumbent'].get('format') == 'triad-bluff-residual-mlp-v1' else None
+    initial_weights = metadata['incumbent']['base_weights'] if frozen else metadata['incumbent']['weights']
+    if args.width + (len(frozen['hidden_bias']) if frozen else 0) > 128:
+        raise ValueError('frozen plus new hidden units exceed validated 128-unit runtime limit')
+    base = [weight / 4. for weight in initial_weights]
     base += [0.] * (len(FEATURE_NAMES) - len(base))
     features = torch.as_tensor(data['features'], dtype=torch.float32, device=args.device)
     training = torch.as_tensor(training, dtype=torch.float32, device=args.device)
@@ -131,7 +156,7 @@ def main():
     candidates, history = [], []; started = time.time()
     for index, (loss_type, penalty) in enumerate((kind, penalty) for kind in loss_types for penalty in (.01, .03, .1)):
         torch.manual_seed(args.seed + index)
-        model = Residual(base, mean, scale, args.width).to(args.device)
+        model = Residual(base, mean, scale, args.width, frozen=frozen).to(args.device)
         optimizer = torch.optim.AdamW(model.parameters(), lr=.003, weight_decay=.0001)
         with torch.no_grad():
             _, initial_loss = loss(model, features, validation, penalty, loss_type)
@@ -156,15 +181,17 @@ def main():
             'seed': args.seed + index, 'loss_type': loss_type, 'regularization': penalty, 'best_epoch': best_epoch,
             'validation_preference_loss': best_loss, 'baseline_preference_loss': float(initial_loss),
             'training_games': training_games, 'validation_games': validation_games, 'source_dataset': metadata,
-            'base_score_factor': .25, 'hidden_state_use': 'training labels only; policy input is own/public features'})
+            'base_score_factor': .25, 'frozen_hidden_units': len(model.fixed_bias), 'baseline_policy_kind': 'mlp' if frozen else 'linear', 'hidden_state_use': 'training labels only; policy input is own/public features'})
         check = data['features'][:min(200, len(features))]
         with torch.no_grad():
             tensor = torch.as_tensor(check, dtype=torch.float32, device=args.device)
-            _, residual = model(tensor); base_scores = tensor @ model.base
+            full_scores, residual = model(tensor); base_scores = full_scores - residual
         for strength in (.25, .5, 1.):
             scaled = copy.deepcopy(document)
-            scaled['output_weight'] = [weight * strength for weight in scaled['output_weight']]
-            scaled['output_bias'] *= strength; scaled['training']['residual_scale'] = strength
+            fixed_count = len(model.fixed_bias)
+            scaled['output_weight'] = scaled['output_weight'][:fixed_count] + [weight * strength for weight in scaled['output_weight'][fixed_count:]]
+            fixed_bias = float(model.fixed_output_bias.detach().cpu())
+            scaled['output_bias'] = fixed_bias + (scaled['output_bias'] - fixed_bias) * strength; scaled['training']['residual_scale'] = strength
             deployed = Policy(scaled)
             actual = np.asarray([deployed.score_features(row.tolist()) for row in check])
             expected = (base_scores + strength * residual).cpu().numpy()
@@ -175,10 +202,18 @@ def main():
             print(json.dumps({'candidate': len(candidates), 'export_max_score_error': maximum}), flush=True)
             candidates.append(scaled)
     (args.output / 'training-progress.json').write_text(json.dumps(history, indent=2) + '\n')
-    incumbent = {'kind': 'v2', 'weights': metadata['incumbent']['weights']}
+    if args.skip_game_evaluation:
+        summary = {'candidate_count': len(candidates), 'source_dataset': metadata,
+                   'baseline_checkpoint': metadata['incumbent'], 'selection_completed': False,
+                   'training_games': training_games, 'validation_games': validation_games}
+        (args.output / 'fit-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+        print(json.dumps({'fit_export_complete': len(candidates), 'actual_game_selection_pending': True}), flush=True)
+        return
+    incumbent = {'kind': 'mlp', 'model': metadata['incumbent']} if frozen else {'kind': 'v2', 'weights': metadata['incumbent']['weights']}
     previous = json.loads(args.previous.read_text())
     reference = [{'kind': kind} for kind in ('starter', 'competitive', 'heuristic', 'random', 'truthful', 'aggressive')]
-    reference += [incumbent, {'kind': 'v1', 'weights': previous['weights']}]
+    previous_spec = {'kind': 'v2' if len(previous['weights']) == 30 else 'v1', 'weights': previous['weights']}
+    reference += [incumbent, previous_spec]
     reference += [{'kind': 'bluffer', 'bluff_rate': bluff, 'call_rate': call}
                   for bluff, call in ((.1, .0), (.1, .35), (.35, .1), (.65, .35), (.95, .0), (.95, .35))]
     specs = [incumbent] + [{'kind': 'mlp', 'model': document} for document in candidates]

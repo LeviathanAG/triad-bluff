@@ -53,9 +53,16 @@ def rollout(snapshot, seat, selected, trial_seed):
     return reward(state, seat)
 
 
+def checkpoint_spec(document):
+    if document.get('format') == 'triad-bluff-residual-mlp-v1':
+        return {'kind': 'mlp', 'model': document}
+    kind = document.get('training', {}).get('policy_kind',
+        'v2' if len(document['weights']) == 30 else 'v1')
+    return {'kind': kind, 'weights': document['weights']}
+
+
 def pool_specs(incumbent, previous):
-    return [{'kind': 'v2', 'weights': incumbent['weights']},
-            {'kind': 'v1', 'weights': previous['weights']},
+    return [checkpoint_spec(incumbent), checkpoint_spec(previous),
             *({'kind': kind} for kind in ('starter', 'competitive', 'random', 'aggressive', 'heuristic')),
             *({'kind': 'bluffer', 'bluff_rate': bluff, 'call_rate': call}
               for bluff, call in ((.1, .0), (.1, .35), (.35, .1), (.65, .35), (.95, .0), (.95, .35)))]
@@ -66,12 +73,13 @@ def collect_job(job):
     rng = random.Random(seed ^ 0x424C554646)
     own = seed % 4
     specs = [rng.choice(pool_specs(incumbent, previous)) for _ in range(4)]
-    specs[own] = {'kind': 'v2', 'weights': incumbent['weights']}
+    specs[own] = checkpoint_spec(incumbent)
     actors = [make_policy(spec, seed * 10 + player) for player, spec in enumerate(specs)]
     state = engine.new_game(engine.GameConfig(max_turns=1000), seed)
     reservoirs = {'PLACE': [], 'CHALLENGE': []}
     eligible = Counter()
-    feature_weights = incumbent['weights'] + [0.] * (len(FEATURE_NAMES) - len(incumbent['weights']))
+    initial = incumbent.get('base_weights', incumbent.get('weights'))
+    feature_weights = initial + [0.] * (len(FEATURE_NAMES) - len(initial))
     while state.outcome is None and own not in state.finished_set:
         decision = engine.next_decision(state)
         if decision.seat == own:
@@ -150,6 +158,7 @@ def main():
                 'samples_per_phase': args.samples_per_phase, 'max_actions': args.max_actions,
                 'seed_start': args.seed_start, 'incumbent': incumbent, 'opponent_pool': pool_specs(incumbent, previous),
                 'sdk_game_commit': '96da8042c285af4e4f43655f2ad99592bd49b8e6',
+                'incumbent_policy_kind': checkpoint_spec(incumbent)['kind'],
                 'hidden_state_use': 'training returns only; dealt hands fixed within state, common future actor seeds across actions',
                 'future_draw_pile_shuffle': False, 'own_hand_size_histogram': dict(sorted(hands.items())),
                 'phase_histogram': dict(phases), 'seconds': round(time.time() - started, 1)}

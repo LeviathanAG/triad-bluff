@@ -48,6 +48,16 @@ class FastPolicy(Policy):
         self.mean_array = np.asarray(self.means, dtype=np.float64)
         self.scale_array = np.asarray(self.scales, dtype=np.float64)
 
+    def __deepcopy__(self, memo):
+        # Counterfactual snapshots copy actor memory, while the NumPy module is
+        # immutable shared implementation state rather than game information.
+        import copy
+        clone = type(self).__new__(type(self))
+        memo[id(self)] = clone
+        for name, value in self.__dict__.items():
+            setattr(clone, name, value if name == 'np' else copy.deepcopy(value, memo))
+        return clone
+
     def act(self, observation):
         self.update(observation)
         candidates = self.candidates(observation)

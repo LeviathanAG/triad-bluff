@@ -82,3 +82,15 @@ is backed up under `bluff-residual-result/` as experimental training material.
 A 1,463-decision/12-game replay check matched fresh stdlib scoring to training
 NumPy scoring across 4/8 players and 1/2 decks; maximum replay was 15.81ms.
 Main and the packaged runtime remain the retained v2 model.
+
+The next neural-incumbent iteration is private and experimental. CPU collection
+`xdantalianx/triad-bluff-neural-incumbent-data` v1 is running on fresh source games
+64M, using the selected neural policy both in source play and later own rollout
+actions. The separate fit-only GPU notebook and actual-game-only CPU selector
+are prepared but not pushed. GPU training exports 18 candidates across both
+losses; CPU selection uses 65M, fixed-candidate final evaluation 66M and later
+independent comparison 67M. Long gameplay therefore consumes no GPU reservation.
+The frozen neural baseline is exactly converted to the new normalizer, then a
+new 64-unit residual yields a 128-unit stdlib scorer. Eight-game collection and
+CPU-selection smokes passed; maximum exact baseline conversion error was
+3.33e-16. No new trained checkpoint exists yet.
