@@ -1,0 +1,10 @@
+{
+  "candidate_commit": "bfc7f75ba0eedd90d0b0be9ff927df680bcbe0ae",
+  "branch": "codex/conservative-candidate",
+  "parent": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
+  "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+  "hidden_units": 128,
+  "source_directory": "/home/satwik/triad/training/bluff-conservative-source",
+  "main_unchanged": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
+  "promoted": false
+}
