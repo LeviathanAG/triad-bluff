@@ -1,5 +1,5 @@
 {
-  "status": "TRAINING_ONLY_PROTOTYPE_VERIFIED_NO_DATASET_COLLECTION_OR_DEPLOYMENT",
+  "status": "PHYSICAL_PROTOTYPE_VERIFIED_COLLECTION_BLOCKED_BY_SOURCE_POLICY_SUPPORT",
   "current_collection_limitation": "Paired trials condition on the same hidden simulator state and vary future actor RNG; zero stderr is conditional, not hidden-hand certainty.",
   "primary_references": [
     {
@@ -41,5 +41,12 @@
     "original_snapshots_unchanged": true,
     "actor_known_bounds_sound": true,
     "historical_trace_diagnostic_treatment": "Old hN refs cleared; no false replay claim."
+  },
+  "label_probe": "training/bluff-hidden-world-label-probe.json",
+  "policy_support_counterexample": {
+    "known_truthful_source_trials": 12,
+    "pending_batches_changed_to_bluffs": 11,
+    "meaning": "Uniform public-consistent card permutations can assign zero-likelihood current claims under deterministic truthful source policies. These probe labels are excluded from all training and performance gates.",
+    "required_before_collection": "Respect source-policy/current-claim support and account for earlier history likelihoods; physical consistency alone is insufficient."
   }
 }

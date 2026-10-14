@@ -1,0 +1,1100 @@
+{
+  "training_only_label_probe": true,
+  "states": 14,
+  "action_count": 2,
+  "paired_trials_per_state": 6,
+  "source_seeds": [
+    115000000,
+    115000001,
+    115000002,
+    115000003,
+    115000004,
+    115000005,
+    115000006
+  ],
+  "feature_vectors_unchanged": true,
+  "historical_policy_likelihood_weighted": false,
+  "rows": [
+    {
+      "source_seed": 115000000,
+      "regime": "league",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          3.0
+        ],
+        [
+          3.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          2.0,
+          1.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          3.0,
+          2.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          3.0,
+          3.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 1.3291601358251257,
+      "augmented_paired_gap_std": 0.408248290463863
+    },
+    {
+      "source_seed": 115000000,
+      "regime": "league",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "source_pending_truthful": false,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000001,
+      "regime": "neural_selfplay",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000001,
+      "regime": "neural_selfplay",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          2.0,
+          5.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          5.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": false,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 1.8973665961010275
+    },
+    {
+      "source_seed": 115000002,
+      "regime": "v2_selfplay",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000002,
+      "regime": "v2_selfplay",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          3.0,
+          5.0
+        ],
+        [
+          2.0,
+          3.0
+        ],
+        [
+          2.0,
+          3.0
+        ],
+        [
+          3.0,
+          5.0
+        ],
+        [
+          3.0,
+          3.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": true,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.8944271909999159
+    },
+    {
+      "source_seed": 115000003,
+      "regime": "competitive",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000003,
+      "regime": "competitive",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          1.0
+        ],
+        [
+          5.0,
+          1.0
+        ],
+        [
+          5.0,
+          1.0
+        ],
+        [
+          5.0,
+          1.0
+        ],
+        [
+          5.0,
+          1.0
+        ],
+        [
+          5.0,
+          1.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          1.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": true,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 1.632993161855452
+    },
+    {
+      "source_seed": 115000004,
+      "regime": "truthful",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000004,
+      "regime": "truthful",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": true,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000005,
+      "regime": "bluffer",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000005,
+      "regime": "bluffer",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          3.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          3.0,
+          3.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          3.0
+        ]
+      ],
+      "unknown_card_counts": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "source_pending_truthful": true,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "conditional_paired_gap_std": 0.816496580927726,
+      "augmented_paired_gap_std": 0.816496580927726
+    },
+    {
+      "source_seed": 115000006,
+      "regime": "frequent_call",
+      "phase": "PLACE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "source_pending_truthful": null,
+      "augmented_pending_truthful": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    },
+    {
+      "source_seed": 115000006,
+      "regime": "frequent_call",
+      "phase": "CHALLENGE",
+      "trials": 6,
+      "conditional_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "augmented_returns": [
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ],
+        [
+          5.0,
+          5.0
+        ]
+      ],
+      "unknown_card_counts": [
+        19,
+        19,
+        19,
+        19,
+        19,
+        19
+      ],
+      "source_pending_truthful": true,
+      "augmented_pending_truthful": [
+        false,
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "conditional_paired_gap_std": 0.0,
+      "augmented_paired_gap_std": 0.0
+    }
+  ],
+  "known_truthful_style_pending_violations": 11,
+  "collection_admission": "NOT_VALIDATED: pending claims can violate deterministic source-policy support; do not merge these probe labels into training.",
+  "scope": "Conditional versus public-consistent latent-world label variability, not policy-performance evidence."
+}
