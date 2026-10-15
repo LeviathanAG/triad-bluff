@@ -1,0 +1,21 @@
+{
+  "actual_model_files_and_canonical_hashes_verified": true,
+  "frozen_88M_opponent_pool_verified": true,
+  "checkpoint_file_sha256": [
+    "8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba",
+    "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
+    "606284b35375d3e305adb8cd37ef2e479881e3fc85f838dbe10d79d5171df3a5",
+    "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7"
+  ],
+  "checkpoint_canonical_sha256": [
+    "792a5d5203c627a29bd439e1f8760d973c764cb7cf546f090c697ad8f7d20ed4",
+    "4eff0b3501546a57161b922fed069040bced2d13076f9e20c5149c27cdcf58cf",
+    "1b7c2df644cda49f45ba0ee82d21a3b5a8d8da5ab1c9285cb6e155476e98fc0c",
+    "89acd0360461351fe738d4327497fa107fd6484ee20d1a636f94207b739a873e"
+  ],
+  "opponent_pool_canonical_sha256": "9afadaa1687be313080a0a0eff64ee77f498b3d75075f74feccddc2c71c64c03",
+  "independent_report_file_sha256": "d91606af567b2e845fbdb56ef668526c59853531f4c8fe53e7f1a27eea8a2f77",
+  "independent_blocks_file_sha256": "72605aebff626f74ee0c06cbc78ab2adf1690b549400f72be1fb2ea42c1876cb",
+  "raw_interval_reproduction": "bluff-balanced90-root-audit.json",
+  "no_model_reselection": true
+}

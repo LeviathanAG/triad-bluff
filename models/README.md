@@ -1,7 +1,12 @@
-`policy.json` is the tested development candidate: a 50-input, 64-unit residual
-MLP exported as finite JSON weights for standard-library inference. It is loaded
-and validated before initialization. `evaluation.json` contains the independent
-seed-53M comparison against retained `policy-v2.json`; `neural-kaggle-evaluation.json`
-records the earlier seed-52M final test. The v2 and v1 checkpoints and their reports
-remain available for rollback. The selected checkpoint is staged for the October 14 nightly test round.
-See `../provenance.md` for training sources and public-input restrictions.
+`policy.json` is the conservative final policy: 50 own/public inputs, 128 ReLU
+units (64 frozen incumbent units plus 64 fitted residual units), and finite JSON
+weights for standard-library CPU inference. Its SHA256 is
+`2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7`.
+The runtime validates it before initialization. `policy-neural64.json` preserves
+the exact previous NN64 policy; `policy-v2.json` and `policy-v1.json` preserve
+older rollbacks. Historical `evaluation.json` and `neural-kaggle-evaluation.json`
+report the NN64 seed53M/52M tests, rather than this conservative policy's results.
+The conservative95M/99M tests and complete four-policy90M evidence are retained
+in `../training/`; `conservative_candidate` identifies the active policy in the
+90M raw rows. See `../provenance.md` for final selection, real opponent-style
+tradeoffs, training sources, own/public feature restrictions and resource checks.

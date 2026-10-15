@@ -1,0 +1,58 @@
+{
+  "image": "triad-bluff:conservative-private",
+  "seed_start": 98000000,
+  "games": 3,
+  "restricted_cpu_and_memory": true,
+  "faults": 0,
+  "fallbacks": 0,
+  "reports": [
+    {
+      "points": {
+        "0": 1.0,
+        "1": 5.0,
+        "2": 2.0,
+        "3": 3.0
+      },
+      "fallbacks": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "faults": [],
+      "max_action_seconds": 0.2961189919951721
+    },
+    {
+      "points": {
+        "0": 5.0,
+        "1": 1.0,
+        "2": 3.0,
+        "3": 2.0
+      },
+      "fallbacks": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "faults": [],
+      "max_action_seconds": 0.27246052699774737
+    },
+    {
+      "points": {
+        "0": 3.0,
+        "1": 1.0,
+        "2": 5.0,
+        "3": 2.0
+      },
+      "fallbacks": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "faults": [],
+      "max_action_seconds": 0.30116599099710584
+    }
+  ]
+}

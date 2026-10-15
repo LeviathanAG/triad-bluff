@@ -1,0 +1,31 @@
+{
+  "source": "organizer-provided public Bluff leaderboard, tonight test",
+  "team": "LeviathanAG",
+  "rank": 1,
+  "participants": 5,
+  "games": 800,
+  "points": 3572,
+  "points_per_game": 4.465,
+  "wins": 671,
+  "win_rate": 0.83875,
+  "runner_up_points_per_game": 2.466,
+  "scoring": {
+    "default_four_player_position_points": [
+      5,
+      3,
+      2,
+      1
+    ],
+    "per_game_sum": 11,
+    "unfinished_players": "share remaining placement rewards"
+  },
+  "arithmetic_checks": {
+    "points_average_exact": true,
+    "wins_rate_exact": true,
+    "nonwinning_games": 129,
+    "nonwinning_points": 217,
+    "nonwinning_mean": 1.682170542635659,
+    "full_placement_scores_feasible": true
+  },
+  "interpretation": "Public aggregate supports retaining main; opponents, individual histories and exact placement counts are unavailable. It does not guarantee final-round victory."
+}
