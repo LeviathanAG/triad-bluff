@@ -1,4 +1,4 @@
-AUTHORITATIVE UPDATE 2026-10-15 08:20 IST (earlier sections are chronological history)
+AUTHORITATIVE UPDATE 2026-10-15 08:18 IST (earlier sections are chronological history)
 Main/origin main remains9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f; no promotion.
 Balanced88/89M selector v1 COMPLETE. Full raw arrays independently audited selection utility,
 eligibility, exactindex10=value/.01/.25/epoch105, model SHA8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba.
