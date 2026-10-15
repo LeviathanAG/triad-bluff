@@ -1,0 +1,16 @@
+{
+  "id": "xdantalianx/triad-bluff-balanced-incumbent-fit",
+  "title": "Triad Bluff Balanced Incumbent Fit",
+  "code_file": "bluff-balanced-fit.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "xdantalianx/triad-bluff-balanced-incumbent-data"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "games": 4,
+  "seed_start": 120000000,
+  "four_seats_rotated": true,
+  "decisions_compared": 170,
+  "phases": [
+    "CHALLENGE",
+    "PLACE"
+  ],
+  "persistent_vs_fresh_process_actions_exact_equal": true,
+  "checkpoint": null,
+  "all_actions_legal": true,
+  "max_initialize_seconds": 0.030918730997655075,
+  "max_persistent_action_seconds": 0.017899040998599958,
+  "model_sha256": "8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba"
+}

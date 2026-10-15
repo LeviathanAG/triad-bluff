@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "fit_job": "xdantalianx/triad-bluff-balanced-incumbent-fit version1",
+  "candidate_count": 18,
+  "hidden_units": 128,
+  "frozen_units": 64,
+  "whole_game_train": 2800,
+  "whole_game_validation": 700,
+  "baseline_exact_identity": true,
+  "actual_game_selection": "unlaunched, fresh88M/89M/90M",
+  "candidates": [
+    {
+      "index": 0,
+      "loss": "ranking",
+      "regularization": 0.01,
+      "strength": 0.25,
+      "best_epoch": 100,
+      "sha256": "72e5f178e8915a53f25ba2740f3711e64de64f50c9d8321e84adeef26636e93b"
+    },
+    {
+      "index": 1,
+      "loss": "ranking",
+      "regularization": 0.01,
+      "strength": 0.5,
+      "best_epoch": 100,
+      "sha256": "4eed1e56e674a10ed5df19094687818d11c209f2e5fed9a51312aa039bf72ff8"
+    },
+    {
+      "index": 2,
+      "loss": "ranking",
+      "regularization": 0.01,
+      "strength": 1.0,
+      "best_epoch": 100,
+      "sha256": "78e142de4aa9d2f6eb3faffe52d0c1c46990987d03d2d1f927c9a550056f5ef3"
+    },
+    {
+      "index": 3,
+      "loss": "ranking",
+      "regularization": 0.03,
+      "strength": 0.25,
+      "best_epoch": 99,
+      "sha256": "d81449bcb44b0d8af13979ec91547281f1e973fc09ce5482553b545a4a2f3ef6"
+    },
+    {
+      "index": 4,
+      "loss": "ranking",
+      "regularization": 0.03,
+      "strength": 0.5,
+      "best_epoch": 99,
+      "sha256": "204800a9ddb560ca679b25afc5a8957ca9db072dc27728f370aa49c08f2b99ae"
+    },
+    {
+      "index": 5,
+      "loss": "ranking",
+      "regularization": 0.03,
+      "strength": 1.0,
+      "best_epoch": 99,
+      "sha256": "b624115a3b864e63f6afcfc910f94dd031668e80edf5d405967206db97317147"
+    },
+    {
+      "index": 6,
+      "loss": "ranking",
+      "regularization": 0.1,
+      "strength": 0.25,
+      "best_epoch": 66,
+      "sha256": "f791d04496c340e59a4ef8f196302e3c12adefdd2e2240bb4847202b3ce84c94"
+    },
+    {
+      "index": 7,
+      "loss": "ranking",
+      "regularization": 0.1,
+      "strength": 0.5,
+      "best_epoch": 66,
+      "sha256": "5c393caf70899f077042c6ced18f74f8f62c2e0de94ca72550cc37c0ebf203d6"
+    },
+    {
+      "index": 8,
+      "loss": "ranking",
+      "regularization": 0.1,
+      "strength": 1.0,
+      "best_epoch": 66,
+      "sha256": "261489f1a788cdccd5f23c40e3c97f0da51e8232c1b152c6b83c8bd66ab7617b"
+    },
+    {
+      "index": 9,
+      "loss": "value",
+      "regularization": 0.01,
+      "strength": 0.25,
+      "best_epoch": 105,
+      "sha256": "8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba"
+    },
+    {
+      "index": 10,
+      "loss": "value",
+      "regularization": 0.01,
+      "strength": 0.5,
+      "best_epoch": 105,
+      "sha256": "5d63d82e0e1c92168d506380a3eb9fddfa1cee4ebb51a610e715bab7ec3f845d"
+    },
+    {
+      "index": 11,
+      "loss": "value",
+      "regularization": 0.01,
+      "strength": 1.0,
+      "best_epoch": 105,
+      "sha256": "23b033e941044c6e1216f602a2234aeefcf9abad63937671da069af4c7fb95e4"
+    },
+    {
+      "index": 12,
+      "loss": "value",
+      "regularization": 0.03,
+      "strength": 0.25,
+      "best_epoch": 88,
+      "sha256": "1e20bf1869ac81b45d25a43464e463115e1de8e6b852993b32c0ff291aebf85d"
+    },
+    {
+      "index": 13,
+      "loss": "value",
+      "regularization": 0.03,
+      "strength": 0.5,
+      "best_epoch": 88,
+      "sha256": "e96b4a65ebb4d5ae480231249cbf27b6f619969211cd580de1aaca10b459ac86"
+    },
+    {
+      "index": 14,
+      "loss": "value",
+      "regularization": 0.03,
+      "strength": 1.0,
+      "best_epoch": 88,
+      "sha256": "74ec9ce444d60c9e28dc4dd88427a5ad568cc9664cc55b633753b373c513bebc"
+    },
+    {
+      "index": 15,
+      "loss": "value",
+      "regularization": 0.1,
+      "strength": 0.25,
+      "best_epoch": 116,
+      "sha256": "0140840ca9e3330fb107daabce90d2e135319f2d67a63d4d3077c5166c5974e3"
+    },
+    {
+      "index": 16,
+      "loss": "value",
+      "regularization": 0.1,
+      "strength": 0.5,
+      "best_epoch": 116,
+      "sha256": "11f480a751e7b247f1e26273e21ae1c48fa295ce248f2d6b73bfff4e88f37dcb"
+    },
+    {
+      "index": 17,
+      "loss": "value",
+      "regularization": 0.1,
+      "strength": 1.0,
+      "best_epoch": 116,
+      "sha256": "68e9f6cb8047b03b928cf353a5a3f9b509852c6feea4f8e6f3d37a245b246b6b"
+    }
+  ]
+}

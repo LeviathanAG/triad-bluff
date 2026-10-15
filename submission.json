@@ -21,10 +21,10 @@
     "path": "models/policy.json",
     "format": "triad-bluff-residual-mlp-v1",
     "input_features": 50,
-    "hidden_units": 64,
-    "sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08"
+    "hidden_units": 128,
+    "sha256": "8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba"
   },
   "source_repository": "https://github.com/LeviathanAG/triad-bluff",
-  "source_branch": "main",
+  "source_branch": "codex/balanced-candidate",
   "runtime_version": 2
 }

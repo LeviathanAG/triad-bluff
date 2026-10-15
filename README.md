@@ -2,7 +2,7 @@
 
 Team: **TungMasterSoloClear** — **TECHTEAM11600**.
 
-The current participant runtime is the independently tested 64-unit neural
+The current participant runtime is the independently tested 128-unit balanced neural
 Bluff scorer in `models/policy.json`, with standard-library CPU inference.
 See `provenance.md` for training, validation and resource evidence.
 

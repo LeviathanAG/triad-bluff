@@ -2,96 +2,69 @@
 
 Team: TungMasterSoloClear (TECHTEAM11600).
 
-This snapshot contains the independently verified 64-unit neural candidate for
-the October 14, 21:00 IST test round. Future policy-improvement experiments are
-preserved separately; this runtime has no training-library dependency.
+This private review candidate uses a 128-unit residual scorer: the frozen 64-unit
+NN64 network plus 64 fitted units, 50 own/public inputs, standard-library CPU
+inference. The SDK runtime, filtered information handling, Dockerfile and limits
+are unchanged from main 9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f. Game source
+is Sir-Nike/bluffSDK 96da8042c285af4e4f43655f2ad99592bd49b8e6; the merged
+2e13997 update affects dependency accounting only. No GPU exemption is claimed.
+Historical NN64 provenance is in training/PROVENANCE-NEURAL64.md and its exact
+rollback checkpoint is models/policy-neural64.json.
 
-The protocol adapter, schemas, Docker template and evaluator originate from
-Sir-Nike/bluffSDK commit 96da8042c285af4e4f43655f2ad99592bd49b8e6. Attribution
-is retained. Organizer dependency-accounting update 2e13997 is merged; it changes
-no game mechanics. The entry uses the CPU template and claims no base exemption.
+Private free CPU balanced-incumbent-data v1 collected 3,500 whole source games
+at 87M, seven opponent styles, 14,000 phase-stratified reservoir states, 77,879
+actions and six paired future trials. Hidden simulator state determines rewards
+only. Exported features use own cards, own private placements and public history.
+NPZ SHA256: b952b79928c065ec07a3eb2537a501b2c0d042c42262dbe188fbb56c025879cd.
+The split is 2,800/700 whole games. A free T4 fit compared 18 ranking/value,
+regularization and strength candidates. Fixed 88M actual-game selection used nine
+regimes, 128 four-seat seed blocks, an eligible NN64 baseline and a predeclared
+maximum .025 observed-mean regression guard. It selected value loss, penalty .01,
+residual strength .25, epoch105. All zero-gap point-regression pairs were retained.
+Checkpoint SHA256: 8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba.
 
-The scorer is a non-language residual network: 50 inputs, one 64-unit ReLU layer,
-linear baseline plus scalar residual. `models/policy.json` stores finite floating
-weights, train-only normalization and training metadata. Runtime uses Python's
-standard library, with no NumPy/PyTorch, network calls or remote model downloads.
+Fresh 89M final games supported mixed-league and learned-opponent improvements.
+A fixed independent 90M gate then compared candidate, held NN64, retained v2 and
+conservative128 against the same frozen opponent pool: 512 four-seat seed blocks,
+2,048 games per policy per regime, 12 regimes, 98,304 total games. Full raw block
+arrays and exact sources are retained. Paired bootstrap95% intervals resample
+seed blocks, not individual seat games. Versus NN64 the candidate gained:
 
-Features derive exclusively from the player's own hand, own private placements
-and public history: claims, revealed challenged batches, hand sizes, observed
-selected/earlier challenge outcomes and conservative rank bounds. Unknown
-placements decrement every relevant rank bound; unchallenged claims are not
-verified truth. Later sealed votes remain unknown. Beta summaries are modeling
-features, not calibrated certainty claims. The additional pile deduction challenges
-only when disjoint known own/public cards leave insufficient rank copies.
+- mixed league +.109863 [.064929,.153320] points/game;
+- NN64 selfplay +.473145 [.431140,.517090];
+- v2 selfplay +.481445 [.438464,.524915];
+- learned mixture +.310547 [.257813,.364746];
+- conservative128 selfplay +.202148 [.142078,.261719].
 
-Private CPU job `xdantalianx/triad-bluff-counterfactual-value-data` version 1
-collected 3,000 source games (seed family 50M): 12,000 phase-stratified whole-game
-reservoir states, 67,757 feature-distinct candidate actions, four paired trials
-per action. Own hand sizes span 2–46; both phases have 6,000 states. Rollouts copy
-the simulator and actor memories, retain dealt hands, and share future stochastic
-actor streams across candidate actions. Hidden hands influence training rewards
-only, never policy inputs. Bluff has no future draw deck. Source-game IDs enforce
-supervised splits and do not enter inference features.
+The stochastic-bluffer comparison was -.014160 [-.057129,.030273]; the
+bluff.65/call.35 comparison was -.009766 [-.031738,.011731]. No universal
+improvement is claimed. Against conservative128, mixed league was -.008789
+[-.053223,.034668], NN64 selfplay +.268066 [.223633,.312988] and v2 selfplay
++.285645 [.250977,.322266], but bluff.65/call.35 was -.038574 [-.062500,-.015625]
+and conservative128 selfplay -.192383 [-.249512,-.136230]. These concrete
+tradeoffs remain part of final selection. Public standings use tonight's NN64;
+these proxy tests do not identify other teams' policies or guarantee a win.
 
-Private T4 job `xdantalianx/triad-bluff-residual` version 1 fit 18 candidates using
-2,400 training/600 validation source games. It compared gap-weighted sigmoid
-ranking and paired-point-difference MSE (including zero-gap pairs), three residual
-regularizers and three strengths. Actual games selected ranking loss, regularizer
-0.01, residual strength 0.5 and supervised epoch 97. Normalization uses training
-rows only. The three-epoch pipeline smoke used seeds 61M/62M, actual selection
-used 51M, and the fixed selected candidate's Kaggle final test used 52M. Exact
-notebook sources, provenance and JSON integrity checks are retained in `training/`.
+No physically consistent hidden-world augmentation labels were used: a local
+prototype violated truthful source-policy support and was explicitly rejected.
+State-balanced follow-up and rejected tree objectives remain separate experiments.
+No competitor private data or code was accessed. Credentials never enter source,
+features or inference. No network access or training-library dependency is needed
+at runtime. CPU1/RAM1GiB/scratch1GiB, GPUfalse/VRAM0, UID10000:10000, startup60s,
+action5s remain the admission limits. Registry destination remains unknown;
+local image identity does not imply a published pullable image.
 
-The Kaggle final test had 1,024 games per regime: league gain over v2 was +0.09473
-points/game, paired 95% bootstrap interval [0.04004, 0.14941]. The independent
-fixed-candidate comparison in `models/evaluation.json` uses entirely fresh 53M
-seeds, 2,048 games per regime and all four seats. Both policies face identical
-fixed opponents, including retained v2 and the SDK adaptive strategy. Gains were:
+Admission verification: 33 SDK tests passed, one optional organizer integration
+skipped; smoke and protocol-contract checks passed. Across 1,474 decisions in
+12 games (4/8 players, 1/2 decks), fresh standard-library full-history inference
+matched training NumPy actions exactly, with sound own/public card bounds and
+maximum18.14ms. A separate four-seat transport check compared170 decisions
+between persistent and freshly initialized processes exactly, both phases,
+null checkpoints, maximum initialization30.92ms and action17.90ms.
 
-- diverse league +0.13477, interval [0.09717, 0.17188];
-- adaptive/starter +0.05273, interval [0.03564, 0.07080];
-- truthful +0.04688, interval [0.02881, 0.06592];
-- stochastic bluffer +0.09521, interval [0.05420, 0.13574];
-- three retained-v2 rivals +0.24072, interval [0.19873, 0.28516];
-- aggressive caller tied at five points.
-
-The two frequent-call stress regimes previously problematic for v2 gave +0.02344
-[0.00879, 0.03809] and +0.01709 [-0.00293, 0.03809]. Intervals resample four-seat
-seed blocks. These are development proxies, not other teams; no competition win
-or universal optimality is claimed. The original v2 and v1 checkpoints and their
-reports remain in `models/` for rollback. Historical v2 provenance is preserved
-in `training/PROVENANCE-V2.md`. V5 linear refinement failed its independent gate
-and was not adopted.
-
-Inference reconstructs complete filtered history on every decision. Across 1,463
-decisions in 12 games with four/eight players and one/two decks, fresh stdlib
-scoring exactly matched persistent training NumPy decisions; all actions were
-legal and inferred own/public bounds sound. Maximum full replay was 15.81ms.
-No seeds, hidden hands or credentials enter inference. The training-only read-only
-observation shortcut and NumPy batching are absent from deployed source.
-
-The SDK suite passed 33 tests with one optional organizer integration skipped;
-smoke and contract checks passed. Three local protocol games and three restricted
-Docker games completed with zero faults/fallbacks. The Docker runs used one CPU,
-1 GiB RAM, no network, a read-only filesystem and USER 10000:10000. Maximum observed
-Docker decision latency was 327.78ms, below the five-second action limit. The
-complete uncompressed image is 129,925,120 bytes, well below 1.5 GiB; source/assets
-are about 1.1 MB. No registry publication or official submission has occurred.
-
-A supplemental entirely fresh 58M grid varied bluff probabilities 0.1/0.35/0.65/0.95
-and call probabilities 0/0.1/0.35/0.8, with 512 games per regime. No statistically
-supported regression was observed versus v2. The largest gain was +0.51367
-[0.41992, 0.61133] at bluff 0.95/call 0; the sole negative mean was -0.00391
-[-0.08984, 0.08203]. This grid was not used to select the checkpoint; its complete
-report is `training/bluff-residual-adversarial-grid.json`.
-
-Nightly staging rechecked the exact 64-unit runtime and documentary manifest.
-The SDK suite again passed 33 tests with one optional skip; smoke and contract
-checks passed. A four-seat transport restart check compared 135 PLACE/CHALLENGE
-requests between persistent and freshly initialized processes, with identical
-legal actions and null checkpoints. Maximum initialization was 21.16ms and
-persistent action 8.92ms. Three fresh restricted Docker games had no faults or
-fallbacks and maximum observed decision latency 308.39ms. Linux/amd64, UID
-10000:10000, exec ENTRYPOINT and all seven resource labels were inspected.
-The registry destination is pending separately; this source manifest deliberately
-does not invent a published image reference.
+Three fresh restricted Docker games (one CPU, RAM1GiB, read-only filesystem,
+no network, tmpfs scratch1GiB, no capabilities, no privilege gain) completed
+with zero faults/fallbacks. Maximum observed action399.47ms. Container model,
+rollback and manifest identities, Linux/amd64, UID10000:10000, exec entrypoint
+and all seven resource labels were checked. This is a private review snapshot;
+main remains held and no published image registry destination is available.

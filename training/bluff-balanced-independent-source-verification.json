@@ -1,0 +1,23 @@
+{
+  "slug": "xdantalianx/triad-bluff-balanced-incumbent-verify",
+  "version": 1,
+  "source_exact_remote_match": true,
+  "source_sha256": "e60bc7e8752e7d7c1d8a59dad6c2ae050916c24fee75f80a3a652863cfe91aa2",
+  "private": true,
+  "gpu": false,
+  "tpu": false,
+  "accepted_push_cli_timeout_argument": 21600,
+  "server_cap_not_exposed_by_pull_api": true,
+  "absolute_child_process_group_stop_utc": "2026-10-15T06:00:00+00:00",
+  "official_freeze_utc": "2026-10-15T07:30:00+00:00",
+  "prep_margin_minutes": 90,
+  "candidate_file_sha256": "8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba",
+  "source_selection_seeds": 88000000,
+  "source_final_seeds": 89000000,
+  "independent_seeds": 90000000,
+  "blocks": 512,
+  "regimes": 12,
+  "comparators": 4,
+  "raw_block_sidecar": "output/independent-blocks.json",
+  "method": "Fixed selected value/.01/.25 checkpoint; never choose a new checkpoint from independent seeds."
+}

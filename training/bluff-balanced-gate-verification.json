@@ -1,0 +1,88 @@
+{
+  "raw_block_integrity_verified": true,
+  "selected_index": 10,
+  "selection_utility": 0.12782118055555555,
+  "selection_blocks": 128,
+  "final_blocks": 256,
+  "selected_canonical_sha256": "792a5d5203c627a29bd439e1f8760d973c764cb7cf546f090c697ad8f7d20ed4",
+  "final_vs_neural_recomputed": {
+    "league": {
+      "mean_gain": 0.087890625,
+      "ci95": [
+        0.02536621093750001,
+        0.1533203125
+      ]
+    },
+    "competitive": {
+      "mean_gain": 0.0234375,
+      "ci95": [
+        0.0078125,
+        0.0390625
+      ]
+    },
+    "starter": {
+      "mean_gain": 0.0234375,
+      "ci95": [
+        0.0078125,
+        0.0390625
+      ]
+    },
+    "truthful": {
+      "mean_gain": 0.015625,
+      "ci95": [
+        -0.00390625,
+        0.03515625
+      ]
+    },
+    "bluffer": {
+      "mean_gain": -0.0234375,
+      "ci95": [
+        -0.0947265625,
+        0.0478515625
+      ]
+    },
+    "aggressive": {
+      "mean_gain": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "incumbent_selfplay": {
+      "mean_gain": 0.4384765625,
+      "ci95": [
+        0.3779296875,
+        0.501953125
+      ]
+    },
+    "weakspot_bluff01_call035": {
+      "mean_gain": 0.0029296875,
+      "ci95": [
+        -0.015625,
+        0.021484375
+      ]
+    },
+    "weakspot_bluff065_call035": {
+      "mean_gain": 0.001953125,
+      "ci95": [
+        -0.0322265625,
+        0.037109375
+      ]
+    },
+    "learned_mixture": {
+      "mean_gain": 0.3154296875,
+      "ci95": [
+        0.234375,
+        0.3955078125
+      ]
+    },
+    "strong_rival_selfplay": {
+      "mean_gain": 0.3701171875,
+      "ci95": [
+        0.2744140625,
+        0.46682128906249964
+      ]
+    }
+  },
+  "scope": "Evidence audit only; independent fresh gate still required for a proposed replacement."
+}
