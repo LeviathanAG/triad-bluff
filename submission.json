@@ -26,5 +26,6 @@
   },
   "source_repository": "https://github.com/LeviathanAG/triad-bluff",
   "source_branch": "main",
-  "runtime_version": 2
+  "runtime_version": 2,
+  "teamName": "TungMasterSoloClear"
 }

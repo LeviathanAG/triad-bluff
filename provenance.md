@@ -86,3 +86,10 @@ seeds) had zero faults/fallbacks, maximum action388.72ms. The executable runtime
 remain identical to reviewed conservative128; the models README now correctly
 describes128 units and distinguishes historicalNN64 reports. Training/restart evidence is
 retained. See training/bluff-final-tests.json and bluff-final-byte-identity.json.
+
+Organizer manifest update: the required top-level teamName is exactly
+TungMasterSoloClear, matching the website team and existing team_name identity.
+The rebuilt image contains the exact source manifest bytes; one additional
+restricted game completed with zero faults/fallbacks and maximum359.25ms.
+No executable code or model weights changed. Private organizer replay traces
+were kept outside the submission repository and were not used for training.
