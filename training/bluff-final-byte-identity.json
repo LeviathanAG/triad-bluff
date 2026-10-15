@@ -1,0 +1,10 @@
+{
+  "all_container_src_models_exact_source_bytes": true,
+  "runtime_asset_files_verified": 36,
+  "manifest_exact": true,
+  "main_source_branch": true,
+  "runtime_model_dockerfile_unchanged_from_reviewed_bfc7f75": true,
+  "resource_labels_uid_platform_entrypoint_verified": true,
+  "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+  "rollback_sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08"
+}

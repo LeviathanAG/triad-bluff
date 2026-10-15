@@ -1,0 +1,56 @@
+{
+  "repo": "/home/satwik/triad/training/bluff-final-source",
+  "revision": "10e949d45b67bc9179ad6cfbe5c5f250db78891c",
+  "total_bytes": 6440715,
+  "limit_bytes": 1610612736,
+  "ok": true,
+  "file_count": 291,
+  "lfs_pointers": [],
+  "largest_files": [
+    {
+      "path": "training/balanced90-independent.json",
+      "bytes": 1553825
+    },
+    {
+      "path": "training/bluff-conservative-independent95.json",
+      "bytes": 985168
+    },
+    {
+      "path": "training/bluff-conservative-weakspot-replication.json",
+      "bytes": 977567
+    },
+    {
+      "path": "training/balanced90-independent-blocks.json",
+      "bytes": 769742
+    },
+    {
+      "path": "models/policy.json",
+      "bytes": 469810
+    },
+    {
+      "path": "training/kaggle-bluff-neural-data/bluff-neural-data.ipynb",
+      "bytes": 176758
+    },
+    {
+      "path": "training/bluff-v3-threeway-independent.json",
+      "bytes": 140576
+    },
+    {
+      "path": "models/policy-neural64.json",
+      "bytes": 105605
+    },
+    {
+      "path": "training/bluff-residual-result/bluff-policy-mlp.json",
+      "bytes": 105605
+    },
+    {
+      "path": "training/kaggle-bluff-neural-select/bluff-neural-select.ipynb",
+      "bytes": 75657
+    }
+  ],
+  "image": {
+    "reference": "triad-bluff:final-20261015",
+    "bytes": 130396160,
+    "ok": true
+  }
+}

@@ -1,3 +1,20 @@
+FINAL RELEASE READY 2026-10-15 11:17 IST
+User authorized final push at12:00noonIST Oct15; root owns timed main promotion.
+Final selection conservative128 model2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7.
+Clean source10e949d45b67bc9179ad6cfbe5c5f250db78891c directchild main9d48b9d,
+privateoriginbranchcodex/final-conservative-20261015 pushed+verified. Sourcepathtraining/bluff-final-source.
+Manifest source_branch main,teamTungMasterSoloClear/TECHTEAM11600,NN64rollback exactba6ed2a7...a1b08.
+Main remains9d48b9d, no early mainpush. Root already has exactSHA/paths/report for12noon.
+Runtime/src/models/Dockerfile byte-identical bfc7f75; finalfullsuite33pass1optionalskip,
+smokecontractpass;36container src/model hashesexactsource;manifest/resourceUIDplatformchecks pass.
+3freshrestrictedDocker games122Mcorrectnessonly zero faults/fallbacks,max.42206s.
+Finalimage triad-bluff:final-20261015 localOCIindexsha256:89de05ed3fb4135c7321d7f00ce589c4c40a0dd821f43c39bf8b8810bbd12971.
+Wholeimage130396160B/source6440715B. Sourcearchivetraining/bluff-final-source.tar6696960B
+SHA0994130af73dcfc788dcc623779c02c661b2ede138f5912fe0422f220d7ff533.
+Reporttraining/bluff-final-ready.json; existingrestart/inferenceevidence retainedunchanged.
+Fullraw90arrays/audits truthful95/99weakstyleevidence andbalancedtradeoffs includedprovenance.
+Balanced8d94e3b alternative preserved. No newtraining/no registrydestinationguess/no publication.
+
 AUTHORITATIVE UPDATE 2026-10-15 08:18 IST (earlier sections are chronological history)
 Main/origin main remains9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f; no promotion.
 Balanced88/89M selector v1 COMPLETE. Full raw arrays independently audited selection utility,

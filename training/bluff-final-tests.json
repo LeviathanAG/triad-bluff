@@ -1,0 +1,16 @@
+{
+  "sdk_pytest_passed": 33,
+  "sdk_pytest_optional_skipped": 1,
+  "smoke_check_passed": true,
+  "contract_check_passed": true,
+  "fresh_restricted_docker_games": 3,
+  "fresh_restricted_faults": 0,
+  "fresh_restricted_fallbacks": 0,
+  "maximum_docker_action_ms": 422.05962499429006,
+  "unchanged_runtime_evidence": [
+    "bluff-conservative-replay-verification.json",
+    "bluff-conservative-protocol-restart.json"
+  ],
+  "all_src_models_bytes_verified_against_final_container": true,
+  "note": "Final policy/runtime assets exactly match reviewed bfc7f75; full prior inference/restart evidence retained, final SDK suite and restricted Docker gates rerun."
+}
