@@ -1,3 +1,19 @@
+CORRECTED IMMUTABLE FINAL RECEIPT 2026-10-15 11:19 IST
+Use df50bc64bd64bc27d383ef34380d3f38651087b4 onprivatecodex/final-release-20261015,
+directparentheldmain9d48b9d. Cleanworktree training/bluff-final-source. Privateoriginverified;
+mainstill9d48,rootonlypushat12noon. modelsREADMEcorrected128vsoldnightlyNN64note.
+This supersedes provisional10e949d/archive0994130/digest89de05; do not use earlierreceipt.
+Finalimage triad-bluff:final-20261015 localOCIindexsha256:1c9c6b281b47fe52ea8b16d06510590dd767a806671178a23bc84c88c31edde8.
+Image130396160B/source6441267B/archive6696960B;archivesHA91eba158228676a309c130d8ddd86d45ffea797802ca17cf9af05d482db9935d.
+FinalactiveJSON2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7,
+NN64rollbackba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08.
+Executable src/JSONweights/Dockerfile exactreviewedbfc7f75. All36src/model containerfiles
+includingcorrectedREADME exactfinalsource,manifestmain correctteam/resources/UID/platformverified.
+33tests1optionalskip/smokecontractpass;3freshfinal-image restrictedgames122000003..5
+zero faults/fallbacks max.388712s. Sourcebranchnoonpromoteauthorized rootorchestration.
+Reporttraining/bluff-final-ready.json updated;rootreceivedcorrectedimmutablecommit/archive/image.
+No newtraining, no registryURIguess, no mainpushbychild. Preserveallalternatives.
+
 FINAL RELEASE READY 2026-10-15 11:17 IST
 User authorized final push at12:00noonIST Oct15; root owns timed main promotion.
 Final selection conservative128 model2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7.

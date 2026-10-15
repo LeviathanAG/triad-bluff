@@ -6,5 +6,6 @@
   "runtime_model_dockerfile_unchanged_from_reviewed_bfc7f75": true,
   "resource_labels_uid_platform_entrypoint_verified": true,
   "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
-  "rollback_sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08"
+  "rollback_sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
+  "documentary_models_readme_corrected": true
 }
