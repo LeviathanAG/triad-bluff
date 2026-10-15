@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "seed_start": 95000000,
+  "games_per_regime": 2048,
+  "regimes": 10,
+  "candidate_training_identity": true,
+  "main_promotion": "held; one marginal negative calling-style CI needs replication",
+  "weak_style95M": {
+    "mean_gain": -0.01611328125,
+    "ci95": [
+      -0.03173828125,
+      -0.00048828125
+    ],
+    "unit": "points per game",
+    "sampling_unit": "four-seat seed block"
+  },
+  "fresh_replication_seeds": 99000000,
+  "fresh_replication_blocks": 2048,
+  "scoring": [
+    5,
+    3,
+    2,
+    1
+  ]
+}

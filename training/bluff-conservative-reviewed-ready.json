@@ -1,0 +1,29 @@
+{
+  "candidate_commit": "bfc7f75ba0eedd90d0b0be9ff927df680bcbe0ae",
+  "branch": "codex/conservative-candidate",
+  "parent": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
+  "model_sha256": "2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7",
+  "hidden_units": 128,
+  "source_directory": "/home/satwik/triad/training/bluff-conservative-source",
+  "main_unchanged": "9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f",
+  "promoted": false,
+  "private_branch_pushed": true,
+  "image_tag": "triad-bluff:conservative-reviewed",
+  "local_oci_index_digest": "sha256:95b960e00a9547c04b7b2667efd13403cbf6db77d15dd6bf56d5d26f16f35bd1",
+  "image_bytes": 130396160,
+  "source_bytes": 4088622,
+  "size_ok": true,
+  "manifest_team_and_model_verified_in_container": true,
+  "neural64_rollback_sha256": "ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08",
+  "restricted_docker_games": 3,
+  "restricted_faults": 0,
+  "restricted_fallbacks": 0,
+  "max_restricted_action_seconds": 0.3164505280001322,
+  "existing_model_runtime_checks": "33pytest/1optional skip,1481 NumPy-vs-stdlib replay decisions,167 exact fresh-process restart decisions",
+  "publication": "not published; registry destination unknown",
+  "confidence_reports": [
+    "bluff-conservative-independent95.json",
+    "bluff-conservative-weakspot-replication.json"
+  ],
+  "balanced_data": "RUNNING, no restart; fit/select unlaunched"
+}

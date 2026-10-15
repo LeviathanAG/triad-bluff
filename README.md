@@ -2,8 +2,9 @@
 
 Team: **TungMasterSoloClear** — **TECHTEAM11600**.
 
-The current participant runtime is the independently tested 64-unit neural
+The current participant runtime is the independently tested conservative 128-unit neural
 Bluff scorer in `models/policy.json`, with standard-library CPU inference.
+Prepared for the authorized October15 noon IST final push. The historical neural64 rollback is `models/policy-neural64.json`.
 See `provenance.md` for training, validation and resource evidence.
 
 The SDK is a standalone Python starter for Triad Bluff. Participants edit
