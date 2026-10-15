@@ -1,0 +1,56 @@
+{
+  "repo": "/home/satwik/triad/training/bluff-balanced-source",
+  "revision": "8d94e3b383d75dc1e36387f22dba6eb00e0a93d6",
+  "total_bytes": 8352533,
+  "limit_bytes": 1610612736,
+  "ok": true,
+  "file_count": 293,
+  "lfs_pointers": [],
+  "largest_files": [
+    {
+      "path": "training/balanced90-independent.json",
+      "bytes": 1553825
+    },
+    {
+      "path": "training/balanced-selection.json",
+      "bytes": 1314966
+    },
+    {
+      "path": "training/balanced90-independent-blocks.json",
+      "bytes": 769742
+    },
+    {
+      "path": "training/kaggle-bluff-balanced-verify/bluff-balanced-independent.ipynb",
+      "bytes": 734962
+    },
+    {
+      "path": "training/balanced-selection-blocks.json",
+      "bytes": 702742
+    },
+    {
+      "path": "training/kaggle-bluff-balanced-select/bluff-balanced-select.ipynb",
+      "bytes": 471212
+    },
+    {
+      "path": "models/policy.json",
+      "bytes": 470139
+    },
+    {
+      "path": "training/balanced-evaluation.json",
+      "bytes": 299819
+    },
+    {
+      "path": "training/balanced-evaluation-blocks.json",
+      "bytes": 270040
+    },
+    {
+      "path": "training/kaggle-bluff-neural-data/bluff-neural-data.ipynb",
+      "bytes": 176758
+    }
+  ],
+  "image": {
+    "reference": "triad-bluff:balanced-reviewed",
+    "bytes": 130396672,
+    "ok": true
+  }
+}

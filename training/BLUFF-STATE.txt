@@ -1,0 +1,149 @@
+AUTHORITATIVE UPDATE 2026-10-15 08:20 IST (earlier sections are chronological history)
+Main/origin main remains9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f; no promotion.
+Balanced88/89M selector v1 COMPLETE. Full raw arrays independently audited selection utility,
+eligibility, exactindex10=value/.01/.25/epoch105, model SHA8253987d638222d8f1314baa5e7045f1b5ab58c5b224506be011078e21d330ba.
+90M four-comparator independent v1 COMPLETE, fetched exactrawsummary+arrays. Root independently
+recomputed all512blockCIs, config/order/seedIDs. Ownactualfile/canonical/pool88M identitiespass.
+98304games total12regimes4policies2048each. VersusNN64 league+.109863[.064929,.153320],
+NNself+.473145[.431140,.517090],v2self+.481445[.438464,.524915],learnedmix+.310547[.257813,.364746].
+Versusconservative128 league-.008789[-.053223,.034668],NNself+.268066[.223633,.312988],
+v2self+.285645[.250977,.322266],butbluff.65/call.35-.038574[-.062500,-.015625]
+andconservative-selfplay-.192383[-.249512,-.136230]. No universalbest inference.
+Originalfixed88M nineequalregimeweights onfresh90M: balancedvsNN64+.120822CI[.105956,.135581],
+conservativevsNN64+.121311[.106391,.136393];balancedvsconservative-.000488[-.014865,.013836].
+Reportbluff-balanced90-fixed-mixture-audit.json; descriptive only, no weightretuning.
+
+PRIVATE REVIEW CANDIDATE rootauthorizedstageNOTmainpromotion:
+8d94e3b383d75dc1e36387f22dba6eb00e0a93d6 oncodex/balanced-candidate, directparentmain9d48b9d.
+Privateoriginbranchpushed/remoteverified. Separateworktree training/bluff-balanced-source.
+NN128stdlibCPU runtime unchangedsrc/Dockerfile;NN64rollback exactba6ed2a7...a1b08.
+TeamTungMasterSoloClear/TECHTEAM11600 manifestmodelhashactual825398...330ba.
+Manifestbranchcurrentlycodex/balanced-candidate; rootreviewrequired, anymainpromotionneeds
+documentarybranchmain edit/rebuild/recheck identity. No publishedregistrydestination.
+Image triad-bluff:balanced-reviewed localOCIindexsha256:6f97e9674f19d44995a3846d7f720ad4180d88361e98e122699af8bb0c328dba.
+Wholeimage130396672B/source8352533B under1.5GiB,CPU1/RAM1GiB/scratch1GiB/GPUfalse/VRAM0.
+33tests1optionalskip,smoke/contractpass,1474NumPy/stdlibdecisions12gamesexactmax18.14ms;
+170freshprocessrestartdecisions4seatsbothphasesexactnullcheckpoint;
+3restrictedDocker gameszero faults/fallbacksmax.39947s,correctUID10000:10000/linuxamd64/7labels.
+Reporttraining/bluff-balanced-reviewed-ready.json. Tonightmainandconservativebfc7f75preserved.
+No statebalancedfitlaunched; cutoff11:30IST/freeze13IST, prioritize review/packaging.
+No localBluffevalsessions live. Currentdevelopmentbranch1f5a1cf training-only, no runtimechange.
+
+BLUFF authoritative state — 2026-10-15 IST, /root/bluff owner
+Root coordinates all final promotion/publication. No paid compute. No global-win guarantee.
+
+FROZEN MAIN
+Private https://github.com/LeviathanAG/triad-bluff main/origin/main:
+9d48b9ddd37ceb42b7892b39ef4fa6c84eb0452f
+Pushed/verified by root ~20:55 IST Oct14 after interruption, not planned20:30.
+Team TungMasterSoloClear / TECHTEAM11600. Public name LeviathanAG.
+Neural64 stdlib CPU,50 own/public features; model SHA:
+ba6ed2a7aa7f03637c02225fb96c71e4798fb5073f3bf5ff2a793038719a1b08
+Image triad-bluff:tonight-verified local OCI index:
+sha256:73bac63381fc3eb2bb26151d0416a5fdf2889584bcd32ef3d5f759581f1ea995
+Whole image129925632 bytes/source1655617 below1610612736;33pytest pass1optional skip,
+135 explicit fresh restart decisions;3 restricted Docker games zero faults/fallbacks.
+CPU1/RAM1GiB/GPUfalse/USER10000:10000/linuxamd64, offline,60s startup/5s action.
+Registry destination unknown; local OCI identities do not imply registry pullability.
+Organizer accepted Sir-Nike write access. Final default/agreed branch automatically frozen Oct15 13:00IST.
+SDK game commit96da8042c285af4e4f43655f2ad99592bd49b8e6; shared-base-only update2e13997 merged.
+Whole small CPU image measured; no shared-GPU-base exemption claimed.
+
+PUBLIC ORGANIZER STANDINGS
+Round1 rank1/5,800 games3572points4.465/game671wins83.875%,runner-up2.466/game.
+Round2 rank1/6,640games2638points4.121875/game414wins64.6875%;runner-up2170points3.390625,
+margin468points/.73125 pergame. Different entrant count/lineup; no causal regression or private-policy inference.
+Evidence bluff-organizer-test-leaderboard.json /bluff-organizer-round2-leaderboard.json.
+SDK4players1deck rewards5/3/2/1, cap splits remaining seat rewards, sum11/game.
+
+SERIOUS PRIVATE CONSERVATIVE128 CANDIDATE (UNPROMOTED)
+Branch codex/conservative-candidate SHA bfc7f75ba0eedd90d0b0be9ff927df680bcbe0ae,
+direct parent frozen main. Root reviewed. Keep main unchanged.
+Ranking residual strength.15,50features64frozen+64new; actual model SHA:
+2aaeaaf13084a254ed443d4ffcc4288ab32ffe2b284d5bd9023c4a78594b0cf7
+training/bluff-conservative-ranking-output/bluff-policy-mlp.json
+93M fixed strengthsweep;94M final256blocks/regime league+.136719CI[.080078,.195337],
+NNselfplay+.192383CI[.140625,.243164].
+95M independent512blocks/2048games/regime COMPLETE:
+league+.153809CI[.110840,.197266],NNselfplay+.165039CI[.125488,.203625],
+v2selfplay+.200195CI[.166980,.233398]. Classical means0/near0; weakbluff.1/call.35
+marginal-.016113CI[-.031738,-.000488]. Preserve this adverse observation.
+99M fixed same checkpoint replication2048blocks/8192games COMPLETE:
+bothmean4.93701171875,gain0CI[-.007446,.007568]. No claim of universal equivalence.
+Reports bluff-conservative-independent95.json /bluff-conservative-weakspot-replication.json.
+Old95/99 reports omit raw seed arrays; source-auditable summaries preserved, not restarted for this alone.
+Image triad-bluff:conservative-reviewed local OCI index:
+sha256:95b960e00a9547c04b7b2667efd13403cbf6db77d15dd6bf56d5d26f16f35bd1
+Image130396160/source4088622bytes. In-container manifest/model/NN64rollback hashes verified;
+new3restricted Docker games0faults/fallbacks,max316.45ms. Unchanged runtime:
+33pytest1skip,1481 NumPy/stdlib decisions12games4/8players1/2decks,max18.64ms;
+167 explicit process-restart decisions4seats,maxact15.11ms. Evidence bluff-conservative-reviewed-ready.json.
+Correct manifest branch currently codex/conservative-candidate. Any future main promotion requires
+changing documentary branch to main and rebuilding/identity-checking corresponding image.
+models/policy-neural64.json keeps exact winning rollback. No registry publication.
+
+CURRENT BALANCED NEURAL PIPELINE
+Data xdantalianx/triad-bluff-balanced-incumbent-data v1 COMPLETE validated:
+87M3500 whole games,7compositions500games each,14000phase-reservoir states/77879actions/6paired trials.
+50own/public input features only; hidden simulator labels/rewards only; no draw deck in Bluff.
+Source and future own rollouts use NN64. Both phases7000,eachregime2000states.
+NPZ SHA b952b79928c065ec07a3eb2537a501b2c0d042c42262dbe188fbb56c025879cd.
+Report bluff-balanced-data-verification.json. Dataset output training/kaggle-bluff-balanced-data-output/output.
+Fit xdantalianx/triad-bluff-balanced-incumbent-fit v1 COMPLETE validated:
+free T4 fit/export-only,120epochs18ranking/value×penalty×strength exports,128units64frozen,
+whole-game2800train/700val. BaselineexactNN64,newnormalizer conversion preserves old scores.
+Fit output training/kaggle-bluff-balanced-fit-output/output;report bluff-balanced-fit-verification.json.
+ACTIVE selector xdantalianx/triad-bluff-balanced-incumbent-select v1 RUNNING freeCPU.
+Exact frozen notebook SHA8b141540dbf0129508f804b6ec2e10a1fb07ccb3f42ecb147c521f4be37b7a4f;
+private=true/GPU=false/TPU=false, remote source matched. Preserve live job, no restart.
+88M128blocks selection9fixed regimes, equalmeans/per-regimeobservedlossguard.025,
+baselineeligible/wins ties;89M256blocks final11regimes;90M512blocks independent reserved.
+Strong styles include learned-only mixture and conservative.15 selfplay, both fixed before weights observed.
+Future raw selection/evaluation sidecars save orderedseedIDs/block_points/block_wins,
+model/pool canonical hashes/config/SDK identity. Completed old95/99 not rerun for missing arrays.
+On COMPLETE selectively fetch output/(selection.json|selection-blocks.json|evaluation.json|
+evaluation-blocks.json|bluff-policy-mlp.json), validate source/identities and recompute CIs.
+Future evaluator evaluate_bluff_threeway.py now supports strong-rival fourth comparator,
+learned-mixture/strong-rival-selfplay and rawblocksidecars. One-block seed89999999smoke
+candidate==conservative duplicate comparator exactly; smoke is protocol evidence only.
+Run fixed90M independent only for a concrete selected improvement, compare NN64/v2/conservative,
+then root review; no automatic main promotion.
+
+ROOT TREE FAMILY / INDEPENDENT REVIEW
+Root owns training/bluff_tree_* files, bluff-tree-fit/ and tree selection. Do not modify/integrate.
+103M row-residual family COMPLETE: incumbent selected; all sixfail predeclared league guard
+(-.046875 to-.109375) despiteNNselfplay gains. No104/105M final or promotion.
+Root fixed native dense LightGBM tiny-input normalization; our separate path audit confirms
+both families13,269ancestor-reachable threshold probes exact0error.
+Original generic-exporter failures preserved6probes/max.0448189 and1/max.00482917.
+Our audit files bluff-scorer-independent-review.json /bluff-scorer-path-audit.json /
+check_bluff_scorer_export_independent.py; syntheticvectors are scorer parity only, not game selection.
+Parent considering centered pairwise structural objective; keep neural pipeline separate.
+
+PRIVATE BACKUP / COMPUTE
+Development branch training-only; last pushed SHA a0cc3495bd1e5e5437f361ad9d606756b129d025.
+No local Bluff evaluators live. Future local evaluations <=4workers, usually3.
+Use /home/satwik/triad/bin/kaggle refresh-safe wrapper; never print/copy credentials.
+Last quota4.7733/30h used,25.2267remain,reserved0,pay_to_scale=false. Recheck before new job.
+Preserve all v1/v2/NN64 rollbacks, rejected old CEM/67M/85M source/gates and candidate assets.
+Older 67M value candidate failed broad styles;85Mranking.25specialist failed comp/truth/bluffer;
+37MCEMv3 and39Mv4 failedleague vsNN64. No rejected checkpoint deployed.
+
+Root pairwise tree seeds106M development/107M final/108M independent reserved, no overlap neural88/89/90M.
+Future raw-block validator training/validate_bluff_balanced_gate.py ready to recompute utilities, feasibility, exact selected index and fixed bootstrap CIs/hashes from actual output.
+
+Independent rootpairwise review COMPLETE:54 explicit weighted-allpairs identitycases, max7.1e-15;sumgradient~3e-15;offsetinvariance~8.9e-15; whole sourcegames4states each andstratified100valgames/style verified. New80/200families19,644reachablethresholdprobes exact0error; originalnaive mismatches preserved. Reports bluff-scorer-pairwise-objective-review.json /bluff-scorer-pairwise-path-audit.json, frozenmodel/scorer/trainingsource hashes included. Root106M actualgamegate ownsselection; no promotion.
+
+00:25IST review completion: pairwise probes also all reach intended node AFTER native tiny-input normalization. Authoritative balanced selector lastchecked00:20IST RUNNING; preserve current version1, next status after sensible interval. Prepared validator and fourth-comparator90M gate remain unlaunched pending actualselected output.
+
+00:26IST authoritative balanced selector88/89M still RUNNING. Root pairwise106M gate COMPLETE7168games,all6candidatesfail mean guard;incumbentselected107/108unused. State-balanced VALUE-only neural follow-up PREPARED NOTLAUNCHED: optional --state-balanced-value normalizes uncertainty pairweights and regularizerperstate, retaining225373train56387valpairs169425zero gaps,wholegame2800/700split;actualstateweighttotals1within1.1e-15. Separate source training/kaggle-bluff-statebalanced-fit/select;slugs xdantalianx/triad-bluff-statebalanced-value-fit/select. Seeds Bluff112Mselection113Mfinal114Mindependent reserved (UNO113M separate namespace). Frozenlive88/89M notebook unchanged. Launch contingent on existingselection/final outcome, then samefixed9regimeguard.025baselineeligible, fresh113/114M. Ninevalue-onlyexports64frozen+64new, freeT4fitonly thenfreeCPUgameplay. Sourcebuilder doesnotlaunch. Report bluff-state-balanced-value-preparation.json.
+
+Research design only: bluff-hidden-world-design.json records primary ISMCTS/POMCP references and training-only global unseen-card identity permutation proposal with own/public histories fixed. Naive hand shuffle invalidates private initial/placement/pickup histories. Uniform consistent augmentation would not be an exact historical opponent-policy posterior; no augmentation implemented/launched/deployed. Live selector lastauthoritatively00:33IST RUNNING, nextpollbackoff.
+
+00:42IST hidden-world training-only prototype implemented and verified:7styles42states168changedworlds4080exactownfeatures/NN64decisions6400legalfuturesteps; originalsunchanged, allrebuilt knownrank/pilecertaintybounds sound, deck/pendinginvariants pass. Source115M correctness-only. OldtracehN diagnosticscleared, notclaimedtransformedhistoricalreplay; past policy-likelihood notweighted so notexactposterior. No datasetcollection/integration/cloudlaunch/runtimechange. Sources bluff_hidden_world_snapshot.py /check_bluff_hidden_world_snapshot.py;report bluff-hidden-world-prototype.json. Balanced88/89M remainsRUNNING, no restart.
+
+00:52IST label-probe found concrete collection-blocking counterexample:11/12 competitive/truthful augmented pending batches become bluffs despite deterministic truthful source support. Physical prototype passes but uniform card augmentation is NOT source-policy-conditioned valid data. Probe14states2actions6trials retained separately, notmerged intoanyfit/gate. Source-policy/current-claim support and earlier action-history likelihood need treatment before collection. Report bluff-hidden-world-label-probe.json; designstatusupdated. Existing balanced88/89M authoritativelyRUNNING00:52IST, preserved.
+
+01:02IST currentbalancedselector RUNNING unchangedsourceSHA8b141540. Exact decision-local feature-alias scorememo in trainingFastPolicy verified12fullgames4/8players1/2decks2250decisions;NN64old1200/new987scores,1.123xacttiming;C1281546/1263,1.146x. Scope localworkload timing only, notcloudETA. Publishedruntime andliveNotebook unchanged; unlaunched statebalanced source regenerated withcache. Report bluff-feature-alias-cache-verification.json. Phaseaudit confirms274760PLACE versus7000CHALLENGErawpairs despite7000states each; preparedstatebalancedvalue givesphaseweights7000each. Report bluff-balanced-phase-weight-audit.json.
+
+Deadline audit01:12IST: installedCLIpush --timeout mapsApiSaveKernelRequest.session_timeout_seconds; metadata has no supportedruntimecapfield; oldacceptedCLIcapnotrecorded, do notinferone. Currentfrozennotebooklimits evaluatorsubprocess21600s; statusAPIonlystatus/failure. Newunlaunchedstatebalanced notebooks embed verifiedprocess-group deadline helper:06:00UTCOct15/11:30IST,90minbefore07:30UTC/13ISTofficialfreeze. Kills leaderanddescendants ontimeout;expiredcutoffblocksstartup. Verifybluff-deadline-verification.json. Futurepushes alsoexplicitrelativeCLIcaps,checkremainingwindowbeforechain. No currentjobrestart/stop. Quota6.13175hused0reserved30allowed,paytoscalefalse.

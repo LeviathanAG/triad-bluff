@@ -1,0 +1,71 @@
+{
+  "scope": "Descriptive fresh90M aggregate using exactly the frozen88M nine-regime equal weights, no threshold/weight retuning and no new checkpoint selection. Unknown official opponent mixture is not inferred.",
+  "seed_blocks": 512,
+  "predeclared_regimes": [
+    "league",
+    "neural_selfplay",
+    "competitive",
+    "truthful",
+    "bluffer",
+    "weakspot_bluff01_call035",
+    "weakspot_bluff065_call035",
+    "learned_mixture",
+    "strong_rival_selfplay"
+  ],
+  "comparisons": {
+    "candidate_vs_incumbent_neural": {
+      "mean_points_gain": 0.1208224826388889,
+      "ci95": [
+        0.10595567491319445,
+        0.13558078342013885
+      ],
+      "regime_gains": {
+        "league": 0.10986328125,
+        "neural_selfplay": 0.47314453125,
+        "competitive": 0.00634765625,
+        "truthful": 0.00537109375,
+        "bluffer": -0.01416015625,
+        "weakspot_bluff01_call035": 0.00390625,
+        "weakspot_bluff065_call035": -0.009765625,
+        "learned_mixture": 0.310546875,
+        "strong_rival_selfplay": 0.2021484375
+      }
+    },
+    "conservative_candidate_vs_incumbent_neural": {
+      "mean_points_gain": 0.1213107638888889,
+      "ci95": [
+        0.10639105902777778,
+        0.13639322916666669
+      ],
+      "regime_gains": {
+        "league": 0.11865234375,
+        "neural_selfplay": 0.205078125,
+        "competitive": 0.0107421875,
+        "truthful": 0.015625,
+        "bluffer": 0.02001953125,
+        "weakspot_bluff01_call035": -0.00048828125,
+        "weakspot_bluff065_call035": 0.02880859375,
+        "learned_mixture": 0.298828125,
+        "strong_rival_selfplay": 0.39453125
+      }
+    },
+    "candidate_vs_conservative_candidate": {
+      "mean_points_gain": -0.0004882812500000004,
+      "ci95": [
+        -0.014865451388888888,
+        0.0138359917534722
+      ],
+      "regime_gains": {
+        "league": -0.0087890625,
+        "neural_selfplay": 0.26806640625,
+        "competitive": -0.00439453125,
+        "truthful": -0.01025390625,
+        "bluffer": -0.0341796875,
+        "weakspot_bluff01_call035": 0.00439453125,
+        "weakspot_bluff065_call035": -0.03857421875,
+        "learned_mixture": 0.01171875,
+        "strong_rival_selfplay": -0.1923828125
+      }
+    }
+  }
+}
