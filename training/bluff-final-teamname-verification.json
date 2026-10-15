@@ -1,0 +1,12 @@
+{
+  "required_top_level_teamName": "TungMasterSoloClear",
+  "manifest_sha256": "602e493fd8c41c7005225374e591e95839cec1326bf45b97cb18f5ee523ec4bc",
+  "manifest_bytes_exact_in_container": true,
+  "source_branch": "main",
+  "model_and_rollback_sha_unchanged": true,
+  "fresh_restricted_games_after_teamName_update": 1,
+  "faults": 0,
+  "fallbacks": 0,
+  "max_action_ms": 359.24774799786974,
+  "existing_full_tests": "33pass1optional skip;smokecontractpass; prior3same-runtimefinalimage restrictedgames0faults0fallbacks; executable source and JSON models unchanged"
+}

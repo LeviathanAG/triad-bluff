@@ -1,3 +1,17 @@
+ORGANIZER teamName UPDATE FINAL RECEIPT 2026-10-15 11:25 IST
+Latest immutable final SHA71caf94b07dbd3e425829983eb339fb645a8475e, childdf50bc6.
+Private codex/final-release-20261015 pushed;clean training/bluff-final-source.
+Required top-levelteamName=TungMasterSoloClear (rootverifiedlivewebsite),teamIDTECHTEAM11600.
+Manifestsource/containerbytessha602e493fd8c41c7005225374e591e95839cec1326bf45b97cb18f5ee523ec4bc.
+Image triad-bluff:final-20261015 NEWlocalOCIindexsha256:01935a2dfb818f6bb60947c0cbc65d331229dd9622eab3916201ae66b98e3832.
+Image130396160B/source6442915B/archive6696960B SHA5f142a1358f301c5c37c74a60ba34c3a48e31f895748d71705c6ee4ba688a9b3.
+Activeconservative2aaeaaf/NN64rollbackba6ed2 unchanged. Latestmanifestimage1freshrestrictedgame
+zero faults/fallbacks max.359248s; full prior33test1skip+inference/restart+3restricted checksapply.
+training/bluff-final-ready.json updated. Rootreceived exactnewreceipt andowns12noonmainpush.
+Supersedesdf50/oldarchive91eba158/oldindex1c9c6b. Nochildmainpush;heldmain9d48untilrootnoon.
+Organizerprivate replay remainsoutsideSDK. No rawtraces orderivedprivateopponentstates committed,
+no training onreplay, noexternalsearch. Public/own observation aggregates only outsideSDK.
+
 CORRECTED IMMUTABLE FINAL RECEIPT 2026-10-15 11:19 IST
 Use df50bc64bd64bc27d383ef34380d3f38651087b4 onprivatecodex/final-release-20261015,
 directparentheldmain9d48b9d. Cleanworktree training/bluff-final-source. Privateoriginverified;
