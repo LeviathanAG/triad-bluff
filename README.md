@@ -1,5 +1,13 @@
 # bluffSDK
 
+## Submitted agent technical overview
+
+- Entrypoint: `python3 src/agent.py`; protocol: `triad-bluff-v1`.
+- `src/strategy.py` maps the current observation to a legal placement, challenge, or accept action. `src/agent.py` reconstructs its policy from the observation after process restarts.
+- `models/policy.json` contains the residual neural scorer specified in `submission.json`: 50 input features and 128 hidden units.
+- Inference runs on CPU using the repository's Python implementation; the manifest records the model SHA-256 digest and resource limits.
+- Protocol checks: `uv run --locked python tools/check.py` and `uv run --locked python tools/check_contract.py`.
+
 Team: **TungMasterSoloClear** — **TECHTEAM11600**.
 
 The current participant runtime is the independently tested conservative 128-unit neural
